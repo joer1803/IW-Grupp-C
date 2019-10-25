@@ -217,6 +217,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Customer\" />
+    <Folder Include="Views\Freelancer\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
