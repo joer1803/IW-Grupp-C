@@ -5,30 +5,33 @@
 <h2>@ViewBag.Title</h2>
 
 <div>
-    <section>
-        <form name="formsignupfreelance">
+    <div>
+        <form name="signupfreelance">
             <label for="txtEmail">Email</label>
-            <input type="email" name="email" class="textbox" placeholder="email@domain.com"><br>
+            <input type="email" name="email" class="textbox" placeholder="email@domain.com" required><br>
+
             <label for="txtPassword">Password</label>
-            <input type="text" name="password" class="textbox" placeholder="XXXXXX"><br>
+            <input type="text" name="password" class="textbox" placeholder="XXXXXX" required><br>
+
             <label for="txtPassword">Repeat Password</label>
-            <input type="text" name="repeatpassword" class="textbox" placeholder="XXXXXX"><br><br><br>
+            <input type="text" name="repeatpassword" class="textbox" placeholder="XXXXXX" required><br><br><br>
+
             <input type="button" class="btnJoin" onclick="" value="Join HampesFrilansare"><br><br><br>
         </form>
-    </section>
+    </div>
 
-    <section>
+    <div>
         <p>
             By registering you confirm that you accept the <a href="">Terms and Condition</a> 
             and <a href="">Privacy Policy</a>
         </p>
-    </section>
+    </div>
 
-    <section>
+    <div>
         <p>
-            Alreday have an account? <a href="">Log in</a>
+            Alreday have an account? <a href="http://localhost:6162/Home/LogIn">Log in</a>
         </p>
-    </section>
+    </div>
 
 
 </div>
