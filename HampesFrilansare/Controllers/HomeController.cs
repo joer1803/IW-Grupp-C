@@ -40,5 +40,12 @@ namespace HampesFrilansare.Controllers
 
             return View();
         }
+
+        public ActionResult LogIn()
+        {
+            ViewBag.Message = "Your log in page.";
+
+            return View();
+        }
     }
 }

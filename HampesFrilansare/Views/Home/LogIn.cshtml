@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "LogIn";
+}
+
+<h2>LogIn</h2>
+
+<form action="" method="post">
+    <div class="container">
+        <img src="" alt="Logo" class="">
+    </div>
+
+    <div class="container">
+        <label for="uname"><b>Användarnamn</b></label>
+        <input type="text" placeholder="Ange användarnamn" name="uname" required>
+
+        <label for="psw"><b>Lösenord</b></label>
+        <input type="password" placeholder="Ange lösenord" name="psw" required>
+
+        <button type="submit">Logga in</button>
+        <label>
+            <input type="checkbox" name="remember"> Kom ihåg mig
+        </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+        <button type="button" class="cancelbtn">Avbryt</button>
+        <span class="psw"><a href="#">Glömt ditt lösenord?</a></span>
+    </div>
+</form>
+
