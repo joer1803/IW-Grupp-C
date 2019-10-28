@@ -11,15 +11,28 @@ namespace HampesFrilansare.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Customer
     {
         public int customerID { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Fyll i företagsnamn")]
+
         public string businessname { get; set; }
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Fyll i förnamn")]
+
         public string firstname { get; set; }
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Fyll i efternamn")]
         public string lastname { get; set; }
+
         public string phonenumber { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Fyll i en emailadress")]
+        [RegularExpression("^[a-zA-Z0-9_\\.-]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", ErrorMessage = "Fyll i en giltig emailadress")]
         public string email { get; set; }
+
         public string address { get; set; }
+
     }
 }

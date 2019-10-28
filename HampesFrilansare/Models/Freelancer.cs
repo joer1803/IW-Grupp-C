@@ -11,7 +11,8 @@ namespace HampesFrilansare.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Freelancer
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,9 +22,17 @@ namespace HampesFrilansare.Models
         }
     
         public int freelancerID { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Fyll i förnamn")]
         public string firstname { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Fyll i efternamn")]
         public string lastname { get; set; }
+
         public string phonenumber { get; set; }
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Fyll i en emailadress")]
+        [RegularExpression("^[a-zA-Z0-9_\\.-]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", ErrorMessage = "Fyll i en giltig emailadress")]
         public string email { get; set; }
         public string address { get; set; }
         public Nullable<System.DateTime> dateofbirth { get; set; }
