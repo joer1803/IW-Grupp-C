@@ -2,6 +2,12 @@
     font: 16px/20px arial, verdana;
 }
 
+img{
+    max-width: 100%;
+    height: auto;
+    width: auto;
+}
+
 .img-front {
     width: 100%;
     height: 100%;
@@ -9,9 +15,12 @@
 
 p {
     font-family: 'Times New Roman', Times, serif;
-    padding: 1%;
+    padding: 1% 0;
 }
 
+section{
+    margin: 2% 0;
+}
 
 footer {
     text-align: center;
