@@ -22,8 +22,12 @@ footer {
         width: 23%;
         float: left;
         margin: 1% 1%;
-        margin-bottom: 10%;
-        display: inline-block;
+    }
+
+    footer aside {
+        float: right;
+        width: 20%;
+        margin: 0, auto;
     }
 
 .ulfooter {
