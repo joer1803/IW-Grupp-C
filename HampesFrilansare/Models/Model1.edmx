@@ -1,0 +1,590 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="hampesfrilansdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Competence">
+          <Key>
+            <PropertyRef Name="competenceID" />
+          </Key>
+          <Property Name="competenceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="resumeID" Type="int" />
+          <Property Name="name" Type="nvarchar" MaxLength="20" />
+          <Property Name="category" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="customerID" />
+          </Key>
+          <Property Name="customerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="businessname" Type="nvarchar" MaxLength="50" />
+          <Property Name="firstname" Type="nvarchar" MaxLength="20" />
+          <Property Name="lastname" Type="nvarchar" MaxLength="20" />
+          <Property Name="phonenumber" Type="nvarchar" MaxLength="20" />
+          <Property Name="email" Type="nvarchar" MaxLength="20" />
+          <Property Name="address" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Driverslicence">
+          <Key>
+            <PropertyRef Name="licenceID" />
+          </Key>
+          <Property Name="licenceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="type" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Education">
+          <Key>
+            <PropertyRef Name="educationID" />
+          </Key>
+          <Property Name="educationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="resumeID" Type="int" />
+          <Property Name="school" Type="nvarchar" MaxLength="20" />
+          <Property Name="startdate" Type="date" />
+          <Property Name="enddate" Type="date" />
+          <Property Name="subject" Type="nvarchar" MaxLength="50" />
+          <Property Name="degree" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Experience">
+          <Key>
+            <PropertyRef Name="experienceID" />
+          </Key>
+          <Property Name="experienceID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="resumeID" Type="int" />
+          <Property Name="name" Type="nvarchar" MaxLength="20" />
+          <Property Name="role" Type="nvarchar" MaxLength="50" />
+          <Property Name="startdate" Type="date" />
+          <Property Name="enddate" Type="date" />
+          <Property Name="duty" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Freelancer">
+          <Key>
+            <PropertyRef Name="freelancerID" />
+          </Key>
+          <Property Name="freelancerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="firstname" Type="nvarchar" MaxLength="20" />
+          <Property Name="lastname" Type="nvarchar" MaxLength="20" />
+          <Property Name="phonenumber" Type="nvarchar" MaxLength="20" />
+          <Property Name="email" Type="nvarchar" MaxLength="20" />
+          <Property Name="address" Type="nvarchar" MaxLength="50" />
+          <Property Name="dateofbirth" Type="date" />
+          <Property Name="birthplace" Type="nvarchar" MaxLength="50" />
+          <Property Name="nationality" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="languageID" />
+          </Key>
+          <Property Name="languageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="resumeID" Type="int" />
+          <Property Name="name" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Resume">
+          <Key>
+            <PropertyRef Name="resumeID" />
+          </Key>
+          <Property Name="resumeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="freelancerID" Type="int" />
+          <Property Name="profile" Type="nvarchar" MaxLength="255" />
+          <Property Name="coreability" Type="nvarchar" MaxLength="255" />
+          <Property Name="licenceID" Type="int" />
+        </EntityType>
+        <EntityType Name="Skill">
+          <Key>
+            <PropertyRef Name="skillID" />
+          </Key>
+          <Property Name="skillID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="competenceID" Type="int" />
+          <Property Name="name" Type="nvarchar" MaxLength="20" />
+          <Property Name="rating" Type="int" />
+        </EntityType>
+        <Association Name="FK__Competenc__resum__534D60F1">
+          <End Role="Resume" Type="Self.Resume" Multiplicity="0..1" />
+          <End Role="Competence" Type="Self.Competence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Resume">
+              <PropertyRef Name="resumeID" />
+            </Principal>
+            <Dependent Role="Competence">
+              <PropertyRef Name="resumeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Education__resum__5FB337D6">
+          <End Role="Resume" Type="Self.Resume" Multiplicity="0..1" />
+          <End Role="Education" Type="Self.Education" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Resume">
+              <PropertyRef Name="resumeID" />
+            </Principal>
+            <Dependent Role="Education">
+              <PropertyRef Name="resumeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Experienc__resum__5CD6CB2B">
+          <End Role="Resume" Type="Self.Resume" Multiplicity="0..1" />
+          <End Role="Experience" Type="Self.Experience" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Resume">
+              <PropertyRef Name="resumeID" />
+            </Principal>
+            <Dependent Role="Experience">
+              <PropertyRef Name="resumeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Language__resume__5629CD9C">
+          <End Role="Resume" Type="Self.Resume" Multiplicity="0..1" />
+          <End Role="Language" Type="Self.Language" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Resume">
+              <PropertyRef Name="resumeID" />
+            </Principal>
+            <Dependent Role="Language">
+              <PropertyRef Name="resumeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Resume__freelanc__4F7CD00D">
+          <End Role="Freelancer" Type="Self.Freelancer" Multiplicity="0..1" />
+          <End Role="Resume" Type="Self.Resume" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Freelancer">
+              <PropertyRef Name="freelancerID" />
+            </Principal>
+            <Dependent Role="Resume">
+              <PropertyRef Name="freelancerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Resume__licenceI__5070F446">
+          <End Role="Driverslicence" Type="Self.Driverslicence" Multiplicity="0..1" />
+          <End Role="Resume" Type="Self.Resume" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Driverslicence">
+              <PropertyRef Name="licenceID" />
+            </Principal>
+            <Dependent Role="Resume">
+              <PropertyRef Name="licenceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Skill__competenc__59FA5E80">
+          <End Role="Competence" Type="Self.Competence" Multiplicity="0..1" />
+          <End Role="Skill" Type="Self.Skill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Competence">
+              <PropertyRef Name="competenceID" />
+            </Principal>
+            <Dependent Role="Skill">
+              <PropertyRef Name="competenceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="hampesfrilansdbModelStoreContainer">
+          <EntitySet Name="Competence" EntityType="Self.Competence" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Driverslicence" EntityType="Self.Driverslicence" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Education" EntityType="Self.Education" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Experience" EntityType="Self.Experience" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Freelancer" EntityType="Self.Freelancer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Language" EntityType="Self.Language" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Resume" EntityType="Self.Resume" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Skill" EntityType="Self.Skill" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Competenc__resum__534D60F1" Association="Self.FK__Competenc__resum__534D60F1">
+            <End Role="Resume" EntitySet="Resume" />
+            <End Role="Competence" EntitySet="Competence" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Education__resum__5FB337D6" Association="Self.FK__Education__resum__5FB337D6">
+            <End Role="Resume" EntitySet="Resume" />
+            <End Role="Education" EntitySet="Education" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Experienc__resum__5CD6CB2B" Association="Self.FK__Experienc__resum__5CD6CB2B">
+            <End Role="Resume" EntitySet="Resume" />
+            <End Role="Experience" EntitySet="Experience" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Language__resume__5629CD9C" Association="Self.FK__Language__resume__5629CD9C">
+            <End Role="Resume" EntitySet="Resume" />
+            <End Role="Language" EntitySet="Language" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Resume__freelanc__4F7CD00D" Association="Self.FK__Resume__freelanc__4F7CD00D">
+            <End Role="Freelancer" EntitySet="Freelancer" />
+            <End Role="Resume" EntitySet="Resume" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Resume__licenceI__5070F446" Association="Self.FK__Resume__licenceI__5070F446">
+            <End Role="Driverslicence" EntitySet="Driverslicence" />
+            <End Role="Resume" EntitySet="Resume" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Skill__competenc__59FA5E80" Association="Self.FK__Skill__competenc__59FA5E80">
+            <End Role="Competence" EntitySet="Competence" />
+            <End Role="Skill" EntitySet="Skill" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="hampesfrilansdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Competence">
+          <Key>
+            <PropertyRef Name="competenceID" />
+          </Key>
+          <Property Name="competenceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="resumeID" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="category" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Resume" Relationship="Self.FK__Competenc__resum__534D60F1" FromRole="Competence" ToRole="Resume" />
+          <NavigationProperty Name="Skill" Relationship="Self.FK__Skill__competenc__59FA5E80" FromRole="Competence" ToRole="Skill" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="customerID" />
+          </Key>
+          <Property Name="customerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="businessname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="firstname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="lastname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="phonenumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Driverslicence">
+          <Key>
+            <PropertyRef Name="licenceID" />
+          </Key>
+          <Property Name="licenceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="type" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Resume" Relationship="Self.FK__Resume__licenceI__5070F446" FromRole="Driverslicence" ToRole="Resume" />
+        </EntityType>
+        <EntityType Name="Education">
+          <Key>
+            <PropertyRef Name="educationID" />
+          </Key>
+          <Property Name="educationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="resumeID" Type="Int32" />
+          <Property Name="school" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="startdate" Type="DateTime" Precision="0" />
+          <Property Name="enddate" Type="DateTime" Precision="0" />
+          <Property Name="subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="degree" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Resume" Relationship="Self.FK__Education__resum__5FB337D6" FromRole="Education" ToRole="Resume" />
+        </EntityType>
+        <EntityType Name="Experience">
+          <Key>
+            <PropertyRef Name="experienceID" />
+          </Key>
+          <Property Name="experienceID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="resumeID" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="startdate" Type="DateTime" Precision="0" />
+          <Property Name="enddate" Type="DateTime" Precision="0" />
+          <Property Name="duty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Resume" Relationship="Self.FK__Experienc__resum__5CD6CB2B" FromRole="Experience" ToRole="Resume" />
+        </EntityType>
+        <EntityType Name="Freelancer">
+          <Key>
+            <PropertyRef Name="freelancerID" />
+          </Key>
+          <Property Name="freelancerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="firstname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="lastname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="phonenumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dateofbirth" Type="DateTime" Precision="0" />
+          <Property Name="birthplace" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="nationality" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Resume" Relationship="Self.FK__Resume__freelanc__4F7CD00D" FromRole="Freelancer" ToRole="Resume" />
+        </EntityType>
+        <EntityType Name="Language">
+          <Key>
+            <PropertyRef Name="languageID" />
+          </Key>
+          <Property Name="languageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="resumeID" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Resume" Relationship="Self.FK__Language__resume__5629CD9C" FromRole="Language" ToRole="Resume" />
+        </EntityType>
+        <EntityType Name="Resume">
+          <Key>
+            <PropertyRef Name="resumeID" />
+          </Key>
+          <Property Name="resumeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="freelancerID" Type="Int32" />
+          <Property Name="profile" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="coreability" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="licenceID" Type="Int32" />
+          <NavigationProperty Name="Competence" Relationship="Self.FK__Competenc__resum__534D60F1" FromRole="Resume" ToRole="Competence" />
+          <NavigationProperty Name="Driverslicence" Relationship="Self.FK__Resume__licenceI__5070F446" FromRole="Resume" ToRole="Driverslicence" />
+          <NavigationProperty Name="Education" Relationship="Self.FK__Education__resum__5FB337D6" FromRole="Resume" ToRole="Education" />
+          <NavigationProperty Name="Experience" Relationship="Self.FK__Experienc__resum__5CD6CB2B" FromRole="Resume" ToRole="Experience" />
+          <NavigationProperty Name="Freelancer" Relationship="Self.FK__Resume__freelanc__4F7CD00D" FromRole="Resume" ToRole="Freelancer" />
+          <NavigationProperty Name="Language" Relationship="Self.FK__Language__resume__5629CD9C" FromRole="Resume" ToRole="Language" />
+        </EntityType>
+        <EntityType Name="Skill">
+          <Key>
+            <PropertyRef Name="skillID" />
+          </Key>
+          <Property Name="skillID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="competenceID" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="rating" Type="Int32" />
+          <NavigationProperty Name="Competence" Relationship="Self.FK__Skill__competenc__59FA5E80" FromRole="Skill" ToRole="Competence" />
+        </EntityType>
+        <Association Name="FK__Competenc__resum__534D60F1">
+          <End Role="Resume" Type="Self.Resume" Multiplicity="0..1" />
+          <End Role="Competence" Type="Self.Competence" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Resume">
+              <PropertyRef Name="resumeID" />
+            </Principal>
+            <Dependent Role="Competence">
+              <PropertyRef Name="resumeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Skill__competenc__59FA5E80">
+          <End Role="Competence" Type="Self.Competence" Multiplicity="0..1" />
+          <End Role="Skill" Type="Self.Skill" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Competence">
+              <PropertyRef Name="competenceID" />
+            </Principal>
+            <Dependent Role="Skill">
+              <PropertyRef Name="competenceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Resume__licenceI__5070F446">
+          <End Role="Driverslicence" Type="Self.Driverslicence" Multiplicity="0..1" />
+          <End Role="Resume" Type="Self.Resume" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Driverslicence">
+              <PropertyRef Name="licenceID" />
+            </Principal>
+            <Dependent Role="Resume">
+              <PropertyRef Name="licenceID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Education__resum__5FB337D6">
+          <End Role="Resume" Type="Self.Resume" Multiplicity="0..1" />
+          <End Role="Education" Type="Self.Education" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Resume">
+              <PropertyRef Name="resumeID" />
+            </Principal>
+            <Dependent Role="Education">
+              <PropertyRef Name="resumeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Experienc__resum__5CD6CB2B">
+          <End Role="Resume" Type="Self.Resume" Multiplicity="0..1" />
+          <End Role="Experience" Type="Self.Experience" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Resume">
+              <PropertyRef Name="resumeID" />
+            </Principal>
+            <Dependent Role="Experience">
+              <PropertyRef Name="resumeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Resume__freelanc__4F7CD00D">
+          <End Role="Freelancer" Type="Self.Freelancer" Multiplicity="0..1" />
+          <End Role="Resume" Type="Self.Resume" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Freelancer">
+              <PropertyRef Name="freelancerID" />
+            </Principal>
+            <Dependent Role="Resume">
+              <PropertyRef Name="freelancerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Language__resume__5629CD9C">
+          <End Role="Resume" Type="Self.Resume" Multiplicity="0..1" />
+          <End Role="Language" Type="Self.Language" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Resume">
+              <PropertyRef Name="resumeID" />
+            </Principal>
+            <Dependent Role="Language">
+              <PropertyRef Name="resumeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="hampesfrilansdbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Competence" EntityType="Self.Competence" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" />
+          <EntitySet Name="Driverslicence" EntityType="Self.Driverslicence" />
+          <EntitySet Name="Education" EntityType="Self.Education" />
+          <EntitySet Name="Experience" EntityType="Self.Experience" />
+          <EntitySet Name="Freelancer" EntityType="Self.Freelancer" />
+          <EntitySet Name="Language" EntityType="Self.Language" />
+          <EntitySet Name="Resume" EntityType="Self.Resume" />
+          <EntitySet Name="Skill" EntityType="Self.Skill" />
+          <AssociationSet Name="FK__Competenc__resum__534D60F1" Association="Self.FK__Competenc__resum__534D60F1">
+            <End Role="Resume" EntitySet="Resume" />
+            <End Role="Competence" EntitySet="Competence" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Skill__competenc__59FA5E80" Association="Self.FK__Skill__competenc__59FA5E80">
+            <End Role="Competence" EntitySet="Competence" />
+            <End Role="Skill" EntitySet="Skill" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Resume__licenceI__5070F446" Association="Self.FK__Resume__licenceI__5070F446">
+            <End Role="Driverslicence" EntitySet="Driverslicence" />
+            <End Role="Resume" EntitySet="Resume" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Education__resum__5FB337D6" Association="Self.FK__Education__resum__5FB337D6">
+            <End Role="Resume" EntitySet="Resume" />
+            <End Role="Education" EntitySet="Education" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Experienc__resum__5CD6CB2B" Association="Self.FK__Experienc__resum__5CD6CB2B">
+            <End Role="Resume" EntitySet="Resume" />
+            <End Role="Experience" EntitySet="Experience" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Resume__freelanc__4F7CD00D" Association="Self.FK__Resume__freelanc__4F7CD00D">
+            <End Role="Freelancer" EntitySet="Freelancer" />
+            <End Role="Resume" EntitySet="Resume" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Language__resume__5629CD9C" Association="Self.FK__Language__resume__5629CD9C">
+            <End Role="Resume" EntitySet="Resume" />
+            <End Role="Language" EntitySet="Language" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="hampesfrilansdbModelStoreContainer" CdmEntityContainer="hampesfrilansdbEntities">
+          <EntitySetMapping Name="Competence">
+            <EntityTypeMapping TypeName="hampesfrilansdbModel.Competence">
+              <MappingFragment StoreEntitySet="Competence">
+                <ScalarProperty Name="competenceID" ColumnName="competenceID" />
+                <ScalarProperty Name="resumeID" ColumnName="resumeID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="category" ColumnName="category" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customer">
+            <EntityTypeMapping TypeName="hampesfrilansdbModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="customerID" ColumnName="customerID" />
+                <ScalarProperty Name="businessname" ColumnName="businessname" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="phonenumber" ColumnName="phonenumber" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="address" ColumnName="address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Driverslicence">
+            <EntityTypeMapping TypeName="hampesfrilansdbModel.Driverslicence">
+              <MappingFragment StoreEntitySet="Driverslicence">
+                <ScalarProperty Name="licenceID" ColumnName="licenceID" />
+                <ScalarProperty Name="type" ColumnName="type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Education">
+            <EntityTypeMapping TypeName="hampesfrilansdbModel.Education">
+              <MappingFragment StoreEntitySet="Education">
+                <ScalarProperty Name="educationID" ColumnName="educationID" />
+                <ScalarProperty Name="resumeID" ColumnName="resumeID" />
+                <ScalarProperty Name="school" ColumnName="school" />
+                <ScalarProperty Name="startdate" ColumnName="startdate" />
+                <ScalarProperty Name="enddate" ColumnName="enddate" />
+                <ScalarProperty Name="subject" ColumnName="subject" />
+                <ScalarProperty Name="degree" ColumnName="degree" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Experience">
+            <EntityTypeMapping TypeName="hampesfrilansdbModel.Experience">
+              <MappingFragment StoreEntitySet="Experience">
+                <ScalarProperty Name="experienceID" ColumnName="experienceID" />
+                <ScalarProperty Name="resumeID" ColumnName="resumeID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="startdate" ColumnName="startdate" />
+                <ScalarProperty Name="enddate" ColumnName="enddate" />
+                <ScalarProperty Name="duty" ColumnName="duty" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Freelancer">
+            <EntityTypeMapping TypeName="hampesfrilansdbModel.Freelancer">
+              <MappingFragment StoreEntitySet="Freelancer">
+                <ScalarProperty Name="freelancerID" ColumnName="freelancerID" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="phonenumber" ColumnName="phonenumber" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="dateofbirth" ColumnName="dateofbirth" />
+                <ScalarProperty Name="birthplace" ColumnName="birthplace" />
+                <ScalarProperty Name="nationality" ColumnName="nationality" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Language">
+            <EntityTypeMapping TypeName="hampesfrilansdbModel.Language">
+              <MappingFragment StoreEntitySet="Language">
+                <ScalarProperty Name="languageID" ColumnName="languageID" />
+                <ScalarProperty Name="resumeID" ColumnName="resumeID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Resume">
+            <EntityTypeMapping TypeName="hampesfrilansdbModel.Resume">
+              <MappingFragment StoreEntitySet="Resume">
+                <ScalarProperty Name="resumeID" ColumnName="resumeID" />
+                <ScalarProperty Name="freelancerID" ColumnName="freelancerID" />
+                <ScalarProperty Name="profile" ColumnName="profile" />
+                <ScalarProperty Name="coreability" ColumnName="coreability" />
+                <ScalarProperty Name="licenceID" ColumnName="licenceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Skill">
+            <EntityTypeMapping TypeName="hampesfrilansdbModel.Skill">
+              <MappingFragment StoreEntitySet="Skill">
+                <ScalarProperty Name="skillID" ColumnName="skillID" />
+                <ScalarProperty Name="competenceID" ColumnName="competenceID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="rating" ColumnName="rating" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
