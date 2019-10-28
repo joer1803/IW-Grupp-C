@@ -17,3 +17,31 @@ select,
 textarea {
     max-width: 280px;
 }
+
+body{
+    font: 16px/20px arial, verdana;
+
+}
+
+p{
+    font-family: 'Times New Roman', Times, serif;
+    padding: 1%;
+}
+
+section{
+    width: 29%;
+    float: left;
+    margin: 1% 1%;
+    text-align: center;
+}
+
+.ulfooter{
+    list-style: none;
+    display: inline;
+    float: right;
+}
+
+footer{
+    text-align: center;
+
+}
