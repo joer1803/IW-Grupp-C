@@ -14,7 +14,6 @@ img{
 }
 
 p {
-    /*Hej*/
     font-family: 'Times New Roman', Times, serif;
     padding: 1% 0;
 }
@@ -29,24 +28,25 @@ footer {
 }
 
     footer section {
-        width: 23%;
+        width: 35%;
+        margin: 0 2%;
         float: left;
-        margin: 1% 1%;
     }
 
     footer aside {
         float: right;
         width: 20%;
-        margin: 0, auto;
     }
 
 .ulfooter {
     list-style: none;
+    margin-right: 30%;
+
 }
 
 .fab {
     padding: 5px;
-    display: inline;
+    display: inline-block;
     float: right;
 }
 
