@@ -17,35 +17,3 @@ select,
 textarea {
     max-width: 280px;
 }
-
-body{
-    font: 16px/20px arial, verdana;
-
-}
-
-p{
-    font-family: 'Times New Roman', Times, serif;
-    padding: 1%;
-}
-
-
-footer {
-    text-align: center;
-    width: 100%;
-}
-
-    footer section {
-        width: 23%;
-        float: left;
-        margin: 1% 1%;
-    }
-
-.ulfooter {
-    list-style: none;
-}
-
-.fab {
-    padding: 5px;
-    display: inline;
-    float: right;
-}
