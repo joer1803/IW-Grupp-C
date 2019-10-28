@@ -185,6 +185,10 @@
     <Content Include="Content\Img\freelancer_white.jpg" />
     <Content Include="Content\Img\logo.png" />
     <Content Include="Content\Img\map.png" />
+    <Content Include="Content\Img\slider1.jpg" />
+    <Content Include="Content\Img\slider2.jpg" />
+    <Content Include="Content\Img\slider3.jpg" />
+    <Content Include="Content\Img\slider4.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />

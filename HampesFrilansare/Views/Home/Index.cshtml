@@ -1,10 +1,35 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-<div>
-    <img class="img-front" src="~/Content/Img/chris.jpg"/>
 
-</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+<script src="jquery.blueberry.js"></script>
+<script>
+    $(window).load(function () {
+        $('.blueberry').blueberry();
+    });
+</script>
+
+<body>
+
+    <!-- en div behållare som består av ytterligare två "embedded" div element -->
+    <div id="slidercontainer">
+        <div id="content">
+            <!-- blueberry är namnet på den third-party jQuery slider som vi använder -->
+            <div class="blueberry">
+                <!--  en unordered lista med klassen "slides" som listar alla bilder i slidern -->
+                <ul class="slides">
+                    <li><img src="~/Content/Img/slider1.jpg" /></li>
+                    <li><img src="~/Content/Img/slider2.jpg" /></li>
+                    <li><img src="~/Content/Img/slider3.jpg" /></li>
+                    <li><img src="~/Content/Img/slider4.jpg" /></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+</body>
 
 
 <div class="jumbotron">
@@ -18,7 +43,7 @@
     <div class="col-md-4">
         <h2>Kom igång</h2>
         <p>
-            För att använda vår tjänst kräver vi att du som företagare och frilansare skapar en användare. Beroende på vad för typ av användare du är får du antingen 
+            För att använda vår tjänst kräver vi att du som företagare och frilansare skapar en användare. Beroende på vad för typ av användare du är får du antingen
             skapa en profil med tillhörande CV eller direkt söka efter ett urval av kompetenta frilansare.
         </p>
     </div>
