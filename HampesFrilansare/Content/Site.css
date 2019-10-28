@@ -28,20 +28,24 @@ p{
     padding: 1%;
 }
 
-section{
-    width: 29%;
-    float: left;
-    margin: 1% 1%;
+
+footer {
     text-align: center;
+    width: 100%;
 }
 
-.ulfooter{
+    footer section {
+        width: 23%;
+        float: left;
+        margin: 1% 1%;
+    }
+
+.ulfooter {
     list-style: none;
+}
+
+.fab {
+    padding: 5px;
     display: inline;
     float: right;
-}
-
-footer{
-    text-align: center;
-
 }
