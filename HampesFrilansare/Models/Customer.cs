@@ -20,10 +20,8 @@ namespace HampesFrilansare.Models
         [Required(AllowEmptyStrings = false, ErrorMessage = "Fyll i företagsnamn")]
 
         public string businessname { get; set; }
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Fyll i förnamn")]
 
         public string firstname { get; set; }
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Fyll i efternamn")]
         public string lastname { get; set; }
 
         public string phonenumber { get; set; }
