@@ -42,6 +42,18 @@
         @RenderBody()
         <hr />
         <footer>
+
+            <section>
+                <p>@Html.ActionLink("Företagare", "Index", "Customers")</p>
+                <p>@Html.ActionLink("Frilansare", "Index", "Freelancers")</p>
+            </section>
+
+            <section>
+                <p>@Html.ActionLink("Om oss", "About", "Home")</p>
+                <p><a href="#">Regler och villkor</a></p>
+                <p><a href="#">Integritetspolicy</a></p>
+            </section>
+
             <section>
                 <h6>Kontaktuppgifter</h6>
                 <p>
@@ -50,28 +62,19 @@
                     Support för företag:<br />
                     <a href="mailto:Marketing@example.com">Supportcustomer@example.com</a><br />
                     Support för frilansare:<br />
-                    <a href="mailto:Support@example.com">Supportfreelancer@example.com</a><br />
+                    <a href="mailto:Support@example.com">Supportfreelancer@example.com</a>
                 </p>
             </section>
 
-            <section>
-                <p>
-                    Genom att använda webbplatsen accepterar du att vi använder särskilda browser cookies
-                    för att förbättra din användarupplevelse hos oss. Var vänlig och läs vår <a href="#">Cookiespolicy</a> för ytterligare information
-                    angående hur vi använder cookies samt hur du kan stänga av eller hantera dessa
-                    om du så önskar.
-                </p>
+            <p>
+                Genom att använda webbplatsen accepterar du att vi använder cookies
+                för att förbättra din användarupplevelse hos oss. Var vänlig och läs vår <a href="#">Cookiespolicy</a> för ytterligare information
+                angående hur vi använder cookies samt hur du kan stänga av eller hantera dessa
+                om du så önskar.
+            </p>
 
-                <p>&copy; @DateTime.Now.Year - Hampes frilansare, med ensamrätt</p>
-            </section>
+            <p>&copy; @DateTime.Now.Year - Hampes frilansare, med ensamrätt</p>
 
-            <section>
-                <p><a href="#">Regler och villkor</a></p>
-                <p><a href="#">Integritetspolicy</a></p>
-                <p>@Html.ActionLink("Företagare", "Index", "Customers")</p>
-                <p>@Html.ActionLink("Frilansare", "Index", "Freelancers")</p>
-                <p>@Html.ActionLink("Om oss", "About", "Home")</p>
-            </section>
         </footer>
     </div>
 
