@@ -20,11 +20,11 @@ namespace HampesFrilansare.Models
             this.Competence = new HashSet<Competence>();
             this.Education = new HashSet<Education>();
             this.Experience = new HashSet<Experience>();
+            this.Freelancer = new HashSet<Freelancer>();
             this.Language = new HashSet<Language>();
         }
     
         public int resumeID { get; set; }
-        public Nullable<int> freelancerID { get; set; }
         public string profile { get; set; }
         public string coreability { get; set; }
         public Nullable<int> licenceID { get; set; }
@@ -36,7 +36,8 @@ namespace HampesFrilansare.Models
         public virtual ICollection<Education> Education { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Experience> Experience { get; set; }
-        public virtual Freelancer Freelancer { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Freelancer> Freelancer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Language> Language { get; set; }
     }
