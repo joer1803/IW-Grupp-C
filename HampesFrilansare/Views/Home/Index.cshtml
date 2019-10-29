@@ -29,17 +29,16 @@
         myIndex++;
         if (myIndex > x.length) { myIndex = 1 }
         x[myIndex - 1].style.display = "block";
-        setTimeout(carousel, 8000); // byter bild var 8 sekund
+        setTimeout(carousel, 5000); // byter bild var 5 sekund
     }
 </script>
 
 <div class="jumbotron">
-
-
+   
     <h1>Hampes Frilansare</h1>
     <p class="lead">Vi matchar ihop kompetenta frilansare med seriösa företagare.</p>
     @Html.ActionLink("Företagare »", "Index", "Customers", null, new { @class = "btn btn-primary brn-lg" })
-    @Html.ActionLink("Frilansare »", "Index", "Freelancers", null,new { @class = "btn btn-primary brn-lg" })
+    @Html.ActionLink("Frilansare »", "Index", "Freelancers", null, new { @class = "btn btn-primary brn-lg" })
 </div>
 
 <div class="row">
