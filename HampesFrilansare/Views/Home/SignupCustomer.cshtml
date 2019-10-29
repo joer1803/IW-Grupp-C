@@ -1,35 +1,51 @@
 ﻿@model HampesFrilansare.Models.Customer
+
 @{
-    ViewBag.Title = "SignupCustomer";
+    ViewBag.Title = "Create";
 }
 
-<h2>@ViewBag.Title</h2>
+<h2>Registrera dig</h2>
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-   
-<form>
-    @Html.ValidationSummary(true, "", new { @class = "invalid-feedback" })
-    <div class="form-group">
-        @Html.LabelFor(model => model.email, labelText: "Email")
-        @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(model => model.email, "", new { @class = "invalid-feedback" })
-    </div>
-    @*@Html.LabelFor(model => model., labelText: "Lösenord")
-        @Html.EditorFor(model => model., new { htmlAttributes = new { @class = "form-control" } })*@
-    <div class="form-group">
-        <label for="password">Lösenord</label>
-        <input class="form-control" type="password" />
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.businessname, labelText: "Företagsnamn")
-        @Html.EditorFor(model => model.businessname, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(model => model.businessname, "", new { @class = "invalid-feedback" })
-    </div>
-    <div class="form-group">
-        <input type="submit" value="Skapa" class="btn btn-secondary" />
-    </div>
-</form>
+
+    <form>
+        @Html.ValidationSummary(true, "", new { @class = "invalid-feedback" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.email, labelText: "Email")
+            @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.email, "", new { @class = "invalid-feedback" })
+        </div>
+        @*@Html.LabelFor(model => model., labelText: "Lösenord")
+            @Html.EditorFor(model => model., new { htmlAttributes = new { @class = "form-control" } })*@
+        <div class="form-group">
+            <label for="password">Lösenord</label>
+            <input class="form-control" type="password" />
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.businessname, labelText: "Företagsnamn", htmlAttributes: new {@class = "control-label" })
+            @Html.EditorFor(model => model.businessname, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.businessname, "", new { @class = "invalid-feedback" })
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Skapa" class="btn btn-secondary"/>
+        </div>
+    </form>
+}
+<div>
+    <p>
+        By registering you confirm that you accept the <a href="">Terms and Condition</a>
+        and <a href="">Privacy Policy</a>
+    </p>
+</div>
+
+<div>
+    <p>
+        Alreday have an account? <a href="http://localhost:6162/Home/LogIn">Log in</a>
+    </p>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
 }
 
 

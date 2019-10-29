@@ -67,7 +67,7 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #EBEBEB;
+  color: #3d3d3d;
   text-align: left;
   background-color: #2B3E50;
 }
@@ -1670,7 +1670,7 @@ pre code {
 .table {
   width: 100%;
   margin-bottom: 1rem;
-  color: #EBEBEB;
+  color: #3d3d3d;
 }
 
 .table th,
@@ -1720,7 +1720,7 @@ pre code {
 }
 
 .table-hover tbody tr:hover {
-  color: #EBEBEB;
+  color: #3d3d3d;
   background-color: rgba(255, 255, 255, 0.075);
 }
 
@@ -2110,7 +2110,7 @@ select.form-control:focus::-ms-value {
   padding-bottom: 0.375rem;
   margin-bottom: 0;
   line-height: 1.5;
-  color: #EBEBEB;
+  color: #3d3d3d;
   background-color: transparent;
   border: solid transparent;
   border-width: 1px 0;
@@ -2557,7 +2557,7 @@ textarea.form-control {
 .btn {
   display: inline-block;
   font-weight: 400;
-  color: #EBEBEB;
+  color: #3d3d3d;
   text-align: center;
   vertical-align: middle;
   -webkit-user-select: none;
@@ -2584,7 +2584,7 @@ textarea.form-control {
 }
 
 .btn:hover {
-  color: #EBEBEB;
+  color: #3d3d3d;
   text-decoration: none;
 }
 
@@ -3286,7 +3286,7 @@ input[type="button"].btn-block {
   padding: 0.5rem 0;
   margin: 0.125rem 0 0;
   font-size: 1rem;
-  color: #EBEBEB;
+  color: #3d3d3d;
   text-align: left;
   list-style: none;
   background-color: #4E5D6C;
@@ -3453,7 +3453,7 @@ input[type="button"].btn-block {
   padding: 0.25rem 1.5rem;
   clear: both;
   font-weight: 400;
-  color: #EBEBEB;
+  color: #3d3d3d;
   text-align: inherit;
   white-space: nowrap;
   background-color: transparent;
@@ -3461,7 +3461,7 @@ input[type="button"].btn-block {
 }
 
 .dropdown-item:hover, .dropdown-item:focus {
-  color: #EBEBEB;
+  color: #3d3d3d;
   text-decoration: none;
   background-color: rgba(255, 255, 255, 0.075);
 }
@@ -3494,7 +3494,7 @@ input[type="button"].btn-block {
 .dropdown-item-text {
   display: block;
   padding: 0.25rem 1.5rem;
-  color: #EBEBEB;
+  color: #3d3d3d;
 }
 
 .btn-group,
@@ -3763,7 +3763,7 @@ input[type="button"].btn-block {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #EBEBEB;
+  color: #3d3d3d;
   text-align: center;
   white-space: nowrap;
   background-color: #4E5D6C;
@@ -4362,7 +4362,7 @@ input[type="button"].btn-block {
 
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
-  color: #EBEBEB;
+  color: #3d3d3d;
   background-color: #2B3E50;
   border-color: #4E5D6C;
 }
@@ -5140,7 +5140,7 @@ input[type="button"].btn-block {
 .breadcrumb-item + .breadcrumb-item::before {
   display: inline-block;
   padding-right: 0.5rem;
-  color: #EBEBEB;
+  color: #3d3d3d;
   content: "/";
 }
 
@@ -5153,7 +5153,7 @@ input[type="button"].btn-block {
 }
 
 .breadcrumb-item.active {
-  color: #EBEBEB;
+  color: #3d3d3d;
 }
 
 .pagination {
@@ -5691,7 +5691,7 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .list-group-item-action:active {
-  color: #EBEBEB;
+  color: #3d3d3d;
   background-color: #4E5D6C;
 }
 
@@ -6590,7 +6590,7 @@ a.close.disabled {
 
 .popover-body {
   padding: 0.5rem 0.75rem;
-  color: #EBEBEB;
+  color: #3d3d3d;
 }
 
 .carousel {
@@ -10594,7 +10594,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .blockquote-footer {
-  color: #EBEBEB;
+  color: #3d3d3d;
 }
 
 .table {
@@ -10723,7 +10723,7 @@ label,
 .nav-tabs .nav-link:hover,
 .nav-pills .nav-link,
 .nav-pills .nav-link:hover {
-  color: #EBEBEB;
+  color: #3d3d3d;
 }
 
 .nav-tabs .nav-link.disabled,
