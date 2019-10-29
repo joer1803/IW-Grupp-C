@@ -54,14 +54,14 @@ h6 {
     color: #000000;
 }
 
-a {
-    color: #0026ff;
-}
-
 p {
     font-family: 'Times New Roman', Times, serif;
     color: #000000;
     padding: 1% 0;
+}
+
+a{
+    color: #0026ff;
 }
 
 section {
@@ -76,6 +76,7 @@ footer {
     footer section {
         width: 31%;
         margin: 0 1%;
+        margin-bottom: 1%;
         float: left;
         text-align: center;
     }
