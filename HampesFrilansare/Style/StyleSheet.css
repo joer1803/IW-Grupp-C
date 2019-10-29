@@ -1,20 +1,66 @@
 ﻿body {
     font: 16px/20px arial, verdana;
+    background: #eceff1;
 }
 
-img{
+.btn-primary btn-lg {
+    background-color: #555555;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+.btn-primary {
+    background-color: #555555;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+img {
     max-width: 100%;
     height: auto;
     width: auto;
 }
 
+.jumbotron {
+    background: #b0bec5;
+}
+
+
+h1 {
+    color: #000000;
+}
+
+h2 {
+    color: #000000;
+}
+
+h3 {
+    color: #000000;
+}
+
+h6 {
+    color: #000000;
+}
+
+a {
+    color: #0026ff;
+}
 
 p {
     font-family: 'Times New Roman', Times, serif;
+    color: #000000;
     padding: 1% 0;
 }
 
-section{
+section {
     margin: 2% 0;
 }
 
@@ -24,25 +70,9 @@ footer {
 }
 
     footer section {
-        width: 35%;
-        margin: 0 2%;
+        width: 31%;
+        margin: 0 1%;
         float: left;
+        text-align: center;
     }
-
-    footer aside {
-        float: right;
-        width: 20%;
-    }
-
-.ulfooter {
-    list-style: none;
-    margin-right: 30%;
-
-}
-
-.fab {
-    padding: 5px;
-    display: inline-block;
-    float: right;
-}
 
