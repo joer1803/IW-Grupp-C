@@ -7,10 +7,13 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link href="~/Style/StyleSheet.css" rel="stylesheet" />
-    <link href="~/Style/blueberry.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Style/slider.css" />
 
+    
 </head>
 <body>
+      
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
@@ -28,9 +31,9 @@
     </nav>
 
 
-    
 
-   
+
+
 
     <div class="container body-content">
         @RenderBody()
@@ -55,14 +58,14 @@
             </aside>
 
             <section>
-            <p>
-                Genom att tillgå, fortsätta använda eller navigera genom webbplatsen accepterar du att vi använder särskilda browser cookies
-                för att förbättra din användarupplevelse hos oss. Var vänlig och läs vår <a href="#">Cookiespolicy</a> för ytterligare information angående hur vi använder cookies samt hur du kan stänga av eller hantera dessa
-                om du så önskar.
-            </p>
+                <p>
+                    Genom att tillgå, fortsätta använda eller navigera genom webbplatsen accepterar du att vi använder särskilda browser cookies
+                    för att förbättra din användarupplevelse hos oss. Var vänlig och läs vår <a href="#">Cookiespolicy</a> för ytterligare information angående hur vi använder cookies samt hur du kan stänga av eller hantera dessa
+                    om du så önskar.
+                </p>
 
-            <p>&copy; @DateTime.Now.Year - Hampes frilansare, med ensamrätt</p>
-                </section>
+                <p>&copy; @DateTime.Now.Year - Hampes frilansare, med ensamrätt</p>
+            </section>
         </footer>
     </div>
 
