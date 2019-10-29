@@ -3,6 +3,26 @@
     background: #eceff1;
 }
 
+.btn-primary btn-lg {
+    background-color: #555555;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+.btn-primary {
+    background-color: #555555;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
 img {
     max-width: 100%;
     height: auto;
@@ -12,6 +32,7 @@ img {
 .jumbotron {
     background: #b0bec5;
 }
+
 
 h1 {
     color: #000000;
