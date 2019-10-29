@@ -9,14 +9,12 @@ namespace HampesFrilansare.ViewModels
     public class FreelancerSearchModel
     {
         public int freelancerID { get; set; }
-        public int skillID { get; set; }
+        public List<int> resumeID { get; set; }
 
         public string firstname { get; set; }
         public string lastname { get; set; }
+        List<Skill> skills { get; set; }
 
-        public virtual Competence Competence { get; set; }
-        public Nullable<int> rating { get; set; }
-        public string name { get; set; }
 
 
 
