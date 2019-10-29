@@ -1,5 +1,6 @@
 ﻿body {
     font: 16px/20px arial, verdana;
+    background: #eceff1;
 }
 
 img {
@@ -8,6 +9,9 @@ img {
     width: auto;
 }
 
+.jumbotron {
+    background: #b0bec5;
+}
 
 p {
     font-family: 'Times New Roman', Times, serif;
