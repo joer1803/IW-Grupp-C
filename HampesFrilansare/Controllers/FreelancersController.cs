@@ -57,6 +57,25 @@ namespace HampesFrilansare.Controllers
 
             return View(freelancer);
         }
+        public ActionResult SignupFreelance()
+        {
+
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SignupFreelance([Bind(Include ="freelancerID, firstname, lastname, email")] Freelancer freelancer)
+        {
+
+            if (ModelState.IsValid)
+            {
+                db.Freelancer.Add(freelancer);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(freelancer);
+        }
 
         // GET: Freelancers/Edit/5
         public ActionResult Edit(int? id)

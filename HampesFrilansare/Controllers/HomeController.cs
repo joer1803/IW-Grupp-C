@@ -26,21 +26,6 @@ namespace HampesFrilansare.Controllers
 
             return View();
         }
-
-        public ActionResult SignupFreelance()
-        {
-            ViewBag.Message = "Your freelance sign up page.";
-
-            return View();
-        }
-
-        public ActionResult SignupCustomer()
-        {
-            ViewBag.Message = "Your customer sign up page.";
-
-            return View();
-        }
-
         public ActionResult LogIn()
         {
             ViewBag.Message = "Your log in page.";

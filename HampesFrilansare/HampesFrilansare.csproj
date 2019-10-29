@@ -279,8 +279,8 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="Views\Home\SignupFreelance.cshtml" />
-    <Content Include="Views\Home\SignupCustomer.cshtml" />
+    <Content Include="Views\Freelancers\SignupFreelance.cshtml" />
+    <Content Include="Views\Customers\SignupCustomer.cshtml" />
     <Content Include="Views\Home\LogIn.cshtml" />
     <Content Include="Views\Freelancers\Create.cshtml" />
     <Content Include="Views\Freelancers\Delete.cshtml" />

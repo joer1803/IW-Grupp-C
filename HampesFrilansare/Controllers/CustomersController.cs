@@ -13,7 +13,7 @@ namespace HampesFrilansare.Controllers
     public class CustomersController : Controller
     {
         private hampesfrilansdbEntities db = new hampesfrilansdbEntities();
-
+     
         // GET: Customers
         public ActionResult Index()
         {
@@ -56,6 +56,25 @@ namespace HampesFrilansare.Controllers
             }
 
             return View(customer);
+        }
+        public ActionResult SignupCustomer()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult SignupCustomer([Bind(Include = "customerID, businessname,email")] Customer customer)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Customer.Add(customer);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(customer);
+            }
         }
 
         // GET: Customers/Edit/5
