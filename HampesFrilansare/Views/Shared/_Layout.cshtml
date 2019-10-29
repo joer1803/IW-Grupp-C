@@ -12,7 +12,7 @@
     
 </head>
 <body>
-      
+
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
@@ -25,6 +25,7 @@
                     <li class="nav-item">@Html.ActionLink("Hem", "Index", "Home", null, new { @class = "nav-link" })</li>
                     <li class="nav-item">@Html.ActionLink("Om oss", "About", "Home", null, new { @class = "nav-link" })</li>
                     <li class="nav-item">@Html.ActionLink("Kontakta oss", "Contact", "Home", null, new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Logga in", "LogIn", "Home", null, new { @class = "nav-link" })</li>
                 </ul>
             </div>
         </div>
@@ -43,14 +44,17 @@
                 <h6>Kontaktuppgifter</h6>
                 <p>
                     Tel: 08-550 025 70<br />
-                    Företag: <a href="mailto:Marketing@example.com">Supportcustomer@example.com</a><br />
-                    Frilansare: <a href="mailto:Support@example.com">Supportfreelancer@example.com</a><br />
+                    <br />
+                    Support för företag:<br />
+                    <a href="mailto:Marketing@example.com">Supportcustomer@example.com</a><br />
+                    Support för frilansare:<br />
+                    <a href="mailto:Support@example.com">Supportfreelancer@example.com</a><br />
                 </p>
             </section>
 
             <section>
                 <p>
-                    Genom att använda webbplatsen accepterar du att vi använder cookies
+                    Genom att använda webbplatsen accepterar du att vi använder särskilda browser cookies
                     för att förbättra din användarupplevelse hos oss. Var vänlig och läs vår <a href="#">Cookiespolicy</a> för ytterligare information
                     angående hur vi använder cookies samt hur du kan stänga av eller hantera dessa
                     om du så önskar.
@@ -61,6 +65,8 @@
 
             <section>
                 <p><a href="#">Regler och villkor</a></p>
+                <p>@Html.ActionLink("Företagare", "Index", "Customers")</p>
+                <p>@Html.ActionLink("Frilansare", "Index", "Freelancers")</p>
                 <p>@Html.ActionLink("Om oss", "About", "Home")</p>
             </section>
         </footer>
