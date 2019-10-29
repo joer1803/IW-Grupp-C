@@ -2,37 +2,40 @@
     ViewBag.Title = "Home Page";
 }
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-<script src="jquery.blueberry.js"></script>
+
+<style>
+    .mySlides {
+        display: none;
+    }
+</style>
+
+<div class="img-slider">
+    <img class="mySlides" src="~/Content/Img/slider1.jpg">
+    <img class="mySlides" src="~/Content/Img/slider2.jpg">
+    <img class="mySlides" src="~/Content/Img/slider3.jpg">
+    <img class="mySlides" src="~/Content/Img/slider4.jpg">
+</div>
+
 <script>
-    $(window).load(function () {
-        $('.blueberry').blueberry();
-    });
+    var myIndex = 0;
+    carousel();
+
+    function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        myIndex++;
+        if (myIndex > x.length) { myIndex = 1 }
+        x[myIndex - 1].style.display = "block";
+        setTimeout(carousel, 8000); // byter bild var 8 sekund
+    }
 </script>
 
-<body>
-
-    <!-- en div behållare som består av ytterligare två "embedded" div element -->
-    <div id="slidercontainer">
-        <div id="content">
-            <!-- blueberry är namnet på den third-party jQuery slider som vi använder -->
-            <div class="blueberry">
-                <!--  en unordered lista med klassen "slides" som listar alla bilder i slidern -->
-                <ul class="slides">
-                    <li><img src="~/Content/Img/slider1.jpg" /></li>
-                    <li><img src="~/Content/Img/slider2.jpg" /></li>
-                    <li><img src="~/Content/Img/slider3.jpg" /></li>
-                    <li><img src="~/Content/Img/slider4.jpg" /></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-
-</body>
-
-
 <div class="jumbotron">
+
+
     <h1>Hampes Frilansare</h1>
     <p class="lead">Vi matchar ihop kompetenta frilansare med seriösa företagare.</p>
     <p><a href="https://asp.net" class="btn btn-primary btn-lg">Företagare &raquo;</a></p>
