@@ -2,7 +2,7 @@
     font: 16px/20px arial, verdana;
 }
 
-img{
+img {
     max-width: 100%;
     height: auto;
     width: auto;
@@ -14,7 +14,7 @@ p {
     padding: 1% 0;
 }
 
-section{
+section {
     margin: 2% 0;
 }
 
@@ -24,25 +24,19 @@ footer {
 }
 
     footer section {
-        width: 35%;
-        margin: 0 2%;
+        width: 31%;
+        margin: 0 1%;
         float: left;
-    }
-
-    footer aside {
-        float: right;
-        width: 20%;
+        text-align: center;
     }
 
 .ulfooter {
     list-style: none;
-    margin-right: 30%;
-
+    margin-left: 26%;
 }
 
 .fab {
     padding: 5px;
     display: inline-block;
-    float: right;
+    float: left;
 }
-
