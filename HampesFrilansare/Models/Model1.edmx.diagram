@@ -21,7 +21,6 @@
         <AssociationConnector Association="hampesfrilansdbModel.FK__Experienc__resum__5CD6CB2B" ManuallyRouted="false" />
         <AssociationConnector Association="hampesfrilansdbModel.FK__Resume__freelanc__4F7CD00D" ManuallyRouted="false" />
         <AssociationConnector Association="hampesfrilansdbModel.FK__Language__resume__5629CD9C" ManuallyRouted="false" />
-        <AssociationConnector Association="hampesfrilansdbModel.FK__Freelance__resum__6E01572D" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
