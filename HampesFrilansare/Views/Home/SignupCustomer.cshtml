@@ -6,22 +6,28 @@
 <h2>@ViewBag.Title</h2>
 @using (Html.BeginForm())
 {
-
-    @Html.ValidationSummary(true, "", new { @class = "invalid-feedback" })
+    @Html.AntiForgeryToken()
+   
 <form>
+    @Html.ValidationSummary(true, "", new { @class = "invalid-feedback" })
     <div class="form-group">
         @Html.LabelFor(model => model.email, labelText: "Email")
         @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.email, "", new { @class = "invalid-feedback" })
     </div>
     @*@Html.LabelFor(model => model., labelText: "Lösenord")
         @Html.EditorFor(model => model., new { htmlAttributes = new { @class = "form-control" } })*@
     <div class="form-group">
         <label for="password">Lösenord</label>
-            <input class="form-control" type="password"/>
+        <input class="form-control" type="password" />
     </div>
     <div class="form-group">
         @Html.LabelFor(model => model.businessname, labelText: "Företagsnamn")
         @Html.EditorFor(model => model.businessname, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.businessname, "", new { @class = "invalid-feedback" })
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Skapa" class="btn btn-secondary" />
     </div>
 </form>
 }

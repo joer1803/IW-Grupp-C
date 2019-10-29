@@ -1,40 +1,59 @@
-﻿
+﻿@model HampesFrilansare.Models.Freelancer
 @{
     ViewBag.Title = "SignupFreelance";
 }
 <h2>@ViewBag.Title</h2>
 
-<div>
-    <div>
-        <form name="signupfreelance">
-            <label for="txtEmail">Email</label>
-            <input type="email" name="email" class="textbox" placeholder="email@domain.com" required><br>
-
-            <label for="txtPassword">Password</label>
-            <input type="text" name="password" class="textbox" placeholder="XXXXXX" required><br>
-
-            <label for="txtPassword">Repeat Password</label>
-            <input type="text" name="repeatpassword" class="textbox" placeholder="XXXXXX" required><br><br><br>
-
-            <input type="button" class="btnJoin" onclick="" value="Join HampesFrilansare"><br><br><br>
-        </form>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<div class="form-horizontal">
+    @Html.ValidationSummary(true, "", new { @class = "invalid-feedback" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.firstname, labelText: "Förnamn")
+        @Html.EditorFor(model => model.firstname, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.firstname, "", new { @class = "invalid-feedback" })
     </div>
-
-    <div>
-        <p>
-            By registering you confirm that you accept the <a href="">Terms and Condition</a> 
-            and <a href="">Privacy Policy</a>
-        </p>
+    <div class="form-group">
+        @Html.LabelFor(model => model.lastname, labelText: "Efternamn")
+        @Html.EditorFor(model => model.lastname, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.lastname, "", new { @class = "invalid-feedback" })
     </div>
-
-    <div>
-        <p>
-            Alreday have an account? <a href="http://localhost:6162/Home/LogIn">Log in</a>
-        </p>
+    <div class="form-group">
+        @Html.LabelFor(model => model.email, labelText: "Email")
+        @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.email, "", new { @class = "invalid-feedback" })
     </div>
-
-
+    @*@Html.LabelFor(model => model., labelText: "Lösenord")
+        @Html.EditorFor(model => model., new { htmlAttributes = new { @class = "form-control" } })*@
+    <div class="form-group">
+        <label for="password">Lösenord</label>
+        <input class="form-control" type="password" />
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Skapa" class="btn btn-secondary" />
+    </div>
 </div>
+}
+
+<div>
+    <p>
+        By registering you confirm that you accept the <a href="">Terms and Condition</a>
+        and <a href="">Privacy Policy</a>
+    </p>
+</div>
+
+<div>
+    <p>
+        Alreday have an account? <a href="http://localhost:6162/Home/LogIn">Log in</a>
+    </p>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
 
 
 
