@@ -25,9 +25,9 @@
                     <li class="nav-item">@Html.ActionLink("Hem", "Index", "Home", null, new { @class = "nav-link" })</li>
                     <li class="nav-item">@Html.ActionLink("Om oss", "About", "Home", null, new { @class = "nav-link" })</li>
                     <li class="nav-item">@Html.ActionLink("Kontakta oss", "Contact", "Home", null, new { @class = "nav-link" })</li>
-                    <li class="nav-item">@Html.ActionLink("Logga in", "LogIn", "Home", null, new { @class = "nav-link" })</li>
                     <li class="nav-item">@Html.ActionLink("Registrera dig som frilansare", "SignupFreelance", "Freelancers", null, new { @class = "nav-link" })</li>
-                    <li class="nav-item">@Html.ActionLink("Hyr topptalang", "SignupCustomer", "Customers", null, new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Registrera dig som företagare", "SignupCustomer", "Customers", null, new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Logga in", "LogIn", "Home", null, new { @class = "nav-link" })</li>
                 </ul>
             </div>
         </div>
@@ -44,14 +44,14 @@
         <footer>
 
             <section>
-                <p>@Html.ActionLink("Företagare", "Index", "Customers")</p>
-                <p>@Html.ActionLink("Frilansare", "Index", "Freelancers")</p>
+                <p>@Html.ActionLink("Hitta företag", "Index", "Customers")</p>
+                <p>@Html.ActionLink("Hitta frilansare", "Index", "Freelancers")</p>
             </section>
 
             <section>
                 <p>@Html.ActionLink("Om oss", "About", "Home")</p>
-                <p><a href="#">Regler och villkor</a></p>
                 <p><a href="#">Integritetspolicy</a></p>
+                <p><a href="#">Regler och villkor</a></p>
             </section>
 
             <section>
