@@ -1,0 +1,47 @@
+﻿@model IEnumerable<HampesFrilansare.ViewModels.FreelancerSearchModel>
+
+@{
+    ViewBag.Title = "SearchFreelancer";
+}
+
+<h2>SearchFreelancer</h2>
+
+<form class="form-inline my-2 my-lg-0">
+    <input class="form-control mr-sm-2" type="text" placeholder="Search">
+    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+</form>
+<table class="table">
+    <tr>
+        <th>
+            Namn
+        </th>
+        <th>
+            Kategori
+        </th>
+        <th>
+            Kompetens
+        </th>
+        <th>
+            Teknologi
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.fullname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.compcategory)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.compname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.skillname)
+        </td>
+    </tr>
+}
+
+</table>
