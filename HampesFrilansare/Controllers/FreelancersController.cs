@@ -142,5 +142,10 @@ namespace HampesFrilansare.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult FreelancerProfile()
+        {
+            return View();
+        }
     }
 }
