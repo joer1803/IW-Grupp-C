@@ -61,8 +61,8 @@
 
             <section>
                 <p>@Html.ActionLink("Om oss", "About", "Home")</p>
-                <p><a href="#">Integritetspolicy</a></p>
-                <p><a href="#">Regler och villkor</a></p>
+                <p>@Html.ActionLink("Integritetspolicy", "Error", "Error", null, new { @class = "nav-link" })</p>
+                <p>@Html.ActionLink("Regler och villkor", "Error", "Error", null, new { @class = "Nav-link" })</p>
             </section>
 
             <section>
@@ -79,9 +79,9 @@
 
             <p>
                 Genom att använda webbplatsen accepterar du att vi använder cookies
-                för att förbättra din användarupplevelse hos oss. Var vänlig och läs vår <a href="#">Cookiespolicy</a> för ytterligare information
-                angående hur vi använder cookies samt hur du kan stänga av eller hantera dessa
-                om du så önskar.
+                för att förbättra din användarupplevelse hos oss. Var vänlig och läs vår <a>@Html.ActionLink("Cookiespolicy", "Error", "Error", null, new { @class = "Nav-link" })</a>
+            för ytterligare information angående hur vi använder cookies samt hur du kan stänga av eller hantera dessa
+            om du så önskar.
             </p>
 
             <p>&copy; @DateTime.Now.Year - Hampes frilansare, med ensamrätt</p>
