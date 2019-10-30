@@ -31,7 +31,13 @@ img {
     background: #4E5D6C;
 }
 
+#frilansare {
+   color: #eceff1;
+}
 
+.lead {
+    color: #eceff1;
+}
 h1 {
     color: #000000;
     padding: 2% 0 1% 0;
