@@ -53,9 +53,9 @@
             @Html.DisplayFor(modelItem => item.address)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.customerID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.customerID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.customerID })
+            @Html.ActionLink("Ändra", "Edit", new { id=item.customerID }) |
+            @Html.ActionLink("Detaljer", "Details", new { id=item.customerID }) |
+            @Html.ActionLink("Ta bort", "Delete", new { id=item.customerID })
         </td>
     </tr>
 }
