@@ -6,10 +6,9 @@
     <title>@ViewBag.Title - Hampes Frilansare</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    <link rel="stylesheet" href="~/Style/slider.css" />
     <link href="~/Style/StyleSheet.css" rel="stylesheet" />
 
-    
+
 </head>
 <body>
 
@@ -22,21 +21,24 @@
             </button>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav mr-auto">
-                    <li class="nav-item">@Html.ActionLink("Hem", "Index", "Home")</li>
-                    <li class="nav-item">@Html.ActionLink("Om oss", "About", "Home")</li>
-                    <li class="nav-item">@Html.ActionLink("Kontakta oss", "Contact", "Home")</li>
+                    <li class="nav-item">@Html.ActionLink("Hem", "Index", "Home", null, new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Om oss", "About", "Home", null, new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Kontakta oss", "Contact", "Home", null, new { @class = "nav-link" })</li>
                 </ul>
                 <ul class="nav navbar-nav ml-auto">
-                    <li><a href="#">Konto</a>
+                    <li>
+                        <a href="#">Konto</a>
                         <ul>
-                            <li class="nav-item">@Html.ActionLink("Logga in", "LogIn", "Home")</li>
-                            <li class="nav-item">@Html.ActionLink("Registrera ditt CV", "SignupFreelance", "Freelancers")</li>
-                            <li class="nav-item">@Html.ActionLink("Hyr frilansare", "SignupCustomer", "Customers")</li>
+                            <li class="nav-item">@Html.ActionLink("Min Profil", "FreelancerProfile", "Freelancers", null, new { @class = "nav-link" })</li>
+                            <li class="nav-item">@Html.ActionLink("Redigera Profil", "Edit", "Freelancers", null, new { @class = "nav-link" })</li>
+                            <li class="nav-item">@Html.ActionLink("Radera Profil", "Delete", "Freelancers", null, new { @class = "nav-link" })</li>
+                            <li class="nav-item">@Html.ActionLink("Skapa Profil", "Create", "Freelancers", null, new { @class = "nav-link" })</li>
+                            <li class="nav-item">@Html.ActionLink("Radera Profil", "Delete", "Freelancers", null, new { @class = "nav-link" })</li>
 
                         </ul>
                     </li>
                 </ul>
-                    
+
             </div>
         </div>
     </nav>
@@ -64,8 +66,8 @@
 
             <section>
                 <p>@Html.ActionLink("Om oss", "About", "Home")</p>
-                <p>@Html.ActionLink("Integritetspolicy", "Error", "Error")</p>
-                <p>@Html.ActionLink("Regler och villkor", "Error", "Error")</p>
+                <p>@Html.ActionLink("Integritetspolicy", "Error", "Error", null, new { @class = "nav-link" })</p>
+                <p>@Html.ActionLink("Regler och villkor", "Error", "Error", null, new { @class = "Nav-link" })</p>
             </section>
 
             <section>
@@ -83,8 +85,8 @@
             <p>
                 Genom att använda webbplatsen accepterar du att vi använder cookies
                 för att förbättra din användarupplevelse hos oss. Var vänlig och läs vår <a>@Html.ActionLink("Cookiespolicy", "Error", "Error", null, new { @class = "Nav-link" })</a>
-            för ytterligare information angående hur vi använder cookies samt hur du kan stänga av eller hantera dessa
-            om du så önskar.
+                för ytterligare information angående hur vi använder cookies samt hur du kan stänga av eller hantera dessa
+                om du så önskar.
             </p>
 
             <p>&copy; @DateTime.Now.Year - Hampes frilansare, med ensamrätt</p>

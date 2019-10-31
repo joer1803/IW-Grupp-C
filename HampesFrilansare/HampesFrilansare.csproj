@@ -184,6 +184,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Img\chris.jpg" />
+    <Content Include="Content\Img\customer.jpg" />
     <Content Include="Content\Img\frilansare.jpg" />
     <Content Include="Content\Img\freelancer.jpg" />
     <Content Include="Content\Img\freelancer_white.jpg" />
@@ -299,6 +300,7 @@
     <Content Include="Views\Freelancers\FreelancerProfile.cshtml" />
     <Content Include="Views\Error\Error.cshtml" />
     <Content Include="Views\Search\SearchFreelancer.cshtml" />
+    <Content Include="Views\Shared\_NavbarFreelancer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
