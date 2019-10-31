@@ -63,6 +63,7 @@
 .lead {
     color: #eceff1;
 }
+
 h1 {
     color: #000000;
     padding: 2% 0 1% 0;
@@ -98,7 +99,7 @@ a {
 }
 
     a:hover {
-        color: #9999ff;
+        color: #333399;
     }
 
 section {
@@ -127,6 +128,14 @@ footer h6 {
     color: #eceff1;
 }
 
+    footer a {
+        color: #cccccc;
+    }
+
+        footer a:hover {
+            color: #e6e6e6
+        }
+
 .navbar{
     height: 65px;
     width: 100%;
@@ -134,21 +143,22 @@ footer h6 {
     top: 0;
     left: 0;
     z-index: 100;
-    opacity: 0.90;
+    opacity: 0.97;
 }
 
-
 nav ul li a {
-   
     display: block;
     font-family: Arial;
     color: #fff;
     font-size: 14px;
     padding: 22px 14px;
     text-decoration: none;
-
-
 }
+
+    nav ul li a:hover {
+        color: #e6e6e6;
+    }
+
 nav ul li ul {
     display: none;
     position: absolute;
@@ -156,15 +166,16 @@ nav ul li ul {
     opacity: 0.90;
     border-radius: 0px 0px 4px 4px;
 }
-nav ul li ul li a {
+    nav ul li ul li a {
         padding: 12px 14px;
-       
-}
+    }
 
 nav ul li:hover ul {
     display: block;
-    
 }
+
+
+/*FreelancerProfile-sidan*/
 
 .profileimg {
     text-align: center;
@@ -174,7 +185,7 @@ nav ul li:hover ul {
     padding: 1%;
 }
 
-.freelancersection {
+.freelancerarticle {
     float: right;
     margin: 0 auto;
     width: 50%;
