@@ -21,7 +21,7 @@ namespace HampesFrilansare.Controllers
             }
             else
             {
-                return View();
+                return View(GetFreelancerVM());
             }
         }
 
