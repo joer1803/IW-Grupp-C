@@ -29,19 +29,40 @@ namespace HampesFrilansare.Controllers
                          join skill in db.Skill on comp.competenceID
                          equals skill.competenceID
                          select new { free.freelancerID, free.firstname, free.lastname, comp.name, skillname = skill.name, comp.category });
+            
+            
 
             List<FreelancerSearchModel> freeVM = new List<FreelancerSearchModel>();
             foreach (var f in sfree)
             {
-                FreelancerSearchModel model = new FreelancerSearchModel();
-                model.freelancerID = f.freelancerID;
-                model.firstname = f.firstname;
-                model.lastname = f.lastname;
-                model.compname= f.name;
-                model.skillname = f.skillname;
-                model.compcategory = f.category;
+                bool duplicate = false;
+                for(int i=0; i<freeVM.Count; i++)
+                {
+                    if (freeVM[i].freelancerID.Equals(f.freelancerID))
+                    {
+                        if(freeVM[i].compname != f.name)
+                        {
+                            freeVM[i].compname += $", {f.name}";
+                        }
+                        freeVM[i].skillname += $", {f.skillname}";
 
-                freeVM.Add(model);
+
+                        duplicate = true;
+                    }
+                }
+                if (!duplicate)
+                {
+                    FreelancerSearchModel model = new FreelancerSearchModel();
+                    model.freelancerID = f.freelancerID;
+                    model.firstname = f.firstname;
+                    model.lastname = f.lastname;
+                    model.compname = f.name;
+                    model.skillname = f.skillname;
+                    model.compcategory = f.category;
+
+                    freeVM.Add(model);
+                }
+                
             }
 
             return freeVM;
