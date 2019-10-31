@@ -41,7 +41,7 @@
             Telefon
         </th>
         <th>
-            Email
+            E-postadress
         </th>
         <th>
             Adress
@@ -71,11 +71,10 @@
         </td>
         <td>
             @Html.ActionLink("Ändra", "Edit", new { id=item.customerID }) |
-            @Html.ActionLink("Detaljer", "Details", new { id=item.customerID }) |
+            @Html.ActionLink("Kontaktuppgifter", "Details", new { id=item.customerID }) |
             @Html.ActionLink("Ta bort", "Delete", new { id=item.customerID })
         </td>
     </tr>
 }
 
 </table>
-§

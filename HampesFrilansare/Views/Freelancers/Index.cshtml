@@ -12,28 +12,28 @@
 <table class="table-dark table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.firstname)
+            Förnamn
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.lastname)
+           Efternamn
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.phonenumber)
+            Telefon
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.email)
+           E-postadress
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.address)
+           Adress
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.dateofbirth)
+            Födelsedatum
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.birthplace)
+            Födelseort
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.nationality)
+            Nationalitet
         </th>
         <th></th>
     </tr>
@@ -65,9 +65,9 @@
             @Html.DisplayFor(modelItem => item.nationality)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.freelancerID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.freelancerID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.freelancerID })
+            @Html.ActionLink("Ändra", "Edit", new { id=item.freelancerID }) |
+            @Html.ActionLink("Kontaktuppgifter", "Details", new { id=item.freelancerID }) |
+            @Html.ActionLink("Ta bort", "Delete", new { id=item.freelancerID })
         </td>
     </tr>
 }
