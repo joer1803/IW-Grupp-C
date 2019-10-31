@@ -28,7 +28,7 @@ namespace HampesFrilansare.Controllers
                          equals comp.resumeID
                          join skill in db.Skill on comp.competenceID
                          equals skill.competenceID
-                         select new { free.freelancerID, free.firstname, free.lastname, comp.name, skillname = skill.name, comp.category });
+                         select new { free.freelancerID, free.firstname, free.lastname, comp.name, skillname = skill.name, comp.category, skill.rating });
             
             
 
@@ -38,13 +38,15 @@ namespace HampesFrilansare.Controllers
                 bool duplicate = false;
                 for(int i=0; i<freeVM.Count; i++)
                 {
+                    
+
                     if (freeVM[i].freelancerID.Equals(f.freelancerID))
                     {
                         if(freeVM[i].compname != f.name)
                         {
                             freeVM[i].compname += $", {f.name}";
                         }
-                        freeVM[i].skillname += $", {f.skillname}";
+                        freeVM[i].skillname += $", {f.skillname}" + "(" + f.rating + "/5)"; ;
 
 
                         duplicate = true;
@@ -57,7 +59,7 @@ namespace HampesFrilansare.Controllers
                     model.firstname = f.firstname;
                     model.lastname = f.lastname;
                     model.compname = f.name;
-                    model.skillname = f.skillname;
+                    model.skillname = f.skillname + "(" + f.rating + "/5)";
                     model.compcategory = f.category;
 
                     freeVM.Add(model);
