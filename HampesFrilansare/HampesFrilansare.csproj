@@ -296,9 +296,9 @@
     <Content Include="Views\Customers\Edit.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
     <Content Include="Views\Customers\ProfileCustomer.cshtml" />
-	<Content Include="Views\Freelancers\FreelancerProfile.cshtml" />
+    <Content Include="Views\Freelancers\FreelancerProfile.cshtml" />
     <Content Include="Views\Error\Error.cshtml" />
-	<Content Include="Views\Search\SearchFreelancer.cshtml" />
+    <Content Include="Views\Search\SearchFreelancer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

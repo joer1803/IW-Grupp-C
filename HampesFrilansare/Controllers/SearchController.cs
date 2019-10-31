@@ -12,20 +12,14 @@ namespace HampesFrilansare.Controllers
     {
         hampesfrilansdbEntities db = new hampesfrilansdbEntities();
 
-        public ActionResult SearchFreelancer(string searchstr)
+        public ActionResult SearchFreelancer()
         {
-            if (searchstr != null)
-            {
-                var free = GetFreelancerVM().Where(f => (f.firstname.Contains(searchstr)) || (f.lastname.Contains(searchstr)) || (f.compname.Contains(searchstr)) || (f.skillname.Contains(searchstr))).ToList();
-                return View(free);
-            }
-            else
-            {
+
                 return View(GetFreelancerVM());
-            }
+
         }
 
-        public List<FreelancerSearchModel> GetFreelancerVM()
+        private List<FreelancerSearchModel> GetFreelancerVM()
         {
             var sfree = (from free in db.Freelancer
                          join resume in db.Resume on

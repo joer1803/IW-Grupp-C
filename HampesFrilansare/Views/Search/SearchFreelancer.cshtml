@@ -3,16 +3,13 @@
 @{
     ViewBag.Title = "SearchFreelancer";
 }
-
 <h2>SearchFreelancer</h2>
-@using (Html.BeginForm("SearchFreelancer", "Search", FormMethod.Get))
-{
-@Html.TextBox("searchstr", null, null, new { @class = "form-control mr-sm-2" })
-<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-}
-<form class="form-inline my-2 my-lg-0">
 
-    <table class="table">
+<input type="text" class="form-control mr-sm-2" id="searchstr" />
+<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+
+<table class="table">
+    <thead>
         <tr>
             <th>
                 Namn
@@ -28,28 +25,37 @@
             </th>
             <th></th>
         </tr>
-        @if (Model != null)
+    </thead>
+    
+    <tbody id="searchresult">
+        @foreach (var item in Model)
         {
-            foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.fullname)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.compcategory)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.compname)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.skillname)
-                    </td>
-                </tr>
-            }
+            <tr>
+                <td>
+                    @item.fullname
+                </td>
+                <td>
+                    @item.compcategory
+                </td>
+                <td>
+                    @item.compname
+                </td>
+                <td>
+                    @item.skillname
+                </td>
+            </tr>
         }
-
-
-    </table>
-</form>
-
+    </tbody>
+    
+</table>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#searchstr").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#searchresult tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
