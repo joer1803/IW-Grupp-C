@@ -1,4 +1,4 @@
-﻿@model IEnumerable<HampesFrilansare.Models.Customer>
+﻿@model IEnumerable<HampesFrilansare.ViewModels.FreelancerSearchModel>
 
 @{
     ViewBag.Title = "Index";
@@ -12,10 +12,10 @@
         <form>
             <h2>Hitta frilansare</h2>
             <div class="form-box">
-            <input type="text" class="search-field-customers" 
-             paceholder="buisness, Services.."/>
+                <input type="text" class="search-field-customers"
+                       paceholder="buisness, Services.." id="searchstr" />
 
-            <button class="search-button" type="button">Sök</button>
+                <button class="search-button" type="button">Sök</button>
             </div>
         </form>
 
@@ -23,58 +23,55 @@
 
 </body>
 
-<p>
-    @Html.ActionLink("Nytt företag", "Create")
-</p>
-<table class="table-dark table">
-    <tr>
-        <th>
-            Företagsnamn
-        </th>
-        <th>
-            Förnamn
-        </th>
-        <th>
-            Efternamn
-        </th>
-        <th>
-            Telefon
-        </th>
-        <th>
-            E-postadress
-        </th>
-        <th>
-            Adress
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.businessname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.firstname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.lastname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.phonenumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.address)
-        </td>
-        <td>
-            @Html.ActionLink("Ändra", "Edit", new { id=item.customerID }) |
-            @Html.ActionLink("Kontaktuppgifter", "Details", new { id=item.customerID }) |
-            @Html.ActionLink("Ta bort", "Delete", new { id=item.customerID })
-        </td>
-    </tr>
-}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Namn
+            </th>
+            <th>
+                Kategori
+            </th>
+            <th>
+                Kompetens
+            </th>
+            <th>
+                Teknologi
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody id="searchresult">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.fullname
+                </td>
+                <td>
+                    @item.compcategory
+                </td>
+                <td>
+                    @item.compname
+                </td>
+                <td>
+                    @item.skillname
+                </td>
+            </tr>
+        }
+    </tbody>
 
 </table>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#searchstr").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#searchresult tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
