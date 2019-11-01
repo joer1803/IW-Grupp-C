@@ -13,12 +13,15 @@ namespace HampesFrilansare.Controllers
     public class FreelancersController : Controller
     {
         private hampesfrilansdbEntities db = new hampesfrilansdbEntities();
+        
 
         // GET: Freelancers
         public ActionResult Index()
         {
-            return View(db.Freelancer.ToList());
+            return View("Index","_NavbarFreelancer", db.Freelancer.ToList());
+
         }
+
 
         // GET: Freelancers/Details/5
         public ActionResult Details(int? id)
