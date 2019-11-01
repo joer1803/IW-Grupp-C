@@ -18,7 +18,7 @@ namespace HampesFrilansare.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            return View(GetFreelancerVM());
+            return View("Index", "_NavbarCustomer",GetFreelancerVM());
         }
         private List<FreelancerSearchModel> GetFreelancerVM()
         {
