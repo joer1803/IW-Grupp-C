@@ -2,6 +2,7 @@
     font: 16px/20px arial, verdana;
     background: #eceff1;
     color: #3d3d3d;
+    margin: 2%;
 }
 .header{
     height: 50vh;
@@ -231,15 +232,6 @@ nav ul li:hover ul {
     margin: 5% 0;
 }
 
-.workexperiencelist {
-    font-family: 'Times New Roman', Times, serif;
-    color: #000000;
-}
-
-.workexperiencelist li{
-    padding: 5px;
-}
-
 .profilelists {
     color: #000000;
 }
@@ -248,8 +240,18 @@ nav ul li:hover ul {
     color: #000000;
 }
 
-#linkgitmessage{
+#starlist li {
+    margin: 2% 0;
+}
+
+.fas {
+    color: #b15315;
+    margin-left: 15px;
+}
+
+#linkgitmessage {
     font-size: 14px;
+    margin-top: 20%;
 }
 
 
