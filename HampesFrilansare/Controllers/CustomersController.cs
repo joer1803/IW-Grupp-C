@@ -18,7 +18,21 @@ namespace HampesFrilansare.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            return View("Index", "_NavbarCustomer",GetFreelancerVM());
+            return View("Index", "_NavbarCustomer", GetSearchFreeCategories());
+        }
+        private FreelancerSearchModelA GetSearchFreeCategories()
+        {
+
+            FreelancerSearchModelA freelancerSearchCat = new FreelancerSearchModelA();
+            freelancerSearchCat.freelancers = GetFreelancerVM();
+            freelancerSearchCat.searchcategories = GetCategories();
+            freelancerSearchCat.skit = new List<SelectListItem>();
+            foreach(var s in freelancerSearchCat.searchcategories)
+            {
+                freelancerSearchCat.skit.Add(new SelectListItem() { Text = s, Value = s });
+            }
+
+            return freelancerSearchCat;
         }
         private List<FreelancerSearchModel> GetFreelancerVM()
         {
@@ -69,6 +83,13 @@ namespace HampesFrilansare.Controllers
             }
 
             return freeVM;
+        }
+        private List<string> GetCategories()
+        {
+            List<string> cats = new List<string>();
+            var categories = (from comps in db.Competence
+                              select new { category = comps.category });
+            return cats = categories.Distinct().Select(x => x.category.ToString()).ToList();
         }
         // GET: Customers/Details/5
         public ActionResult Details(int? id)

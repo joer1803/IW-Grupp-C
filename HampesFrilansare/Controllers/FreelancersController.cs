@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using HampesFrilansare.Models;
+using HampesFrilansare.ViewModels;
 
 namespace HampesFrilansare.Controllers
 {
@@ -149,6 +150,31 @@ namespace HampesFrilansare.Controllers
         public ActionResult FreelancerProfile()
         {
             return View();
+        }
+        public FreelancerProfileViewModel GetProfile(int id)
+        {
+            var freeprof = (from free in db.Freelancer
+                            join resume in db.Resume on free.resumeID equals resume.resumeID
+                            join comp in db.Competence on resume.resumeID equals comp.resumeID
+                            join skill in db.Skill on comp.competenceID equals skill.competenceID
+                            join lang in db.Language on resume.resumeID equals lang.resumeID
+
+                            select new
+                            {
+                                free.freelancerID,
+                                free.firstname,
+                                free.lastname,
+                                free.address,
+                                free.phonenumber,
+                                free.dateofbirth,
+                                free.nationality,
+                                free.email,
+                                comp.name,
+                                skillname = skill.name,
+                                comp.category,
+                                skill.rating
+                            });
+            return null;
         }
     }
 }

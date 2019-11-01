@@ -2,18 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using HampesFrilansare.Models;
 
 namespace HampesFrilansare.ViewModels
 {
     public class FreelancerSearchModelA
     {
-        private List<string> Categories()
-        {
-            List<string> cats = new List<string>();
-            var categories = (from comps in db.Competence
-                              select new { category = comps.category });
-            return cats = categories.Distinct().Select(x => x.category.ToString()).ToList();
-        }
+        public List<string> searchcategories { get; set; }
+        public List<FreelancerSearchModel> freelancers { get; set; }
+        public List<SelectListItem> skit { get; set; }
+
     }
 }
