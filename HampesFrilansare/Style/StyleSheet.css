@@ -115,8 +115,9 @@ section {
 }
 
 .newfoot section {
-    width: 31%;
-    margin: 1%;
+    width: 30%;
+    margin-top: 3%;
+    margin-left: 1%;
     float: left;
     text-align: center;
 }
@@ -136,28 +137,6 @@ section {
         .newfoot a:hover {
             color: #eceff1;
         }
-
-#newfootfb {
-    color: #DF7401;
-    padding: 4px;
-    float: left;
-    margin-left: 35%;
-    font-size: 30px;
-}
-
-#newfootli {
-    color: #DF7401;
-    padding: 4px;
-    float: left;
-    font-size: 30px;
-}
-
-#newfoottwi {
-    color: #DF7401;
-    padding: 4px;
-    float: left;
-    font-size: 30px;
-}
 
 .navbar{
     height: 65px;
