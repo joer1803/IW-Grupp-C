@@ -110,6 +110,7 @@ section {
     text-align: center;
     width: 100%;
     background-color: #4E5D6C;
+    overflow: hidden;
 }
 
 .newfoot section {
@@ -135,27 +136,28 @@ section {
             color: #eceff1;
         }
 
-.newfootfb {
-    color: #000000;
+#newfootfb {
+    color: #DF7401;
     padding: 4px;
     float: left;
-    margin-left: 30%;
+    margin-left: 35%;
     font-size: 30px;
 }
 
-.newfootli {
-    color: #000000;
+#newfootli {
+    color: #DF7401;
     padding: 4px;
     float: left;
     font-size: 30px;
 }
 
-.newfoottwi {
-    color: #000000;
+#newfoottwi {
+    color: #DF7401;
     padding: 4px;
     float: left;
     font-size: 30px;
 }
+
 .navbar{
     height: 65px;
     width: 100%;
@@ -207,7 +209,6 @@ nav ul li:hover ul {
 .freelancerdetails {
     float: left;
     width: 20%;
-    height: auto;
 }
 
 .freelancerintro {
@@ -220,11 +221,31 @@ nav ul li:hover ul {
     list-style: none;
 }
 
-.fab {
+    .logolist li {
+        float: left;
+        margin-right: 8px;
+        font-size: 40px;
+    }
+
+.editprofilelinks {
+    margin: 5% 0;
+}
+
+.workexperiencelist {
+    font-family: 'Times New Roman', Times, serif;
     color: #000000;
-    padding: 4px;
-    float: right;
-    font-size: 30px;
+}
+
+.workexperiencelist li{
+    padding: 5px;
+}
+
+.profilelists {
+    color: #000000;
+}
+
+#profprofile{
+    font-size: 14px;
 }
 
 
