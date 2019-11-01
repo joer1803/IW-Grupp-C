@@ -21,22 +21,11 @@
             </button>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav mr-auto">
-                    <li class="nav-item">@Html.ActionLink("Hem", "Index", "Home", null, new { @class = "nav-link" })</li>
-                    <li class="nav-item">@Html.ActionLink("Om oss", "About", "Home", null, new { @class = "nav-link" })</li>
-                    <li class="nav-item">@Html.ActionLink("Kontakta oss", "Contact", "Home", null, new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Min Profil", "FreelancerProfile", "Freelancers", null, new { @class = "nav-link" })</li>
+                    <li class="nav-item">@Html.ActionLink("Lägg in CV", "#", "Freelancers", null, new { @class = "nav-link" })</li>
                 </ul>
                 <ul class="nav navbar-nav ml-auto">
-                    <li>
-                        <a href="#">Konto</a>
-                        <ul>
-                            <li class="nav-item">@Html.ActionLink("Min Profil", "FreelancerProfile", "Freelancers", null, new { @class = "nav-link" })</li>
-                            <li class="nav-item">@Html.ActionLink("Redigera Profil", "Edit", "Freelancers", null, new { @class = "nav-link" })</li>
-                            <li class="nav-item">@Html.ActionLink("Radera Profil", "Delete", "Freelancers", null, new { @class = "nav-link" })</li>
-                            <li class="nav-item">@Html.ActionLink("Skapa Profil", "Create", "Freelancers", null, new { @class = "nav-link" })</li>
-                            <li class="nav-item">@Html.ActionLink("Radera Profil", "Delete", "Freelancers", null, new { @class = "nav-link" })</li>
-
-                        </ul>
-                    </li>
+                     <li class="nav-item">@Html.ActionLink("Logga ut", "Index", "Home", null, new { @class = "nav-link" })</li>
                 </ul>
 
             </div>
@@ -50,49 +39,51 @@
 
 
 
+    @RenderBody()
+    <footer class="newfoot">
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-
-            <section>
-                <p>@Html.ActionLink("Företag", "Index", "Customers")</p>
-                <p>@Html.ActionLink("Frilansare", "Index", "Freelancers")</p>
+        <section>
+            <p>@Html.ActionLink("Företag", "Index", "Customers")</p>
+            <p>@Html.ActionLink("Frilansare", "Index", "Freelancers")</p>
+            <div id="newfootfb">
                 <i class="fab fa-facebook"></i>
+            </div>
+            <div id="newfootli">
                 <i class="fab fa-linkedin"></i>
+            </div>
+            <div id="newfoottwi">
                 <i class="fab fa-twitter-square"></i>
-            </section>
+            </div>
+        </section>
 
-            <section>
-                <p>@Html.ActionLink("Om oss", "About", "Home")</p>
-                <p>@Html.ActionLink("Integritetspolicy", "Error", "Error", null, new { @class = "nav-link" })</p>
-                <p>@Html.ActionLink("Regler och villkor", "Error", "Error", null, new { @class = "Nav-link" })</p>
-            </section>
+        <section>
+            <p>@Html.ActionLink("Om oss", "About", "Home")</p>
+            <p>@Html.ActionLink("Integritetspolicy", "Error", "Error")</p>
+            <p>@Html.ActionLink("Regler och villkor", "Error", "Error")</p>
+        </section>
 
-            <section>
-                <h6>Kontaktuppgifter</h6>
-                <p>
-                    Tel: 08-550 025 70<br />
-                    <br />
-                    Support för företag:<br />
-                    <a href="mailto:Marketing@example.com">Supportcustomer@example.com</a><br />
-                    Support för frilansare:<br />
-                    <a href="mailto:Support@example.com">Supportfreelancer@example.com</a>
-                </p>
-            </section>
-
+        <section>
+            <h6>Kontaktuppgifter</h6>
             <p>
-                Genom att använda webbplatsen accepterar du att vi använder cookies
-                för att förbättra din användarupplevelse hos oss. Var vänlig och läs vår <a>@Html.ActionLink("Cookiespolicy", "Error", "Error", null, new { @class = "Nav-link" })</a>
-                för ytterligare information angående hur vi använder cookies samt hur du kan stänga av eller hantera dessa
-                om du så önskar.
+                Tel: 08-550 025 70<br />
+                <br />
+                Support för företag:<br />
+                <a href="mailto:Marketing@example.com">Supportcustomer@example.com</a><br />
+                Support för frilansare:<br />
+                <a href="mailto:Support@example.com">Supportfreelancer@example.com</a>
             </p>
+        </section>
 
-            <p>&copy; @DateTime.Now.Year - Hampes frilansare, med ensamrätt</p>
+        <p>
+            Genom att använda webbplatsen accepterar du att vi använder cookies
+            för att förbättra din användarupplevelse hos oss. Var vänlig och läs vår <a>@Html.ActionLink("Cookiespolicy", "Error", "Error", null, new { @class = "Nav-link" })</a>
+            för ytterligare information angående hur vi använder cookies samt hur du kan stänga av eller hantera dessa
+            om du så önskar.
+        </p>
 
-        </footer>
-    </div>
+        <p>&copy; @DateTime.Now.Year - Hampes frilansare, med ensamrätt</p>
+
+    </footer>
 
     <script src="https://kit.fontawesome.com/622bc9da0f.js" crossorigin="anonymous"></script>
     @Scripts.Render("~/bundles/jquery")
