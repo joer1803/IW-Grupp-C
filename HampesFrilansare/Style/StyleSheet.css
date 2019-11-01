@@ -244,7 +244,11 @@ nav ul li:hover ul {
     color: #000000;
 }
 
-#profprofile{
+.profilelists {
+    color: #000000;
+}
+
+#linkgitmessage{
     font-size: 14px;
 }
 
