@@ -10,11 +10,11 @@
     @Html.AntiForgeryToken()
 
     <form>
-        @Html.ValidationSummary(false, "", new { @class = "invalid-feedback" })
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.email, labelText: "Email")
             @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.email, "", new { @class = "invalid-feedback" })
+            @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
         </div>
         @*@Html.LabelFor(model => model., labelText: "Lösenord")
             @Html.EditorFor(model => model., new { htmlAttributes = new { @class = "form-control" } })*@
@@ -25,7 +25,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.businessname, labelText: "Företagsnamn", htmlAttributes: new {@class = "control-label" })
             @Html.EditorFor(model => model.businessname, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.businessname, "", new { @class = "invalid-feedback" })
+            @Html.ValidationMessageFor(model => model.businessname, "", new { @class = "text-danger" })
         </div>
         <div class="form-group">
             <input type="submit" value="Registrera" class="btn btn-secondary"/>
