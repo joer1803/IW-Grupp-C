@@ -146,7 +146,7 @@ namespace HampesFrilansare.Controllers
 
         public ActionResult FreelancerProfile()
         {
-            return View(GetProfile(2));
+            return View(GetProfile(1));
         }
 
         public FreelancerProfileViewModel GetProfile(int id)
@@ -175,9 +175,11 @@ namespace HampesFrilansare.Controllers
                                 skill.rating
                             });
             FreelancerProfileViewModel model = new FreelancerProfileViewModel();
-            var frees = freeprof.Where(x => x.freelancerID.Equals(id));
+            var frees = freeprof.Where(x => x.freelancerID.Equals(id)).Distinct();
+            bool duplicate = false;
             foreach (var free in frees)
             {
+                duplicate = false;
                 model.id = free.freelancerID;
                 model.firstname = free.firstname;
                 model.lastname = free.lastname;
@@ -186,11 +188,20 @@ namespace HampesFrilansare.Controllers
                 model.birtdate = free.dateofbirth.ToString();
                 model.nationality = free.nationality;
                 model.email = free.email;
-                model.competences.Add(new Competence() {category = free.category, name = free.name, competenceID = free.competenceID});
-                model.skills.Add(new Skill() { name = free.skillname, rating = free.rating, competenceID = free.skillcompid});
-                
-            }
+                    foreach(var c in model.competences)
+                    {
+                        if(c.competenceID == free.competenceID)
+                    {
+                        duplicate = true;
+                    }
+                    }
+                if (!duplicate)
+                {
+                    model.competences.Add(new Competence() { category = free.category, name = free.name, competenceID = free.competenceID });
 
+                }
+                model.skills.Add(new Skill() { name = free.skillname, rating = free.rating, competenceID = free.skillcompid});
+            }
             return model;
         }
     }
