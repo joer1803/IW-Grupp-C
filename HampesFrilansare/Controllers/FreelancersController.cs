@@ -151,58 +151,27 @@ namespace HampesFrilansare.Controllers
 
         public FreelancerProfileViewModel GetProfile(int id)
         {
-            var freeprof = (from free in db.Freelancer
-                            join resume in db.Resume on free.resumeID equals resume.resumeID
-                            join comp in db.Competence on resume.resumeID equals comp.resumeID
-                            join skill in db.Skill on comp.competenceID equals skill.competenceID
-                            join lang in db.Language on resume.resumeID equals lang.resumeID
+            var profileView = new FreelancerProfileViewModel();
 
-                            select new
-                            {
-                                free.freelancerID,
-                                free.firstname,
-                                free.lastname,
-                                free.address,
-                                free.phonenumber,
-                                free.dateofbirth,
-                                free.nationality,
-                                free.email,
-                                comp.competenceID,
-                                comp.name,
-                                skillname = skill.name,
-                                skillcompid = skill.competenceID,
-                                comp.category,
-                                skill.rating
-                            });
-            FreelancerProfileViewModel model = new FreelancerProfileViewModel();
-            var frees = freeprof.Where(x => x.freelancerID.Equals(id)).Distinct();
-            bool duplicate = false;
-            foreach (var free in frees)
+            profileView.freelancer = db.Freelancer.First(i => i.freelancerID == id);
+            profileView.resume =
+                db.Resume.First(i => i.resumeID == profileView.freelancer.resumeID);
+            profileView.languages =
+                db.Language.Where(i => i.resumeID == profileView.resume.resumeID).ToList();
+            profileView.competences =
+                db.Competence.Where(i => i.resumeID == profileView.resume.resumeID).ToList();
+            foreach (var c in profileView.competences)
             {
-                duplicate = false;
-                model.id = free.freelancerID;
-                model.firstname = free.firstname;
-                model.lastname = free.lastname;
-                model.address = free.address;
-                model.phonenumber = free.phonenumber;
-                model.birtdate = free.dateofbirth.ToString();
-                model.nationality = free.nationality;
-                model.email = free.email;
-                    foreach(var c in model.competences)
-                    {
-                        if(c.competenceID == free.competenceID)
-                    {
-                        duplicate = true;
-                    }
-                    }
-                if (!duplicate)
-                {
-                    model.competences.Add(new Competence() { category = free.category, name = free.name, competenceID = free.competenceID });
-
-                }
-                model.skills.Add(new Skill() { name = free.skillname, rating = free.rating, competenceID = free.skillcompid});
+                profileView.skills.AddRange(db.Skill.Where(i => i.competenceID == c.competenceID));
             }
-            return model;
+            profileView.experiences =
+                db.Experience.Where(i => i.resumeID == profileView.resume.resumeID).ToList();
+            profileView.educations = 
+                db.Education.Where(i => i.resumeID == profileView.resume.resumeID).ToList();
+            profileView.licence = 
+                db.Driverslicence.First(i => i.licenceID == profileView.resume.licenceID);
+
+            return profileView;
         }
     }
 }
