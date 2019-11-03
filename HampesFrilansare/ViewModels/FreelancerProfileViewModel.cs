@@ -19,6 +19,7 @@ namespace HampesFrilansare.ViewModels
         public List<Education> educations { get; set; }
         public List<Competence> competences { get; set; }
         public List<Skill> skills { get; set; }
+        public int id { get; set; }
         public string firstname { get; set; }
         public string lastname { get; set; }
         public string address { get; set; }
