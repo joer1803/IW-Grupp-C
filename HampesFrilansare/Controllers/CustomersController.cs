@@ -249,5 +249,33 @@ namespace HampesFrilansare.Controllers
         {
             return View();
         }
+        public ActionResult Resume()
+        {
+            return View(GetProfile(1));
+        }
+        public FreelancerProfileViewModel GetProfile(int id)
+        {
+            var profileView = new FreelancerProfileViewModel();
+
+            profileView.freelancer = db.Freelancer.First(i => i.freelancerID == id);
+            profileView.resume =
+                db.Resume.First(i => i.resumeID == profileView.freelancer.resumeID);
+            profileView.languages =
+                db.Language.Where(i => i.resumeID == profileView.resume.resumeID).ToList();
+            profileView.competences =
+                db.Competence.Where(i => i.resumeID == profileView.resume.resumeID).ToList();
+            foreach (var c in profileView.competences)
+            {
+                profileView.skills.AddRange(db.Skill.Where(i => i.competenceID == c.competenceID));
+            }
+            profileView.experiences =
+                db.Experience.Where(i => i.resumeID == profileView.resume.resumeID).ToList();
+            profileView.educations =
+                db.Education.Where(i => i.resumeID == profileView.resume.resumeID).ToList();
+            profileView.licence =
+                db.Driverslicence.First(i => i.licenceID == profileView.resume.licenceID);
+
+            return profileView;
+        }
     }
 }
