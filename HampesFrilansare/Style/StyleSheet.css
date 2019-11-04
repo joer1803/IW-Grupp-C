@@ -117,17 +117,20 @@ section {
 
     .newfoot section {
         width: 30%;
-        margin-top: 3%;
+        margin-top: 2%;
+        margin-bottom: 1%;
         margin-left: 1%;
         float: left;
         text-align: center;
     }
 
     .newfoot p {
+        text-align: center;
         color: #fff;
     }
 
     .newfoot h6 {
+        text-align: center;
         color: #fff;
     }
 
@@ -286,4 +289,26 @@ nav ul li:hover ul {
     display: inline;
     width: 80%;
     height: auto;
+}
+
+ul.socialicon li {
+    display: inline-block;
+    text-align: center;
+    margin-right: 6px;
+}
+
+footer.second {
+    border-top: 1px solid #404E50;
+    background-color: #4E5D6C;
+    max-height: 40px;
+    text-align: center;
+    opacity: 0.95;
+}
+    footer.second p {
+        color: #fff;
+        font-size: 9px;
+    }
+.footerlinks p{
+    padding-bottom: 0%;
+    padding-top: 0%;
 }
