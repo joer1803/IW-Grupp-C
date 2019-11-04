@@ -303,7 +303,6 @@
     <Content Include="Views\Error\Error.cshtml" />
     <Content Include="Views\Shared\_NavbarFreelancer.cshtml" />
     <Content Include="Views\Shared\_NavbarCustomer.cshtml" />
-    <Content Include="Views\Resume\Resume.cshtml" />
     <Content Include="Views\Customers\Resume.cshtml" />
   </ItemGroup>
   <ItemGroup>
