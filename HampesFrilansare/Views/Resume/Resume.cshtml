@@ -19,7 +19,7 @@
     <div class="editprofilelinks"><a href="#">Redigera personuppgifter</a></div>
     <div class="editprofilelinks"><a href="#">Redigera ditt CV</a></div>
     <div class="editprofilelinks"><a href="http://localhost:6162/Error/Error">Avregistrera konto</a></div>
-    
+
     <p id="linkgitmessage">Länka till din professionella profil</p>
     <ul class="logolist">
         <li><a href="http://localhost:6162/Error/Error" class="fab fa-github-square"></a></li>
@@ -38,9 +38,9 @@
         {
             <t>Roll: </t>@e.role
             <br />
-            @e.startdate.Value.ToString("yyyy-MM-dd")<t> - </t>  @e.enddate.Value.ToString("yyyy-MM-dd") <br />
+            @e.startdate.Value.ToString("yyyy-MM-dd")<t> - </t> @e.enddate.Value.ToString("yyyy-MM-dd") <br />
             <t>Företag: </t>@e.name <br />
-            <t>Arbetsuppgifter: </t>@e.duty<br /><br/>
+            <t>Arbetsuppgifter: </t>@e.duty<br /><br />
 
         }
 
@@ -56,56 +56,56 @@
         @foreach (var item in Model.competences)
         {
 
-        <li>
-            @item.name<br />
-            @foreach (var skill in Model.skills)
-            {
-                if (skill.competenceID == item.competenceID)
+            <li>
+                @item.name<br />
+                @foreach (var skill in Model.skills)
                 {
-                    @skill.name
-                    for (int i = 0; i < skill.rating; i++)
+                    if (skill.competenceID == item.competenceID)
                     {
-                        <i class="fas fa-star"></i>
-                    }<br />
+                        @skill.name
+                        for (int i = 0; i < skill.rating; i++)
+                        {
+                            <i class="fas fa-star"></i>
+                        }<br />
 
 
+                    }
                 }
-            }
-        </li>
+            </li>
 
         }
     </ul>
 
 
-        <h3>Språk</h3>
-        <ul class="profilelists">
-            @foreach (var l in Model.languages)
-            {
-                <li>@l.name</li>
-            }
-        </ul>
+    <h3>Språk</h3>
+    <ul class="profilelists">
+        @foreach (var l in Model.languages)
+        {
+            <li>@l.name</li>
+        }
+    </ul>
 
-        <h3>Utbildning</h3>
-        <p>
-            @foreach (var e in Model.educations)
-            {
-                <t>Examen:</t> @e.degree
-                <br />
-                <t>Ämne:</t> @e.subject
-                <br />
-                @e.startdate.Value.ToString("yyyy-MM-dd")<t> - </t> @e.enddate.Value.ToString("yyyy-MM-dd") <br />
-                @e.school <br /><br/>
+    <h3>Utbildning</h3>
+    <p>
+        @foreach (var e in Model.educations)
+        {
+            <t>Examen:</t> @e.degree
+            <br />
+            <t>Ämne:</t> @e.subject
+            <br />
+            @e.startdate.Value.ToString("yyyy-MM-dd")<t> - </t> @e.enddate.Value.ToString("yyyy-MM-dd") <br />
+            @e.school <br /><br />
 
 
-            }
-            Filosofie kandidatexamen med huvudområdet informatik<br />
-            2006 - 2009<br />
-            Mittuniversitetet - Östersund
-            </>
+        }
+        Filosofie kandidatexamen med huvudområdet informatik<br />
+        2006 - 2009<br />
+        Mittuniversitetet - Östersund
+        </>
 
-            <h3>Tillgänglighet</h3>
-<p>Deltid</p>
+        <h3>Tillgänglighet</h3>
+    <p>Deltid</p>
 
-        <h3>Körkort</h3>
-        <p>@Model.licence.type</p>
-    </section>
+    <h3>Körkort</h3>
+    <p>@Model.licence.type</p>
+</section>

@@ -174,6 +174,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\FreelancerProfileViewModel.cs" />
+    <Compile Include="ViewModels\FreelancerResumeViewModel.cs" />
     <Compile Include="ViewModels\FreelancerSearchModel.cs" />
     <Compile Include="ViewModels\FreelancerSearchModelA.cs" />
   </ItemGroup>
@@ -302,6 +303,7 @@
     <Content Include="Views\Error\Error.cshtml" />
     <Content Include="Views\Shared\_NavbarFreelancer.cshtml" />
     <Content Include="Views\Shared\_NavbarCustomer.cshtml" />
+    <Content Include="Views\Resume\Resume.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
