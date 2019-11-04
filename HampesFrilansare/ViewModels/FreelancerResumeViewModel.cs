@@ -3,9 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace HampesFrilansare.ViewModels
 {
+
+    
+
     public class FreelancerResumeViewModel
     {
         public Freelancer freelancer { get; set; }
@@ -17,5 +21,7 @@ namespace HampesFrilansare.ViewModels
         public Competence competence { get; set; }
         public Language language { get; set; }
 
+        public List<SelectListItem> selectcategoriesResume { get; set; }
+        public List<SelectListItem> selectskillsResume { get; set; }
     }
 }
