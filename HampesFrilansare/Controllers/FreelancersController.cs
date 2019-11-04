@@ -39,7 +39,14 @@ namespace HampesFrilansare.Controllers
         // GET: Freelancers/Create
         public ActionResult Create()
         {
-            return View();
+            FreelancerResumeViewModel frvm = new FreelancerResumeViewModel();
+            frvm.selectcategories = db.Competence.Select(o => o.category).Distinct().ToList();
+            frvm.selectcategoriesResume = db.Competence.Select(x => new SelectListItem
+            {
+                Text = x.category,
+                Value = x.category
+            }).Distinct();
+            return View(frvm);
         }
 
         // POST: Freelancers/Create

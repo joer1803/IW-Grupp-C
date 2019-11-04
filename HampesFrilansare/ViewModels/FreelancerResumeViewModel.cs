@@ -21,7 +21,8 @@ namespace HampesFrilansare.ViewModels
         public Competence competence { get; set; }
         public Language language { get; set; }
 
-        public List<SelectListItem> selectcategoriesResume { get; set; }
-        public List<SelectListItem> selectskillsResume { get; set; }
+        public IEnumerable<SelectListItem> selectcategoriesResume { get; set; }
+        public IEnumerable<SelectListItem> selectskillsResume { get; set; }
+        public List<string> selectcategories { get; set; }
     }
 }
