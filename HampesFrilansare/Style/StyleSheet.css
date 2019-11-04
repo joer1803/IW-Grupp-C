@@ -294,9 +294,15 @@ nav ul li:hover ul {
 ul.socialicon li {
     display: inline-block;
     text-align: center;
-    margin-right: 6px;
+    margin-right: 10px;
+    padding-right: 10%;
 }
 
+.social{
+    text-align: center;
+}
+
+/*Copywrigth second*/
 footer.second {
     border-top: 1px solid #404E50;
     background-color: #4E5D6C;
@@ -308,6 +314,7 @@ footer.second {
         color: #fff;
         font-size: 9px;
     }
+
 .footerlinks p{
     padding-bottom: 0%;
     padding-top: 0%;
