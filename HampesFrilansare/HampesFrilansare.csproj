@@ -260,9 +260,7 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
-    <Content Include="..\..\..\..\OneDrive\Documents\HTML\StyleSheet.css">
-      <Link>Style\StyleSheet.css</Link>
-    </Content>
+    <Content Include="Style\StyleSheet.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
