@@ -49,50 +49,40 @@
 
 
         @RenderBody()
-        <footer class="newfoot">
+    <footer class="newfoot">
 
-            <section>
-                <p>@Html.ActionLink("Företag", "Index", "Customers")</p>
-                <p>@Html.ActionLink("Frilansare", "Index", "Freelancers")</p>
-                    <div id="newfootfb">
-                    <i class="fab fa-facebook"></i>
-                        </div>
-                    <div id="newfootli">
-                    <i class="fab fa-linkedin"></i>
-                        </div>
-                     <div id="newfoottwi">
-                    <i class="fab fa-twitter-square"></i>
-                         </div>
-            </section>
+        <section class="contactdetails">
+            <h6>Kontaktuppgifter</h6>
+            <p>
+                Tel: 08-550 025 70<br />
+                <br />
+                Support för företag:<br />
+                <a href="mailto:Marketing@example.com">Supportcustomer@example.com</a><br />
+                Support för frilansare:<br />
+                <a href="mailto:Support@example.com">Supportfreelancer@example.com</a>
+            </p>
+        </section>
 
-            <section>
-                <p>@Html.ActionLink("Om oss", "About", "Home")</p>
-                <p>@Html.ActionLink("Integritetspolicy", "Error", "Error")</p>
-                <p>@Html.ActionLink("Regler och villkor", "Error", "Error")</p>
-            </section>
-
-            <section>
-                <h6>Kontaktuppgifter</h6>
-                <p>
-                    Tel: 08-550 025 70<br />
-                    <br />
-                    Support för företag:<br />
-                    <a href="mailto:Marketing@example.com">Supportcustomer@example.com</a><br />
-                    Support för frilansare:<br />
-                    <a href="mailto:Support@example.com">Supportfreelancer@example.com</a>
-                </p>
-            </section>
-
+        <section>
             <p>
                 Genom att använda webbplatsen accepterar du att vi använder cookies
                 för att förbättra din användarupplevelse hos oss. Var vänlig och läs vår <a>@Html.ActionLink("Cookiespolicy", "Error", "Error", null, new { @class = "Nav-link" })</a>
-            för ytterligare information angående hur vi använder cookies samt hur du kan stänga av eller hantera dessa
-            om du så önskar.
+                för ytterligare information angående hur vi använder cookies samt hur du kan stänga av eller hantera dessa
+                om du så önskar.
             </p>
 
             <p>&copy; @DateTime.Now.Year - Hampes frilansare, med ensamrätt</p>
+        </section>
 
-        </footer>
+        <section>
+            <p>@Html.ActionLink("Om oss", "About", "Home")</p>
+            <p>@Html.ActionLink("Företag", "Index", "Customers")</p>
+            <p>@Html.ActionLink("Frilansare", "Index", "Freelancers")</p>
+            <p>@Html.ActionLink("Integritetspolicy", "Error", "Error")</p>
+            <p>@Html.ActionLink("Regler och villkor", "Error", "Error")</p>
+        </section>
+
+    </footer>
 
     <script src="https://kit.fontawesome.com/622bc9da0f.js" crossorigin="anonymous"></script>
     @Scripts.Render("~/bundles/jquery")

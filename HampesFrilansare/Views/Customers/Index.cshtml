@@ -1,4 +1,4 @@
-﻿@model IEnumerable<HampesFrilansare.ViewModels.FreelancerSearchModel>
+﻿@model HampesFrilansare.ViewModels.FreelancerSearchModelA
 
 @{
     ViewBag.Title = "Index";
@@ -15,6 +15,7 @@
             <div class="form-box">
                 <input type="text" class="search-field-customers"
                        placeholder="Sök efter kompetens, namn osv..." id="searchstr" />
+                @Html.DropDownListFor(m => m.searchcategories, Model.skit, new {@class = "form-control searchresult" })
             </div>
         </form>
 
@@ -39,8 +40,8 @@
         </tr>
     </thead>
 
-    <tbody id="searchresult">
-        @foreach (var item in Model)
+    <tbody class="searchresult">
+        @foreach (var item in Model.freelancers)
         {
             <tr>
                 <td>
@@ -62,7 +63,7 @@
     $(document).ready(function () {
         $("#searchstr").on("keyup", function () {
             var value = $(this).val().toLowerCase();
-            $("#searchresult tr").filter(function () {
+            $(".searchresult tr").filter(function () {
                 $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
             });
         });

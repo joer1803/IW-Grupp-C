@@ -2,8 +2,7 @@
     font: 16px/20px arial, verdana;
     background: #eceff1;
     color: #3d3d3d;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin: 2%;
 }
 .header{
     height: 50vh;
@@ -11,10 +10,6 @@
     justify-content: center;
     display: flex;
 
-}
-.ProfileCustomer{
-    margin-left: 20px !important;
-    padding-right: 20px !important;
 }
 .search-field-customers{
     height: 35px;
@@ -56,12 +51,10 @@
     max-height: 100%;
     width: auto;
     height: auto;
-
 }
 
 .jumbotron {
     background: #4E5D6C;
- 
 }
 
 #frilansare {
@@ -75,47 +68,43 @@
 h1 {
     color: #000000;
     padding: 2% 0 1% 0;
- 
 }
 
 h2 {
     color: #000000;
     padding: 2% 0 1% 0;
-
 }
 
 h3 {
     color: #000000;
     padding: 2% 0 1% 0;
-  
 }
 
 h6 {
     color: #000000;
- 
 }
 
 p {
     font-family: 'Times New Roman', Times, serif;
     color: #000000;
     padding: 1% 0;
-  
 }
 
+.margin{
 
+    margin-top: 65px;
+}
 
 a {
     color: #0000ff;
-    margin: 15px;
 }
 
-a:hover {
+    a:hover {
         color: #333399;
-}
+    }
 
 section {
     margin: 2% 0;
-    margin: 15px;
 }
 
 .newfoot {
@@ -126,8 +115,9 @@ section {
 }
 
 .newfoot section {
-    width: 31%;
-    margin: 1%;
+    width: 30%;
+    margin-top: 3%;
+    margin-left: 1%;
     float: left;
     text-align: center;
 }
@@ -147,28 +137,6 @@ section {
         .newfoot a:hover {
             color: #eceff1;
         }
-
-#newfootfb {
-    color: #DF7401;
-    padding: 4px;
-    float: left;
-    margin-left: 35%;
-    font-size: 30px;
-}
-
-#newfootli {
-    color: #DF7401;
-    padding: 4px;
-    float: left;
-    font-size: 30px;
-}
-
-#newfoottwi {
-    color: #DF7401;
-    padding: 4px;
-    float: left;
-    font-size: 30px;
-}
 
 .navbar{
     height: 65px;
@@ -216,63 +184,53 @@ nav ul li:hover ul {
     max-width: 100%;
     height: 200px;
     width: auto;
-  
 }
 
 .freelancerdetails {
     float: left;
     width: 20%;
- 
 }
 
 .freelancerintro {
     float: right;
     width: 80%;
     height: auto;
-   
 }
 
 .logolist {
     list-style: none;
-    
 }
 
     .logolist li {
         float: left;
         margin-right: 8px;
         font-size: 40px;
-        
     }
 
 .editprofilelinks {
     margin: 5% 0;
-  
-}
-
-.workexperiencelist {
-    font-family: 'Times New Roman', Times, serif;
-    color: #000000;
-  
-}
-
-    .workexperiencelist li {
-        padding: 5px;
-       
-    }
-
-.profilelists {
-    color: #000000;
-  
 }
 
 .profilelists {
     color: #000000;
-  
+}
+
+.profilelists {
+    color: #000000;
+}
+
+#starlist li {
+    margin: 2% 0;
+}
+
+.fas {
+    color: #b15315;
+    margin-left: 15px;
 }
 
 #linkgitmessage {
     font-size: 14px;
-  
+    margin-top: 20%;
 }
 
 
@@ -284,21 +242,18 @@ nav ul li:hover ul {
     height: 300px;
     width: auto;
     padding: 1%;
-   
 }
 .customertext {
     float: right;
     margin: 10px auto;
     width: 50%;
     height: auto;
-   
 }
-.facebook {
+.facebook{
     color: #000000;
-    float: left;
+    float:left;
     margin-right: 8px;
     font-size: 30px;
-   
 }
 .linkedin {
     color: #000000;
