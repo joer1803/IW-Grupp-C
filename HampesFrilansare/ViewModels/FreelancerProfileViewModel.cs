@@ -14,19 +14,15 @@ namespace HampesFrilansare.ViewModels
             educations = new List<Education>();
             competences = new List<Competence>();
             skills = new List<Skill>();
+            languages = new List<Language>();
         }
         public List<Experience> experiences { get; set; }
         public List<Education> educations { get; set; }
         public List<Competence> competences { get; set; }
         public List<Skill> skills { get; set; }
-        public int id { get; set; }
-        public string firstname { get; set; }
-        public string lastname { get; set; }
-        public string address { get; set; }
-        public string phonenumber { get; set; }
-        public string email { get; set; }
-        public string nationality { get; set; }
-        public string birtdate { get; set; }
-        public string languages { get; set; }
+        public Freelancer freelancer { get; set; }
+        public Resume resume { get; set; }
+        public List<Language> languages { get; set; }
+        public Driverslicence licence { get; set; }
     }
 }

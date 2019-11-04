@@ -4,17 +4,17 @@
 }
 
 
-<h2>@Html.DisplayFor(model => model.firstname) @Html.DisplayFor(model => model.lastname)</h2>
+<h2>@Html.DisplayFor(model => model.freelancer.firstname) @Html.DisplayFor(model => model.freelancer.lastname)</h2>
 <section class="freelancerdetails">
 
     <div>
         <img class="profileimg" src="~/Content/Img/frilansare.jpg" />
     </div>
     <p>
-        @Html.DisplayFor(model => model.address)<br />
-        @Html.DisplayFor(model => model.nationality)<br />
-        @Html.DisplayFor(model => model.phonenumber)<br />
-        @Html.DisplayFor(model => model.email)
+        @Html.DisplayFor(model => model.freelancer.address)<br />
+        @Html.DisplayFor(model => model.freelancer.nationality)<br />
+        @Html.DisplayFor(model => model.freelancer.phonenumber)<br />
+        @Html.DisplayFor(model => model.freelancer.email)
     </p>
     <div class="editprofilelinks"><a href="#">Redigera personuppgifter</a></div>
     <div class="editprofilelinks"><a href="#">Redigera ditt CV</a></div>
@@ -31,41 +31,27 @@
     <h6>Interaction Design (IxD) Developer i Stockholm, Sverige</h6>
 
     <p>
-        Jag har arbetat som professionell utvecklare i tio år. De senaste åren har jag arbetat mest som projektledare och som grafisk designer,
-
-        men jag har även designat komplexa system och hållit tal vid olika konferenser. Jag värdesätter enkelhet och effektivitet och gillar att
-
-        arbeta
-
-        med olika typer av interaktiva produkter oavsett plattform.
+        @Model.resume.profile
     </p>
 
     <h3>Arbetslivserfarenhet</h3>
     <p>
-        Senior Unity Developer<br />
-        2017 - PÅGÅENDE<br />
-        Cortina Productions<br />
-        Arbetar med interaktiva installationer och skapar interaktiva upplevelser med flera pekskärmar i Unity 3D.
-        Byggde ett klientvänligt installationsformat för enkel installation på plats på anpassad hårdvara.<br />
-        Teknologier: Unity 3D<br />
-        <br />
-        VD<br />
-        2010 - PÅGÅENDE<br />
-        Brutalism<br />
-        Startade ett eget företag med fokus på grafisk design.<br />
-        Teknologier: Unity 3D, Clojure, OpenGL, Shaders<br />
-        <br />
-        Back-end Developer<br />
-        2009 - 2010<br />
-        M2E Consulting<br />
-        Utvecklade en serie prototypappar och webbtjänster för att underlätta inspektion och övervakning för byggbranschens kunder.<br />
-        Teknologier: Objective-C, Xcode, PHP, Apache, Mercurial, Subversion<br />
+        @foreach (var e in Model.experiences)
+        {
+            <t>Roll: </t>@e.role
+            <br />
+            @e.startdate.Value.ToString("yyyy-MM-dd")<t> - </t>  @e.enddate.Value.ToString("yyyy-MM-dd") <br />
+            <t>Företag: </t>@e.name <br />
+            <t>Arbetsuppgifter: </t>@e.duty<br /><br/>
+
+        }
+
     </p>
 
     <h3>Kärnförmågor</h3>
 
 
-    <p>Erfarenhet med ramverk som ClojureScript, Unity3D, Unreal Engine, Akka.<br /> God erfarenhet med Xcode, Git, Eclipse IDE.</p>
+    <p>@Model.resume.coreability</p>
 
     <h3>Kompetens</h3>
     <ul class="profilelists" id="starlist">
@@ -95,27 +81,33 @@
 
         <h3>Språk</h3>
         <ul class="profilelists">
-            <li>C#</li>
-            <li>Objective-C</li>
-            <li>Clojure</li>
-            <li>Java</li>
-            <li>Python</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-            <li>Engelska</li>
-            <li>Svenska</li>
+            @foreach (var l in Model.languages)
+            {
+                <li>@l.name</li>
+            }
         </ul>
 
         <h3>Utbildning</h3>
         <p>
+            @foreach (var e in Model.educations)
+            {
+                <t>Examen:</t> @e.degree
+                <br />
+                <t>Ämne:</t> @e.subject
+                <br />
+                @e.startdate.Value.ToString("yyyy-MM-dd")<t> - </t> @e.enddate.Value.ToString("yyyy-MM-dd") <br />
+                @e.school <br /><br/>
+
+
+            }
             Filosofie kandidatexamen med huvudområdet informatik<br />
             2006 - 2009<br />
             Mittuniversitetet - Östersund
-        </p>
+            </>
 
-        <h3>Tillgänglighet</h3>
-        <p>Deltid</p>
+            <h3>Tillgänglighet</h3>
+<p>Deltid</p>
 
         <h3>Körkort</h3>
-        <p>B</p>
+        <p>@Model.licence.type</p>
     </section>
