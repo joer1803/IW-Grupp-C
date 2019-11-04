@@ -9,9 +9,12 @@ namespace HampesFrilansare.ViewModels
 {
     public class FreelancerSearchModelA
     {
-        public List<string> searchcategories { get; set; }
+        public List<int> searchcategories { get; set; }
+        public List<int> searchcompetence { get; set; }
+        public List<int> searchskill { get; set; }
         public List<FreelancerSearchModel> freelancers { get; set; }
         public List<SelectListItem> selectcategories { get; set; }
         public List<SelectListItem> selectskills { get; set; }
+        public List<SelectListItem> selectcompetence { get; set; }
     }
 }

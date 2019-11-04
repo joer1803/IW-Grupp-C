@@ -14,13 +14,12 @@
             <h2>Hitta frilansare</h2>
             <div class="form-box">
                 <input type="text" class="search-field-customers"
-                       placeholder="Sök efter kompetens, namn osv..." id="searchstr" />
-                @Html.DropDownListFor(m => m.searchcategories, Model.selectcategories, new { @class = "form-control searchresult" })
+                       placeholder="Sök efter kompetens, namn osv..." id="searchstr"/>
             </div>
-                @Html.DropDownListFor(m => m.searchcategories, Model.selectskills, new { @class = "form-control searchresult" })
-            </div>
+            @Html.DropDownListFor(m => m.searchcategories, Model.selectcategories, "Välj kategori", htmlAttributes: new { @class = "form-control ", @id= "searchcat" })
+            @Html.DropDownListFor(m => m.searchcompetence, Model.selectcompetence, "Välj Kompetens", new { @class = "form-control", @id="searchcomp"})
+            @Html.DropDownListFor(m => m.searchskill, Model.selectskills, "Välj teknologi", new { @class = "form-control" })
         </form>
-
     </div>
 
 </body>
@@ -31,6 +30,9 @@
         <tr>
             <th>
                 Namn
+            </th>
+            <th>
+                Kategori
             </th>
             <th>
                 Kompetenser
@@ -45,17 +47,20 @@
     <tbody class="searchresult">
         @foreach (var item in Model.freelancers)
         {
-            <tr>
-                <td>
-                    @item.fullname
-                </td>
-                <td>
-                    @item.compname
-                </td>
-                <td>
-                    @item.skillname
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @item.fullname
+            </td>
+            <td id="compcol">
+                @item.compcategory
+            </td>
+            <td>
+                @item.compname
+            </td>
+            <td>
+                @item.skillname
+            </td>
+        </tr>
         }
     </tbody>
 

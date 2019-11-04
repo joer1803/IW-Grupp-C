@@ -14,28 +14,54 @@ namespace HampesFrilansare.Controllers
     public class CustomersController : Controller
     {
         private hampesfrilansdbEntities db = new hampesfrilansdbEntities();
-     
+        FreelancerSearchModelA freelancerSearchCat;
+
         // GET: Customers
         public ActionResult Index()
         {
             return View("Index", "_NavbarCustomer", GetSearchFreeCategories());
         }
-        private FreelancerSearchModelA GetSearchFreeCategories()
+        public ActionResult GetComps(string category)
         {
-
-            FreelancerSearchModelA freelancerSearchCat = new FreelancerSearchModelA();
-            freelancerSearchCat.freelancers = GetFreelancerVM();
-            freelancerSearchCat.selectcategories = new List<SelectListItem>();
-            freelancerSearchCat.selectskills = db.Skill.Select(o => new SelectListItem
+            freelancerSearchCat.selectcompetence = db.Competence.Where(x=>x.category == category).Select(o => new SelectListItem
             {
                 Text = o.name,
                 Value = o.competenceID.ToString()
             }).ToList();
+            return View();
+        }
+        public ActionResult GetSkills(string compid)
+        {
+            freelancerSearchCat.selectskills = db.Skill.Where(x=>x.competenceID == int.Parse(compid)).Select(o => new SelectListItem
+            {
+                Text = o.name,
+                Value = o.competenceID.ToString()
+            }).Distinct().ToList();
+            return View();
+        }
+        private FreelancerSearchModelA GetSearchFreeCategories()
+        {
+
+            freelancerSearchCat = new FreelancerSearchModelA();
+            freelancerSearchCat.freelancers = GetFreelancerVM();
+            freelancerSearchCat.selectcategories = new List<SelectListItem>();
+            
             freelancerSearchCat.selectcategories = db.Competence.Select(o => new SelectListItem
             {
                 Text = o.category,
+                Value = o.category
+            }).Distinct().ToList();
+            freelancerSearchCat.selectcompetence = db.Competence.Select(o => new SelectListItem
+            {
+                Text = o.name,
+                Value = o.competenceID.ToString()
+            }).ToList();
+            freelancerSearchCat.selectskills = db.Skill.Select(o => new SelectListItem
+            {
+                Text = o.name,
                 Value = o.competenceID.ToString()
             }).Distinct().ToList();
+
 
             return freelancerSearchCat;
         }
