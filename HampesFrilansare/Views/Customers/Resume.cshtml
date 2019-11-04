@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_NavbarCustomer.cshtml";
 }
 
-<h2>Resume</h2>
+<h2>CV</h2>
 
 <h2>@Html.DisplayFor(model => model.freelancer.firstname) @Html.DisplayFor(model => model.freelancer.lastname)</h2>
 <section class="freelancerdetails">
@@ -18,18 +18,20 @@
         @Html.DisplayFor(model => model.freelancer.phonenumber)<br />
         @Html.DisplayFor(model => model.freelancer.email)
     </p>
-    <div class="editprofilelinks"><a href="#">Redigera personuppgifter</a></div>
-    <div class="editprofilelinks"><a href="#">Redigera ditt CV</a></div>
-    <div class="editprofilelinks"><a href="http://localhost:6162/Error/Error">Avregistrera konto</a></div>
 
-    <p id="linkgitmessage">Länka till din professionella profil</p>
+    <p id="sociallinksmessage">Ta kontakt med mig på:</p>
     <ul class="logolist">
         <li><a href="http://localhost:6162/Error/Error" class="fab fa-github-square"></a></li>
         <li><a href="http://localhost:6162/Error/Error" class="fab fa-linkedin"></a></li>
     </ul>
+    <div class="clear"></div>
+
 </section>
 
 <section class="freelancerintro">
+    <a href="#">Skriv ut CV som PDF</a>
+
+    <h3 id="resumeprofile">Min profil</h3>
     <p>
         @Model.resume.profile
     </p>
@@ -100,10 +102,6 @@
 
 
         }
-        Filosofie kandidatexamen med huvudområdet informatik<br />
-        2006 - 2009<br />
-        Mittuniversitetet - Östersund
-        </>
 
         <h3>Tillgänglighet</h3>
     <p>Deltid</p>
