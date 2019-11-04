@@ -200,6 +200,7 @@ nav ul li:hover ul {
     float: right;
     width: 80%;
     height: auto;
+    padding: 0px 20px;
 }
 
 .logolist {
