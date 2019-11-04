@@ -11,7 +11,7 @@ namespace HampesFrilansare.ViewModels
     {
         public List<string> searchcategories { get; set; }
         public List<FreelancerSearchModel> freelancers { get; set; }
-        public List<SelectListItem> skit { get; set; }
-
+        public List<SelectListItem> selectcategories { get; set; }
+        public List<SelectListItem> selectskills { get; set; }
     }
 }

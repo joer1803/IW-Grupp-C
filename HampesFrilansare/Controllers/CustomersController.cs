@@ -25,12 +25,17 @@ namespace HampesFrilansare.Controllers
 
             FreelancerSearchModelA freelancerSearchCat = new FreelancerSearchModelA();
             freelancerSearchCat.freelancers = GetFreelancerVM();
-            freelancerSearchCat.searchcategories = GetCategories();
-            freelancerSearchCat.skit = new List<SelectListItem>();
-            foreach(var s in freelancerSearchCat.searchcategories)
+            freelancerSearchCat.selectcategories = new List<SelectListItem>();
+            freelancerSearchCat.selectskills = db.Skill.Select(o => new SelectListItem
             {
-                freelancerSearchCat.skit.Add(new SelectListItem() { Text = s, Value = s });
-            }
+                Text = o.name,
+                Value = o.competenceID.ToString()
+            }).ToList();
+            freelancerSearchCat.selectcategories = db.Competence.Select(o => new SelectListItem
+            {
+                Text = o.category,
+                Value = o.competenceID.ToString()
+            }).Distinct().ToList();
 
             return freelancerSearchCat;
         }
