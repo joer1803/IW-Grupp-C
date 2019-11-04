@@ -4,26 +4,26 @@
     color: #3d3d3d;
     margin: 2%;
 }
-.header{
+
+.header {
     height: 50vh;
     align-items: center;
     justify-content: center;
     display: flex;
-
 }
-.search-field-customers{
+
+.search-field-customers {
     height: 35px;
     padding: 10px;
-    border:none;
+    border: none;
     border-radius: 10px;
     outline: none;
-
 }
-.buisness{
 
+.buisness {
     width: 400px;
-
 }
+
 .search-button {
     height: 35px;
     width: 100px;
@@ -36,6 +36,7 @@
     border-radius: 10px;
     font-size: 16px;
 }
+
 .btn-primary btn-lg {
     background-color: #555555;
     border: none;
@@ -46,6 +47,7 @@
     display: inline-block;
     font-size: 16px;
 }
+
 .mySlides {
     max-width: 100%;
     max-height: 100%;
@@ -58,7 +60,7 @@
 }
 
 #frilansare {
-   color: #eceff1;
+    color: #eceff1;
 }
 
 .lead {
@@ -90,8 +92,7 @@ p {
     padding: 1% 0;
 }
 
-.margin{
-
+.margin {
     margin-top: 65px;
 }
 
@@ -114,21 +115,21 @@ section {
     overflow: hidden;
 }
 
-.newfoot section {
-    width: 30%;
-    margin-top: 3%;
-    margin-left: 1%;
-    float: left;
-    text-align: center;
-}
+    .newfoot section {
+        width: 30%;
+        margin-top: 3%;
+        margin-left: 1%;
+        float: left;
+        text-align: center;
+    }
 
-.newfoot p {
-    color: #fff;
-}
+    .newfoot p {
+        color: #fff;
+    }
 
-.newfoot h6 {
-    color: #fff;
-}
+    .newfoot h6 {
+        color: #fff;
+    }
 
     .newfoot a {
         color: #cccccc;
@@ -138,7 +139,7 @@ section {
             color: #eceff1;
         }
 
-.navbar{
+.navbar {
     height: 65px;
     width: 100%;
     position: fixed;
@@ -168,6 +169,7 @@ nav ul li ul {
     opacity: 0.90;
     border-radius: 0px 0px 4px 4px;
 }
+
     nav ul li ul li a {
         padding: 12px 14px;
     }
@@ -243,24 +245,28 @@ nav ul li:hover ul {
     width: auto;
     padding: 1%;
 }
+
 .customertext {
     float: right;
     margin: 10px auto;
     width: 50%;
     height: auto;
 }
-.facebook{
+
+.facebook {
     color: #000000;
-    float:left;
+    float: left;
     margin-right: 8px;
     font-size: 30px;
 }
+
 .linkedin {
     color: #000000;
     float: left;
     margin-right: 8px;
     font-size: 30px;
 }
+
 .twitter {
     color: #000000;
     float: left;
