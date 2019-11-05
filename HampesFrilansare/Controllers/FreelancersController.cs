@@ -105,13 +105,14 @@ namespace HampesFrilansare.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "freelancerID,firstname,lastname,phonenumber,email,address,dateofbirth,birthplace,nationality")] Freelancer freelancer)
+        public ActionResult EditFreelancer([Bind(Include = "freelancerID,firstname,lastname,phonenumber,email,address,dateofbirth,birthplace,nationality, resumeID")] Freelancer freelancer)
         {
+            int id = freelancer.freelancerID;
             if (ModelState.IsValid)
             {
                 db.Entry(freelancer).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("FreelancerProfile", id);
             }
             return View(freelancer);
         }
@@ -153,6 +154,10 @@ namespace HampesFrilansare.Controllers
 
         public ActionResult FreelancerProfile(int? id)
         {
+            if (id == null)
+            {
+                return View(GetProfile((int)Session["freeID"]));
+            }
             Session["freeID"] = id;
             return View(GetProfile(id));
         }

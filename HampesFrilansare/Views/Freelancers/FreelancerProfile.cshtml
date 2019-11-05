@@ -16,10 +16,8 @@
         @Html.DisplayFor(model => model.freelancer.phonenumber)<br />
         @Html.DisplayFor(model => model.freelancer.email)
     </p>
-    <div class="editprofilelinks"><a href="#">Redigera personuppgifter</a></div>
-    <div class="editprofilelinks"><a href="#">Redigera ditt CV</a></div>
-    <div class="editprofilelinks"><a href="http://localhost:6162/Error/Error">Avregistrera konto</a></div>
-    
+    @Html.ActionLink("Ändra personuppgifter", "Edit", new { id = Model.freelancer.freelancerID }, new {@class="editprofilelinks" })
+
     <p id="linkgitmessage">Länka till din professionella profil</p>
     <ul class="logolist">
         <li><a href="http://localhost:6162/Error/Error" class="fab fa-github-square"></a></li>
