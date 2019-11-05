@@ -18,7 +18,7 @@
         @Html.HiddenFor(model => model.resumeID)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.profile, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.profile, htmlAttributes: new { @class = "control-label col-md-2" }, labelText: "Profil")
             <div class="col-md-10">
                 @Html.EditorFor(model => model.profile, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.profile, "", new { @class = "text-danger" })
@@ -26,7 +26,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.coreability, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.coreability, htmlAttributes: new { @class = "control-label col-md-2" }, labelText: "Kärnförmågor")
             <div class="col-md-10">
                 @Html.EditorFor(model => model.coreability, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.coreability, "", new { @class = "text-danger" })
@@ -34,7 +34,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.licenceID, "licenceID", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.licenceID, "Körkort", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("licenceID", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.licenceID, "", new { @class = "text-danger" })
