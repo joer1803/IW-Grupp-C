@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using HampesFrilansare.Models;
+using HampesFrilansare.ViewModels;
 
 namespace HampesFrilansare.Controllers
 {
@@ -185,6 +186,37 @@ namespace HampesFrilansare.Controllers
             };
             return View(xp);
         }
+        public ActionResult Driverslicence(int id)
+        {
+            Session["id"] = id;
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditDriverslicence([Bind(Include = "licenceID, type")] Driverslicence licence)
+        {
+            int id = (int)Session["id"];
+            int freeID = db.Freelancer.First(x => x.resumeID == id).freelancerID;
+            Resume r = db.Resume.First(x => x.resumeID == id);
+            if (ModelState.IsValid)
+            {
+                if(r.Driverslicence == null)
+                {
+                    r.Driverslicence = db.Driverslicence.Add(licence);
+                    db.Entry(r).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+                else
+                {
+                    r.Driverslicence.type = licence.type;
+                    db.Entry(r.Driverslicence).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+                return RedirectToAction("FreelancerProfile", "Freelancers", new { id = freeID });
 
+            }
+
+            return View(licence);
+        }
     }
 }

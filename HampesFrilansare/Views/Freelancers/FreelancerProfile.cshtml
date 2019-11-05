@@ -53,6 +53,7 @@
 
     <p>@Model.resume.coreability</p>
 
+    @Html.ActionLink(linkText: "Redigera kärnförmågor", actionName: "Edit", controllerName: "Resumes", routeValues: new { id = Model.resume.resumeID }, htmlAttributes: new { @class = "btn btn-secondary" })
     <h3>Kompetens</h3>
     <ul class="profilelists" id="starlist">
         @foreach (var item in Model.competences)
@@ -77,6 +78,7 @@
 
         }
     </ul>
+    @Html.ActionLink(linkText: "Lägg till kompetens", actionName: "Competence", controllerName: "Resumes", routeValues: new { id = Model.resume.resumeID }, htmlAttributes: new { @class = "btn btn-secondary" })
 
 
     <h3>Språk</h3>
@@ -86,6 +88,7 @@
             <li>@l.name</li>
         }
     </ul>
+    @Html.ActionLink(linkText: "Lägg till språk", actionName: "Language", controllerName: "Resumes", routeValues: new { id = Model.resume.resumeID }, htmlAttributes: new { @class = "btn btn-secondary" })
 
     <h3>Utbildning</h3>
     <p>
@@ -106,4 +109,6 @@
 
     <h3>Körkort</h3>
     <p>@Model.licence.type</p>
+
+    @Html.ActionLink(linkText: "Ändra körkortstyp", actionName: "Driverslicence", controllerName: "Resumes", routeValues: new { id = Model.resume.resumeID }, htmlAttributes: new { @class = "btn btn-secondary" })
 </section>

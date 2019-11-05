@@ -174,6 +174,7 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\DriverslicenceViewModel.cs" />
     <Compile Include="ViewModels\FreelancerProfileViewModel.cs" />
     <Compile Include="ViewModels\FreelancerResumeViewModel.cs" />
     <Compile Include="ViewModels\FreelancerSearchModel.cs" />
@@ -313,7 +314,8 @@
     <Content Include="Views\Resumes\Education.cshtml" />
     <Content Include="Views\Resumes\Experience.cshtml" />
     <Content Include="Views\Resumes\CompetenceSkill.cshtml" />
-    <Content Include="Views\Resumes\DriverlicenceLanguage.cshtml" />
+    <Content Include="Views\Resumes\Driverslicence.cshtml" />
+    <Content Include="Views\Resumes\Language.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
