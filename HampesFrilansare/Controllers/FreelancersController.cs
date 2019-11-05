@@ -151,9 +151,9 @@ namespace HampesFrilansare.Controllers
             base.Dispose(disposing);
         }
 
-        public ActionResult FreelancerProfile()
+        public ActionResult FreelancerProfile(int id)
         {
-            return View(GetProfile(1));
+            return View(GetProfile(id));
         }
 
         public FreelancerProfileViewModel GetProfile(int id)
