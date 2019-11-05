@@ -84,11 +84,12 @@ namespace HampesFrilansare.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "resumeID,profile,coreability,licenceID")] Resume resume)
         {
+            int freeID = db.Freelancer.First(x => x.resumeID == resume.resumeID).freelancerID;
             if (ModelState.IsValid)
             {
                 db.Entry(resume).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("FreelancerProfile", "Freelancers",new { id = freeID });
             }
             ViewBag.licenceID = new SelectList(db.Driverslicence, "licenceID", "type", resume.licenceID);
             return View(resume);
@@ -128,5 +129,62 @@ namespace HampesFrilansare.Controllers
             }
             base.Dispose(disposing);
         }
+        public ActionResult Education(int id)
+        {
+            Education ed = new Education()
+            {
+                resumeID = id
+            };
+            return View(ed);
+        }
+        //public ActionResult EditEducation([Bind(Include = "resumeID,profile,coreability,licenceID")] Education education)
+        //{
+        //    int freeID = db.Freelancer.First(x => x.resumeID == resume.resumeID).freelancerID;
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.Entry(resume).State = EntityState.Modified;
+        //        db.SaveChanges();
+        //        return RedirectToAction("FreelancerProfile", "Freelancers", new { id = freeID });
+        //    }
+        //    ViewBag.licenceID = new SelectList(db.Driverslicence, "licenceID", "type", resume.licenceID);
+        //    return View(resume);
+        //}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateEducation([Bind(Include = "resumeID ,school, startdate, enddate, subject, degree")] Education education)
+        {
+            int freeID = db.Freelancer.First(x => x.resumeID == education.resumeID).freelancerID;
+            if (ModelState.IsValid)
+            {
+                db.Education.Add(education);
+                db.SaveChanges();
+                return RedirectToAction("FreelancerProfile", "Freelancers", new { id = freeID });
+            }
+
+            return View(education);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateExperience([Bind(Include = "resumeID ,name,role,startdate,enddate,duty")] Experience experience)
+        {
+            int freeID = db.Freelancer.First(x => x.resumeID == experience.resumeID).freelancerID;
+            if (ModelState.IsValid)
+            {
+                db.Experience.Add(experience);
+                db.SaveChanges();
+                return RedirectToAction("FreelancerProfile", "Freelancers", new { id = freeID });
+            }
+
+            return View(experience);
+        }
+        public ActionResult Experience(int id)
+        {
+            Experience xp = new Experience()
+            {
+                resumeID = id
+            };
+            return View(xp);
+        }
+
     }
 }

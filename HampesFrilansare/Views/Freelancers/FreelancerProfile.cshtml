@@ -32,7 +32,7 @@
     <p>
         @Model.resume.profile
     </p>
-
+    @Html.ActionLink(linkText: "Redigera presentation", actionName: "Edit", controllerName: "Resumes", routeValues: new { id = Model.resume.resumeID }, htmlAttributes: new { @class = "btn btn-secondary" })
     <h3>Arbetslivserfarenhet</h3>
     <p>
         @foreach (var e in Model.experiences)
@@ -46,6 +46,7 @@
         }
 
     </p>
+    @Html.ActionLink(linkText: "Lägg till arbete", actionName: "Experience", controllerName: "Resumes", routeValues: new { id = Model.resume.resumeID }, htmlAttributes: new { @class = "btn btn-secondary" })
 
     <h3>Kärnförmågor</h3>
 
@@ -99,7 +100,7 @@
 
 
         }
-
+        @Html.ActionLink(linkText: "Lägg till utbildning", actionName: "Education", controllerName: "Resumes", routeValues: new { id = Model.resume.resumeID }, htmlAttributes: new { @class = "btn btn-secondary" })
         <h3>Tillgänglighet</h3>
     <p>Deltid</p>
 

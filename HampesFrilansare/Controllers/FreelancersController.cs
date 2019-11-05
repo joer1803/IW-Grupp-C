@@ -151,12 +151,13 @@ namespace HampesFrilansare.Controllers
             base.Dispose(disposing);
         }
 
-        public ActionResult FreelancerProfile(int id)
+        public ActionResult FreelancerProfile(int? id)
         {
+            Session["freeID"] = id;
             return View(GetProfile(id));
         }
 
-        public FreelancerProfileViewModel GetProfile(int id)
+        public FreelancerProfileViewModel GetProfile(int? id)
         {
             var profileView = new FreelancerProfileViewModel();
 
