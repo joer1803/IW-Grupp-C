@@ -66,23 +66,19 @@ namespace HampesFrilansare.Controllers
             }
             return Json(comps, JsonRequestBehavior.AllowGet);
         }
-        public ActionResult GetSkills(string compid)
+        public JsonResult GetSkills(string compid)
         {
-            freelancerSearchCat.selectskills = db.Skill.Where(x=>x.competenceID == int.Parse(compid)).Select(o => new SelectListItem
-            {
-                Text = o.name,
-                Value = o.competenceID.ToString()
-            }).Distinct().ToList();
-            return View();
+            db.Configuration.ProxyCreationEnabled = false;
+            int id = int.Parse(compid);
+            List<Skill> skills = db.Skill.Where(x => x.competenceID == id).ToList();
+
+            return Json(skills, JsonRequestBehavior.AllowGet);
         }
         private FreelancerSearchModelA GetSearchFreeCategories()
         {
 
             freelancerSearchCat = new FreelancerSearchModelA();
             freelancerSearchCat.freelancers = GetFreelancerVM();
-            freelancerSearchCat.selectcategories = new List<SelectListItem>();
-
-
             return freelancerSearchCat;
         }
         private List<FreelancerSearchModel> GetFreelancerVM()
