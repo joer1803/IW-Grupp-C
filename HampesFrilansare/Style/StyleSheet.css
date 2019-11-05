@@ -1,8 +1,13 @@
-﻿body {
-    font: 16px/20px arial, verdana;
+﻿* {
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+body {
+    font: 18px/20px Verdana, Geneva, Tahoma, sans-serif;
     background: #eceff1;
     color: #3d3d3d;
-  
 }
 
 .header {
@@ -91,13 +96,9 @@ h6 {
 }
 
 p {
-    font-family: 'Times New Roman', Times, serif;
+    font-family: Garamond,'Times New Roman', Times, serif;
     color: #000000;
     padding: 1% 0;
-}
-
-.margin {
-    margin-top: 65px;
 }
 
 a {
@@ -121,9 +122,7 @@ section {
 
     .newfoot section {
         width: 30%;
-        margin-top: 2%;
-        margin-bottom: 1%;
-        margin-left: 1%;
+        margin-left: 3%;
         float: left;
         text-align: center;
     }
@@ -131,6 +130,7 @@ section {
     .newfoot p {
         text-align: center;
         color: #fff;
+        padding: 0;
     }
 
     .newfoot h6 {
@@ -303,8 +303,8 @@ nav ul li:hover ul {
 ul.socialicon li {
     display: inline-block;
     text-align: center;
-    margin-right: 10px;
-    padding-right: 10%;
+    margin-right: 1%;
+    padding-right: 2%;
 }
 
 .social{
@@ -321,7 +321,7 @@ footer.second {
 }
     footer.second p {
         color: #fff;
-        font-size: 9px;
+        font-size: 1rem;
     }
 
 .footerlinks p{
