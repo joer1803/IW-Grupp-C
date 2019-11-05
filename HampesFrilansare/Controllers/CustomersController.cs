@@ -19,16 +19,52 @@ namespace HampesFrilansare.Controllers
         // GET: Customers
         public ActionResult Index()
         {
+            List<Competence> comps = db.Competence.ToList();
+            int count = 0;
+            for (int i=0;i<comps.Count;i++)
+            {
+                for(int j = 0; j < comps.Count; j++)
+                {
+                    if(comps[i].category == comps[j].category)
+                    {
+                        count++;
+                        if(count == 2)
+                        {
+                            comps.RemoveAt(i);
+                            i = 0;
+                            j = 0;
+                        }
+                    }
+                }
+                count = 0;
+            }
+            
+            ViewBag.CompList = new SelectList(comps, "category", "category");
             return View("Index", "_NavbarCustomer", GetSearchFreeCategories());
         }
-        public ActionResult GetComps(string category)
+        public JsonResult GetComps(string category)
         {
-            freelancerSearchCat.selectcompetence = db.Competence.Where(x=>x.category == category).Select(o => new SelectListItem
+            db.Configuration.ProxyCreationEnabled = false;
+            List<Competence> comps = db.Competence.Where(x => x.category == category).ToList();
+            int count = 0;
+            for (int i = 0; i < comps.Count; i++)
             {
-                Text = o.name,
-                Value = o.competenceID.ToString()
-            }).ToList();
-            return View();
+                for (int j = 0; j < comps.Count; j++)
+                {
+                    if (comps[i].name == comps[j].name)
+                    {
+                        count++;
+                        if (count == 2)
+                        {
+                            comps.RemoveAt(i);
+                            i = 0;
+                            j = 0;
+                        }
+                    }
+                }
+                count = 0;
+            }
+            return Json(comps, JsonRequestBehavior.AllowGet);
         }
         public ActionResult GetSkills(string compid)
         {
@@ -45,22 +81,6 @@ namespace HampesFrilansare.Controllers
             freelancerSearchCat = new FreelancerSearchModelA();
             freelancerSearchCat.freelancers = GetFreelancerVM();
             freelancerSearchCat.selectcategories = new List<SelectListItem>();
-            
-            freelancerSearchCat.selectcategories = db.Competence.Select(o => new SelectListItem
-            {
-                Text = o.category,
-                Value = o.category
-            }).Distinct().ToList();
-            freelancerSearchCat.selectcompetence = db.Competence.Select(o => new SelectListItem
-            {
-                Text = o.name,
-                Value = o.competenceID.ToString()
-            }).ToList();
-            freelancerSearchCat.selectskills = db.Skill.Select(o => new SelectListItem
-            {
-                Text = o.name,
-                Value = o.competenceID.ToString()
-            }).Distinct().ToList();
 
 
             return freelancerSearchCat;
