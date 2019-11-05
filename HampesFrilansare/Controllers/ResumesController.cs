@@ -218,5 +218,45 @@ namespace HampesFrilansare.Controllers
 
             return View(licence);
         }
+        public ActionResult AddCompetence([Bind(Include = "name, category, resumeID")] Competence comp)
+        {
+            int freeID = db.Freelancer.First(x => x.resumeID == comp.resumeID).freelancerID;
+            if (ModelState.IsValid)
+            {
+                db.Competence.Add(comp);
+                db.SaveChanges();
+                return RedirectToAction("FreelancerProfile", "Freelancers", new { id = freeID });
+            }
+
+            return View(comp);
+        }
+        public ActionResult AddLanguage([Bind(Include = "name, resumeID")] Language lang)
+        {
+            int freeID = db.Freelancer.First(x => x.resumeID == lang.resumeID).freelancerID;
+            if (ModelState.IsValid)
+            {
+                db.Language.Add(lang);
+                db.SaveChanges();
+                return RedirectToAction("FreelancerProfile", "Freelancers", new { id = freeID });
+            }
+
+            return View(lang);
+        }
+        public ActionResult Language(int id)
+        {
+            Language l = new Language()
+            {
+                resumeID = id
+            };
+            return View(l);
+        }
+        public ActionResult CompetenceSkill(int id)
+        {
+            Competence c = new Competence()
+            {
+                resumeID = id
+            };
+            return View(c);
+        }
     }
 }
