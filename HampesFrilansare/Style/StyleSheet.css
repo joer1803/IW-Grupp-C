@@ -203,6 +203,10 @@ nav ul li:hover ul {
     padding: 0px 20px;
 }
 
+.clear {
+    clear: both;
+}
+
 .logolist {
     list-style: none;
 }
@@ -320,3 +324,13 @@ footer.second {
     padding-bottom: 0%;
     padding-top: 0%;
 }
+
+/*resume*/
+#sociallinksmessage{
+    margin-top: 5%;
+}
+
+#resumeprofile{
+    margin-top: 3%;
+}
+
