@@ -127,6 +127,7 @@
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\FreelancersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ResumesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -304,6 +305,11 @@
     <Content Include="Views\Shared\_NavbarFreelancer.cshtml" />
     <Content Include="Views\Shared\_NavbarCustomer.cshtml" />
     <Content Include="Views\Customers\Resume.cshtml" />
+    <Content Include="Views\Resumes\Create.cshtml" />
+    <Content Include="Views\Resumes\Delete.cshtml" />
+    <Content Include="Views\Resumes\Details.cshtml" />
+    <Content Include="Views\Resumes\Edit.cshtml" />
+    <Content Include="Views\Resumes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

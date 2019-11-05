@@ -1,0 +1,42 @@
+﻿@model HampesFrilansare.Models.Resume
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Resume</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.profile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.profile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.coreability)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.coreability)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Driverslicence.type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Driverslicence.type)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.resumeID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

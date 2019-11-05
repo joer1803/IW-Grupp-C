@@ -1,0 +1,45 @@
+﻿@model IEnumerable<HampesFrilansare.Models.Resume>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.profile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.coreability)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Driverslicence.type)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.profile)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.coreability)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Driverslicence.type)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.resumeID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.resumeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.resumeID })
+        </td>
+    </tr>
+}
+
+</table>
