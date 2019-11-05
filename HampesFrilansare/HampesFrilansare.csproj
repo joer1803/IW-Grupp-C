@@ -310,6 +310,10 @@
     <Content Include="Views\Resumes\Details.cshtml" />
     <Content Include="Views\Resumes\Edit.cshtml" />
     <Content Include="Views\Resumes\Index.cshtml" />
+    <Content Include="Views\Resumes\Education.cshtml" />
+    <Content Include="Views\Resumes\Experience.cshtml" />
+    <Content Include="Views\Resumes\CompetenceSkill.cshtml" />
+    <Content Include="Views\Resumes\DriverlicenceLanguage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
