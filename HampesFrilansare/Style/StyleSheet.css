@@ -182,6 +182,10 @@ section {
     color: #EDF0F2;
 }
 
+.container {
+    color: #4E5D6C;
+}
+
 .navbar {
     height: 65px;
     width: 100%;
@@ -225,6 +229,9 @@ nav ul:hover ul{
     display: block;
 }
 
+.nav-collaps{
+    background-color: #4E5D6C;
+}
 
 /*FreelancerProfile-sidan*/
 
@@ -405,3 +412,4 @@ div {
     display: inline-block;
     font-size: 16px;
 }
+/*Navbar hamburgare*/
