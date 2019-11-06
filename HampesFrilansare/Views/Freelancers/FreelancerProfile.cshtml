@@ -4,19 +4,21 @@
 }
 
 
-<h2>@Html.DisplayFor(model => model.freelancer.firstname) @Html.DisplayFor(model => model.freelancer.lastname)</h2>
 <section class="freelancerdetails">
+
 
     <div>
         <img class="profileimg" src="~/Content/Img/frilansare.jpg" />
     </div>
+
+    <h3>@Html.DisplayFor(model => model.freelancer.firstname) @Html.DisplayFor(model => model.freelancer.lastname)</h3>
     <p>
         @Html.DisplayFor(model => model.freelancer.address)<br />
         @Html.DisplayFor(model => model.freelancer.nationality)<br />
         @Html.DisplayFor(model => model.freelancer.phonenumber)<br />
         @Html.DisplayFor(model => model.freelancer.email)
     </p>
-    @Html.ActionLink("Ändra personuppgifter", "Edit", new { id = Model.freelancer.freelancerID }, new {@class="editprofilelinks" })
+    @Html.ActionLink("Ändra personuppgifter", "Edit", new { id = Model.freelancer.freelancerID }, new { @class = "editprofilelinks" })
 
     <p id="linkgitmessage">Länka till din professionella profil</p>
     <ul class="logolist">
@@ -31,6 +33,7 @@
         @Model.resume.profile
     </p>
     @Html.ActionLink(linkText: "Redigera presentation", actionName: "Edit", controllerName: "Resumes", routeValues: new { id = Model.resume.resumeID }, htmlAttributes: new { @class = "btn btn-secondary" })
+    <hr />
     <h3>Arbetslivserfarenhet</h3>
     <p>
         @foreach (var e in Model.experiences)
@@ -45,13 +48,14 @@
 
     </p>
     @Html.ActionLink(linkText: "Lägg till arbete", actionName: "Experience", controllerName: "Resumes", routeValues: new { id = Model.resume.resumeID }, htmlAttributes: new { @class = "btn btn-secondary" })
-
+    <hr />
     <h3>Kärnförmågor</h3>
 
 
     <p>@Model.resume.coreability</p>
 
     @Html.ActionLink(linkText: "Redigera kärnförmågor", actionName: "Edit", controllerName: "Resumes", routeValues: new { id = Model.resume.resumeID }, htmlAttributes: new { @class = "btn btn-secondary" })
+    <hr />
     <h3>Kompetens</h3>
     <ul class="profilelists" id="starlist">
         @foreach (var item in Model.competences)
@@ -78,7 +82,7 @@
     </ul>
     @Html.ActionLink(linkText: "Lägg till kompetens", actionName: "CompetenceSkill", controllerName: "Resumes", routeValues: new { id = Model.resume.resumeID }, htmlAttributes: new { @class = "btn btn-secondary" })
 
-
+    <hr />
     <h3>Språk</h3>
     <ul class="profilelists">
         @foreach (var l in Model.languages)
@@ -88,6 +92,7 @@
     </ul>
     @Html.ActionLink(linkText: "Lägg till språk", actionName: "Language", controllerName: "Resumes", routeValues: new { id = Model.resume.resumeID }, htmlAttributes: new { @class = "btn btn-secondary" })
 
+    <hr />
     <h3>Utbildning</h3>
     <p>
         @foreach (var e in Model.educations)
@@ -102,9 +107,10 @@
 
         }
         @Html.ActionLink(linkText: "Lägg till utbildning", actionName: "Education", controllerName: "Resumes", routeValues: new { id = Model.resume.resumeID }, htmlAttributes: new { @class = "btn btn-secondary" })
+        <hr />
         <h3>Tillgänglighet</h3>
     <p>Deltid</p>
-
+    <hr />
     <h3>Körkort</h3>
     <p>@Model.licence.type</p>
 
