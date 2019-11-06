@@ -252,11 +252,31 @@ namespace HampesFrilansare.Controllers
         }
         public ActionResult CompetenceSkill(int id)
         {
-            Competence c = new Competence()
+            List<Competence> comps = db.Competence.ToList();
+            int count = 0;
+            for (int i = 0; i < comps.Count; i++)
             {
-                resumeID = id
-            };
-            return View(c);
+                for (int j = 0; j < comps.Count; j++)
+                {
+                    if (comps[i].category == comps[j].category)
+                    {
+                        count++;
+                        if (count == 2)
+                        {
+                            comps.RemoveAt(i);
+                            i = 0;
+                            j = 0;
+                        }
+                    }
+                }
+                count = 0;
+            }
+
+            ViewBag.CompList = new SelectList(comps, "category", "category");
+            CompetenceSkillViewModel cvm = new CompetenceSkillViewModel();
+            cvm.competence = new Competence();
+            cvm.competence.resumeID = id;
+            return View(cvm);
         }
     }
 }
