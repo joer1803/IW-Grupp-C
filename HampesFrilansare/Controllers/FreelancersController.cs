@@ -75,11 +75,12 @@ namespace HampesFrilansare.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult SignupFreelance([Bind(Include = "freelancerID, firstname, lastname, email")] Freelancer freelancer)
         {
+            int id = freelancer.freelancerID;
             if (ModelState.IsValid)
             {
                 db.Freelancer.Add(freelancer);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("FreelancerProfile", id);
             }
 
             return View(freelancer);

@@ -5,7 +5,7 @@
 }
 
 body {
-    font: 18px/20px Verdana, Geneva, Tahoma, sans-serif;
+    font: 18px/20px 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background: #eceff1;
     color: #3d3d3d;
 }
@@ -74,6 +74,7 @@ body {
 
 .lead {
     color: #eceff1;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
 h1 {
