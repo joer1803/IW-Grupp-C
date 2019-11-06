@@ -75,12 +75,23 @@ namespace HampesFrilansare.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult SignupFreelance([Bind(Include = "freelancerID, firstname, lastname, email")] Freelancer freelancer)
         {
-            int id = freelancer.freelancerID;
+            
             if (ModelState.IsValid)
             {
+                Resume r = new Resume();
+                Driverslicence d = new Driverslicence();
+                d.type = "";
+                db.Driverslicence.Add(d);
+                db.SaveChanges();
+                r.licenceID = d.licenceID;
+                db.Resume.Add(r);
+                db.SaveChanges();
+                freelancer.resumeID = r.resumeID;
                 db.Freelancer.Add(freelancer);
                 db.SaveChanges();
-                return RedirectToAction("FreelancerProfile", id);
+                int id = freelancer.freelancerID;
+                Session["freeID"] = id;
+                return RedirectToAction("FreelancerProfile", freelancer.freelancerID);
             }
 
             return View(freelancer);
@@ -182,8 +193,9 @@ namespace HampesFrilansare.Controllers
                 db.Experience.Where(i => i.resumeID == profileView.resume.resumeID).ToList();
             profileView.educations = 
                 db.Education.Where(i => i.resumeID == profileView.resume.resumeID).ToList();
-            profileView.licence = 
+            profileView.licence =
                 db.Driverslicence.First(i => i.licenceID == profileView.resume.licenceID);
+
 
             return profileView;
         }
