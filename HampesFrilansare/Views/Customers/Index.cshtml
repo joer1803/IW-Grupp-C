@@ -16,12 +16,7 @@
             <input type="text" class="search-field-customers"
                    placeholder="Sök efter kompetens, namn osv..." id="searchstr" />
         </div>
-        @using (Html.BeginForm())
-        {
-            @Html.DropDownListFor(m => m.category, ViewBag.CompList as SelectList, "Välj kategori", htmlAttributes: new { @class = "form-control"})
-            @Html.DropDownListFor(m => m.compID, new SelectList(" "), "Välj Kompetens", new { @class = "form-control" })
-            @Html.DropDownListFor(m => m.skillID, new SelectList(" "), "Välj teknologi", new { @class = "form-control" })
-        }
+
     </div>
 </body>
 
@@ -75,25 +70,4 @@
         });
     });
 </script>
-<script>
-    $(document).ready(function () {
-        $("#category").change(function () {
-            $.get("/Customers/GetComps", { category: $("#category").val() }, function (data) {
-                $("#compID").empty();
-                $.each(data, function (index, row) {
-                    $("#compID").append("<option value='" + row.competenceID + "'>" + row.name + "</option>")
-                });
-            });
-        });
-    });
-    $(document).ready(function () {
-        $("#compID").change(function () {
-            $.get("/Customers/GetSkills", { compID: $("#compID").val() }, function (data) {
-                $("#skillID").empty();
-                $.each(data, function (index, row) {
-                    $("#skillID").append("<option value='" + row.skillID + "'>" + row.name + "</option>")
-                });
-            });
-        });
-    });
-</script>
+
