@@ -39,7 +39,6 @@ namespace HampesFrilansare.Controllers
                 count = 0;
             }
             
-            ViewBag.CompList = new SelectList(comps, "category", "category");
             return View("Index", "_NavbarCustomer", GetSearchFreeCategories());
         }
         public JsonResult GetComps(string category)
