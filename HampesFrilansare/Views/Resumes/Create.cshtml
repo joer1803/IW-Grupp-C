@@ -16,14 +16,14 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.profile, htmlAttributes: new { @class = "control-label" }, labelText: "Profil")
-                @Html.TextAreaFor(model => model.profile, 5, 40, new { htmlAttributes = new { @class = "form-control1"} })
+            @Html.LabelFor(model => model.profile, htmlAttributes: new { @class = "control-label" }, labelText: "Profil")<br />
+                @Html.TextAreaFor(model => model.profile, 5, 40, new { htmlAttributes = new { @class = "form-control"} })
                 @Html.ValidationMessageFor(model => model.profile, "", new { @class = "text-danger" })
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.coreability, htmlAttributes: new { @class = "control-label" }, labelText: "Kärnförmågor")
-                @Html.TextAreaFor(model => model.coreability, 5, 40, new { htmlAttributes = new { @class = "form-control1" } })
+            @Html.LabelFor(model => model.coreability, htmlAttributes: new { @class = "control-label" }, labelText: "Kärnförmågor")<br />
+                @Html.TextAreaFor(model => model.coreability, 5, 40, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.coreability, "", new { @class = "text-danger" })
         </div>
 
