@@ -16,33 +16,25 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.profile, htmlAttributes: new { @class = "control-label col-md-2" }, labelText: "Profil")
-            <div class="col-md-10">
+            @Html.LabelFor(model => model.profile, htmlAttributes: new { @class = "control-label" }, labelText: "Profil")
                 @Html.TextAreaFor(model => model.profile, 5, 40, new { htmlAttributes = new { @class = "form-control1"} })
                 @Html.ValidationMessageFor(model => model.profile, "", new { @class = "text-danger" })
-            </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.coreability, htmlAttributes: new { @class = "control-label col-md-2" }, labelText: "Kärnförmågor")
-            <div class="col-md-10">
+            @Html.LabelFor(model => model.coreability, htmlAttributes: new { @class = "control-label" }, labelText: "Kärnförmågor")
                 @Html.TextAreaFor(model => model.coreability, 5, 40, new { htmlAttributes = new { @class = "form-control1" } })
                 @Html.ValidationMessageFor(model => model.coreability, "", new { @class = "text-danger" })
-            </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.licenceID, "Körkort", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+            @Html.LabelFor(model => model.licenceID, "Körkort", htmlAttributes: new { @class = "control-label" })
                 @Html.DropDownList("licenceID", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.licenceID, "", new { @class = "text-danger" })
-            </div>
         </div>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Lägg till" class="btn btn-default" />
-            </div>
         </div>
     </div>
 }
