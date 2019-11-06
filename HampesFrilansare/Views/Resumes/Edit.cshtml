@@ -20,7 +20,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.profile, htmlAttributes: new { @class = "control-label col-md-2" }, labelText: "Profil")
         <div class="col-md-10">
-            @Html.EditorFor(model => model.profile, new { htmlAttributes = new { @class = "form-control edittext" } })
+            @Html.TextAreaFor(model => model.profile, 5, 40, new { htmlAttributes = new { @class = "form-control edittext" } })
             @Html.ValidationMessageFor(model => model.profile, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -33,7 +33,7 @@
     <div class="form-group">
         @Html.LabelFor(model => model.coreability, htmlAttributes: new { @class = "control-label col-md-2" }, labelText: "Kärnförmågor")
         <div class="col-md-10">
-            @Html.EditorFor(model => model.coreability, new { htmlAttributes = new { @class = "form-control edittext" } })
+            @Html.TextAreaFor(model => model.coreability, 5, 40, new { htmlAttributes = new { @class = "form-control edittext" } })
             @Html.ValidationMessageFor(model => model.coreability, "", new { @class = "text-danger" })
         </div>
     </div>
