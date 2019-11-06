@@ -339,3 +339,11 @@ footer.second {
     margin-top: 3%;
 }
 
+/*textarea for profile and core ability*/
+.form-control1{
+    text-align: left;
+    vertical-align: top;
+    resize: none;
+    
+}
+
