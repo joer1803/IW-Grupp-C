@@ -10,38 +10,61 @@
 {
     @Html.AntiForgeryToken()
 
-<div class="form-horizontal">
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    @Html.HiddenFor(model => model.competence.resumeID)
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.competence.resumeID)
 
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.competence.category, htmlAttributes: new { @class = "control-label" }, labelText: "Inriktning")
+        <div class="form-group">
+            @Html.LabelFor(model => model.competence.category, htmlAttributes: new { @class = "control-label", id = "searchcat" }, labelText: "Inriktning")
             @Html.EditorFor(model => model.competence.category, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.competence.category, "", new { @class = "text-danger" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.competence.name, htmlAttributes: new { @class = "control-label" }, labelText: "Kompetens")
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.competence.name, htmlAttributes: new { @class = "control-label" }, labelText: "Kompetens")
             @Html.EditorFor(model => model.competence.name, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.competence.name, "", new { @class = "text-danger" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.skill.name, htmlAttributes: new { @class = "control-label" }, labelText: "Teknologi")
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.skill.name, htmlAttributes: new { @class = "control-label" }, labelText: "Teknologi")
             @Html.EditorFor(model => model.skill.name, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.skill.name, "", new { @class = "text-danger" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.skill.rating, htmlAttributes: new { @class = "control-label" }, labelText: "Betyg */5")
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.skill.rating, htmlAttributes: new { @class = "control-label" }, labelText: "Betyg */5")
             @Html.EditorFor(model => model.skill.rating, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.skill.rating, "", new { @class = "text-danger" })
-    </div>
+        </div>
 
-    <div class="form-group">
+        <div class="form-group">
             <input type="submit" value="Spara" class="btn btn-secondary" />
+        </div>
+        <div>
+            @Html.ActionLink("Tillbaka till min profil", "FreelancerProfile", "Freelancers")
+        </div>
     </div>
-    <div>
-        @Html.ActionLink("Tillbaka till min profil", "FreelancerProfile", "Freelancers")
-    </div>
-</div>
 }
+<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.8.0.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.22/jquery-ui.js"></script>
+<script>
+    $(function () {
+        $("#searchcat").autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    url: "/Resumes/GetComps/",
+                    data: "{'category':'" + request.term + "'}",
+                    datatype: "json",
+                    type: "POST",
+                    contentType: "application/json; charset=utf-8",
+                    success: function (data) {
+                        response($.map(data, function (item) {
+                            return item;
+                        }))},
+                });
+            },
+            minLength:1
+        });
+    });
+
+</script>
