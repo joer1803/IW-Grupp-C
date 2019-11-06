@@ -42,14 +42,14 @@
     @RenderBody()
     <footer class="newfoot">
 
-        <section class="contactdetails">
+        <section>
             <h6>Kontaktuppgifter</h6>
             <p>
                 Email företag:
                 <a href="mailto:Marketing@example.com">Supportcustomer@gmail.se</a><br />
                 Email frilansare:
-                <a href="mailto:Support@example.com">Supportfreelancer@gmail.se</a>
-                Telefon: 00 000 000
+                <a href="mailto:Support@example.com">Supportfreelancer@gmail.se</a><br />
+                Telefon: 08-1234567
             </p>
         </section>
 
@@ -67,6 +67,10 @@
             <p>@Html.ActionLink("Integritetspolicy", "Error", "Error")</p>
             <p>@Html.ActionLink("Regler och villkor", "Error", "Error")</p>
         </section>
+    </footer>
+
+    <footer class="second">
+        <p>&copy; @DateTime.Now.Year - Hampes frilansare, med ensamrätt</p>
     </footer>
 
     <footer class="second">
