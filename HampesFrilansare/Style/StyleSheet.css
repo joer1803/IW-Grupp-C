@@ -372,11 +372,11 @@ ul.socialicon li {
 }
 
 /*textarea for profile and core ability*/
-.form-control1{
+.form-control1 {
+    font-style: normal;
     text-align: left;
     vertical-align: top;
     resize: none;
-    
 }
 .formcontrol {
     display: block;
