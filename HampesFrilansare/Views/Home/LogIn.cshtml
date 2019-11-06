@@ -7,13 +7,15 @@
 
 <div class="form-horizontal">
 
-        <div class="form-group">
-            <label for="username">Användarnamn</label>
-            <input class="form-control" />
+    <div class="form-group">
+        <label for="username">Användarnamn</label>
+        <input class="form-control" />
 
+        <div class="form-group">
             <label for="password">Lösenord</label>
-            <input class="form-control" type="password" />
+            <input class="form-control" disabled type="password" placeholder="XXXXXX" />
         </div>
+    </div>
         <div class="form-group">
             @Html.ActionLink(linkText: "Frilansare", actionName: "FreelancerProfile", controllerName: "Freelancers", routeValues: new { id = 1 }, htmlAttributes: new { @class = "btn btn-secondary" })
             @Html.ActionLink(linkText: "Kund", actionName: "Index", controllerName: "Customers", routeValues: null, htmlAttributes: new { @class = "btn btn-secondary" })
@@ -21,6 +23,6 @@
     </div>
 
 <div>
-    <p><a href="#">Glömt ditt lösenord?</a></p>
+    <p><a href="http://localhost:6162/Error/Error">Glömt ditt lösenord?</a></p>
 </div>
 
