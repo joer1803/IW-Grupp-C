@@ -85,7 +85,6 @@ img{
 
 .lead {
     color: #eceff1;
-    font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
 h1 {
@@ -241,7 +240,6 @@ nav ul:hover ul{
 }
 
 .profileimg {
-    text-align: center;
     max-width: 100%;
     height: 200px;
     width: auto;
@@ -338,13 +336,13 @@ nav ul:hover ul{
 }
 
 .map {
-    text-align: center;
     float: left;
     max-width: 100%;
     height: 300px;
     width: auto;
     padding: 1%;
     margin-right: 20px;
+    margin-top: 0;
 }
 
 .contact{
@@ -362,20 +360,6 @@ ul.socialicon li {
 
 .social{
     text-align: center;
-}
-
-/*Copywrigth second*/
-/*footer.second {
-    border-top: 1px solid #404E50;
-    background-color: #4E5D6C;
-    max-height: 40px;
-    text-align: center;
-    opacity: 0.95;
-}*/
-
-footer.second p {
-    color: #fff;
-    font-size: 1rem;
 }
 
 /*resume*/
