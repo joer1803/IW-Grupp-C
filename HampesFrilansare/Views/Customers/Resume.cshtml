@@ -4,11 +4,8 @@
     Layout = "~/Views/Shared/_NavbarCustomer.cshtml";
 }
 
-    <h2>CV</h2>
-
     <h2>@Html.DisplayFor(model => model.freelancer.firstname) @Html.DisplayFor(model => model.freelancer.lastname)</h2>
     <section class="freelancerdetails">
-
         <div>
             <img class="profileimg" src="~/Content/Img/frilansare.jpg" />
         </div>
@@ -18,6 +15,7 @@
             @Html.DisplayFor(model => model.freelancer.phonenumber)<br />
             @Html.DisplayFor(model => model.freelancer.email)
         </p>
+        <button class="printbtn" onclick="printCV()">Skriv ut CV</button>
 
         <p id="sociallinksmessage">Ta kontakt med mig på:</p>
         <ul class="logolist">
@@ -29,7 +27,6 @@
     </section>
 
     <section class="freelancerintro">
-        <button onclick="printCV()">Skriv ut CV</button>
 
         <h3 id="resumeprofile">Min profil</h3>
         <p>
