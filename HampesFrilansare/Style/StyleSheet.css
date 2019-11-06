@@ -74,7 +74,7 @@ body {
 
 .lead {
     color: #eceff1;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+    font-family: 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
 h1 {
@@ -166,11 +166,11 @@ section {
     opacity: 0.97;
 }
 
-.navbar ul{
+nav ul {
     list-style: none;
 }
 
-.navbar ul li a {
+nav ul li a {
     display: block;
     font-family: Arial;
     color: #fff;
@@ -179,11 +179,11 @@ section {
     text-decoration: none;
 }
 
-    .navbar ul li a:hover {
+    nav ul li a:hover {
         color: #e6e6e6;
     }
 
-.navbar ul li ul {
+nav ul li ul {
     display: none;
     position: absolute;
     background-color: #4E5D6C;
@@ -191,11 +191,11 @@ section {
     border-radius: 0px 0px 4px 4px;
 }
 
-    .navbar ul li ul li a {
+    nav ul li ul li a {
         padding: 12px 14px;
     }
 
-.navbar:hover ul {
+nav :hover ul {
     display: block;
 }
 

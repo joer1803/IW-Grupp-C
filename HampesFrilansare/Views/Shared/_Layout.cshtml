@@ -27,7 +27,8 @@
                     <li class="nav-item">@Html.ActionLink("Kontakta oss", "Contact", "Home")</li>
                 </ul>
                 <ul class="nav navbar-nav ml-auto">
-                    <li><a href="#">Konto</a>
+                    <li>
+                        <a href="#">Konto</a>
                         <ul>
                             <li class="nav-item">@Html.ActionLink("Logga in", "LogIn", "Home")</li>
                             <li class="nav-item">@Html.ActionLink("Skapa frilansare", "SignupFreelance", "Freelancers")</li>
@@ -36,14 +37,14 @@
                         </ul>
                     </li>
                 </ul>
-                    
+
             </div>
         </div>
     </nav>
 
 
 
-        @RenderBody()
+    @RenderBody()
     <footer class="newfoot">
 
         <section>
@@ -65,8 +66,8 @@
                 <li><a href="http://localhost:6162/Error/Error" class="fab fa-twitter-square"></a></li>
             </ul>
             <div class="second">
-            <p>&copy; @DateTime.Now.Year - Hampes frilansare, med ensamrätt</p>
-                </div>
+                <p>&copy; @DateTime.Now.Year - Hampes frilansare, med ensamrätt</p>
+            </div>
         </section>
 
         <section class="footerlinks">
@@ -76,9 +77,9 @@
         </section>
     </footer>
 
-        @*<footer class="second">
-            <p>&copy; @DateTime.Now.Year - Hampes frilansare, med ensamrätt</p>
-    </footer>*@
+    @*<footer class="second">
+                <p>&copy; @DateTime.Now.Year - Hampes frilansare, med ensamrätt</p>
+        </footer>*@
 
     <script src="https://kit.fontawesome.com/622bc9da0f.js" crossorigin="anonymous"></script>
     @Scripts.Render("~/bundles/jquery")
