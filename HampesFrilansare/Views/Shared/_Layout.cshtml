@@ -48,7 +48,8 @@
 
         <section>
             <h6>Kontaktuppgifter</h6>
-            <p>Email företag:
+            <p>
+                Email företag:
                 <a href="mailto:Marketing@example.com">Supportcustomer@gmail.se</a><br />
                 Email frilansare:
                 <a href="mailto:Support@example.com">Supportfreelancer@gmail.se</a><br />
@@ -59,10 +60,13 @@
         <section class="social">
             <h6>Sociala medier</h6>
             <ul class="socialicon">
-                    <li><a href="http://localhost:6162/Error/Error" class="fab fa-facebook"></a></li>
-                    <li><a href="http://localhost:6162/Error/Error" class="fab fa-linkedin"></a></li>
-                    <li><a href="http://localhost:6162/Error/Error" class="fab fa-twitter-square"></a></li>
+                <li><a href="http://localhost:6162/Error/Error" class="fab fa-facebook"></a></li>
+                <li><a href="http://localhost:6162/Error/Error" class="fab fa-linkedin"></a></li>
+                <li><a href="http://localhost:6162/Error/Error" class="fab fa-twitter-square"></a></li>
             </ul>
+            <div class="second">
+            <p>&copy; @DateTime.Now.Year - Hampes frilansare, med ensamrätt</p>
+                </div>
         </section>
 
         <section class="footerlinks">
@@ -72,9 +76,9 @@
         </section>
     </footer>
 
-        <footer class="second">
+        @*<footer class="second">
             <p>&copy; @DateTime.Now.Year - Hampes frilansare, med ensamrätt</p>
-    </footer>
+    </footer>*@
 
     <script src="https://kit.fontawesome.com/622bc9da0f.js" crossorigin="anonymous"></script>
     @Scripts.Render("~/bundles/jquery")

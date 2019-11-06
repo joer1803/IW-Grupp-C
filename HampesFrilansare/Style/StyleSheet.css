@@ -114,11 +114,14 @@ section {
     margin: 2% 0;
 }
 
+
+/*footer*/
 .newfoot {
     text-align: center;
     width: 100%;
     background-color: #4E5D6C;
     overflow: hidden;
+    position: absolute;
 }
 
     .newfoot section {
@@ -147,6 +150,12 @@ section {
             color: #eceff1;
         }
 
+.footerlinks p {
+    padding-bottom: 0%;
+    padding-top: 0%;
+}
+
+/*nav bar*/
 .navbar {
     height: 65px;
     width: 100%;
@@ -157,7 +166,11 @@ section {
     opacity: 0.97;
 }
 
-nav ul li a {
+.navbar ul{
+    list-style: none;
+}
+
+.navbar ul li a {
     display: block;
     font-family: Arial;
     color: #fff;
@@ -166,11 +179,11 @@ nav ul li a {
     text-decoration: none;
 }
 
-    nav ul li a:hover {
+    .navbar ul li a:hover {
         color: #e6e6e6;
     }
 
-nav ul li ul {
+.navbar ul li ul {
     display: none;
     position: absolute;
     background-color: #4E5D6C;
@@ -178,11 +191,11 @@ nav ul li ul {
     border-radius: 0px 0px 4px 4px;
 }
 
-    nav ul li ul li a {
+    .navbar ul li ul li a {
         padding: 12px 14px;
     }
 
-nav ul li:hover ul {
+.navbar:hover ul {
     display: block;
 }
 
@@ -313,21 +326,17 @@ ul.socialicon li {
 }
 
 /*Copywrigth second*/
-footer.second {
+/*footer.second {
     border-top: 1px solid #404E50;
     background-color: #4E5D6C;
     max-height: 40px;
     text-align: center;
     opacity: 0.95;
-}
-    footer.second p {
-        color: #fff;
-        font-size: 1rem;
-    }
+}*/
 
-.footerlinks p{
-    padding-bottom: 0%;
-    padding-top: 0%;
+footer.second p {
+    color: #fff;
+    font-size: 1rem;
 }
 
 /*resume*/
