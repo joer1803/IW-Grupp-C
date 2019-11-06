@@ -155,7 +155,7 @@ section {
     padding-top: 0%;
 }
 
-/*nav bar*/
+/*navbar*/
 .navbar {
     height: 65px;
     width: 100%;
@@ -195,7 +195,7 @@ nav ul li ul {
         padding: 12px 14px;
     }
 
-nav :hover ul {
+nav ul:hover ul{
     display: block;
 }
 
