@@ -257,16 +257,16 @@ namespace HampesFrilansare.Controllers
             cvm.competence.resumeID = id;
             return View(cvm);
         }
-        public JsonResult GetComps(string term)
+        public JsonResult GetComps(string category)
         {
             db.Configuration.ProxyCreationEnabled = false;
-            List<string> comps = db.Competence.Where(x => x.category == term).Select(o => o.category).ToList();
+            List<Competence> comps = db.Competence.Where(x => x.category == category).ToList();
             int count = 0;
             for (int i = 0; i < comps.Count; i++)
             {
                 for (int j = 0; j < comps.Count; j++)
                 {
-                    if (comps[i] == comps[j])
+                    if (comps[i].category == comps[j].category)
                     {
                         count++;
                         if (count == 2)
