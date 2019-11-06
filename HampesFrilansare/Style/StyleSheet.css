@@ -378,14 +378,18 @@ ul.socialicon li {
     resize: none;
     
 }
-.form-group{
-
+.formcontrol {
+    display: block;
     margin-left: 20px;
 }
+.form-group{
+    display: block;
+    margin-left: 20px;
+}
+
 div {
     margin-left: 20px;
     margin-right: 20px;
-
 }
 .printbtn {
     background-color: #555555;
