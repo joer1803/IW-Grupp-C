@@ -253,29 +253,30 @@ namespace HampesFrilansare.Controllers
             };
             return View(l);
         }
+
         public ActionResult CompetenceSkill(int id)
         {
             CompetenceSkillViewModel cvm = new CompetenceSkillViewModel();
             cvm.competence.resumeID = id;
-            List<string> comps = db.Competence.Select(o => o.category).ToList();
+            List<string> cats = db.Competence.Select(o => o.category).ToList();
             int count = 0;
-            for (int i = 0; i < comps.Count; i++)
+            for (int i = 0; i < cats.Count; i++)
             {
-                for (int j = 0; j < comps.Count; j++)
+                for (int j = 0; j < cats.Count; j++)
                 {
-                    if (comps[i] == comps[j])
+                    if (cats[i] == cats[j])
                     {
                         count++;
                         if (count == 2)
                         {
-                            comps.RemoveAt(i);
+                            cats.RemoveAt(i);
                             i = 0;
                             j = 0;
                         }
                     }
-                    else if(comps[i] == null)
+                    else if(cats[i] == null)
                     {
-                        comps.RemoveAt(i);
+                        cats.RemoveAt(i);
                         i = 0;
                         j = 0;
                     }
@@ -283,14 +284,14 @@ namespace HampesFrilansare.Controllers
                 count = 0;
             }
             List<string> ratings = new List<string>(){"1","2","3","4","5"};
-            ViewBag.catlist = comps;
+            ViewBag.catlist = cats;
             ViewBag.ratinglist = ratings;
             return View(cvm);
         }
         public JsonResult GetComps(string category)
         {
             db.Configuration.ProxyCreationEnabled = false;
-            List<string> comps = db.Competence.Where(x => x.category == category).Select(o => o.category).ToList();
+            List<string> comps = db.Competence.Where(x => x.category == category).Select(o => o.name).ToList();
             int count = 0;
             for (int i = 0; i < comps.Count; i++)
             {
@@ -310,6 +311,14 @@ namespace HampesFrilansare.Controllers
                 count = 0;
             }
             return Json(comps, JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult GetSkills(string compname)
+        {
+            db.Configuration.ProxyCreationEnabled = false;
+            int id = db.Competence.First(o => o.name == compname).competenceID;
+            List<string> skills = db.Skill.Where(x => x.competenceID == id).Select(y => y.name).ToList();
+
+            return Json(skills, JsonRequestBehavior.AllowGet);
         }
     }
 }

@@ -16,27 +16,28 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.competence.resumeID)
 
-
         <div class="form-group">
-            @Html.LabelFor(model => model.competence.category, htmlAttributes: new { @class = "control-label", id = "searchcat" }, labelText: "Inriktning")
-            @Html.DropDownListFor(model => model.competence.category, new SelectList(ViewBag.catlist), "Välj inriktning", htmlAttributes: new { @class = "form-control" })
+            @Html.LabelFor(model => model.competence.category, htmlAttributes: new { @class = "control-label" }, labelText: "Inriktning")
+            @Html.DropDownListFor(model => model.competence.category, new SelectList(ViewBag.catlist), "Välj inriktning", htmlAttributes: new { @class = "form-control", id = "category" })
             @*@Html.EditorFor(model => model.competence.category, new { htmlAttributes = new { @class = "form-control" } })*@
             @Html.ValidationMessageFor(model => model.competence.category, "", new { @class = "text-danger" })
         </div>
         <div class="form-group">
             @Html.LabelFor(model => model.competence.name, htmlAttributes: new { @class = "control-label" }, labelText: "Kompetens")
-            @Html.EditorFor(model => model.competence.name, new { htmlAttributes = new { @class = "form-control" } })
+            @*@Html.EditorFor(model => model.competence.name, new { htmlAttributes = new { @class = "form-control" } })*@
+            @Html.DropDownListFor(model => model.competence.name, new SelectList(" "), "Välj kompetens", htmlAttributes: new { @class = "form-control", id = "compname" })
             @Html.ValidationMessageFor(model => model.competence.name, "", new { @class = "text-danger" })
         </div>
         <div class="form-group">
             @Html.LabelFor(model => model.skill.name, htmlAttributes: new { @class = "control-label" }, labelText: "Teknologi")
-            @Html.EditorFor(model => model.skill.name, new { htmlAttributes = new { @class = "form-control" } })
+            @*@Html.EditorFor(model => model.skill.name, new { htmlAttributes = new { @class = "form-control" } })*@
+            @Html.DropDownListFor(model => model.skill.name, new SelectList(" "), "Välj teknologi", htmlAttributes: new { @class = "form-control", id = "skillname" })
             @Html.ValidationMessageFor(model => model.skill.name, "", new { @class = "text-danger" })
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.skill.rating, htmlAttributes: new { @class = "control-label" }, labelText: "Betyg */5")
+            @Html.LabelFor(model => model.skill.rating, htmlAttributes: new { @class = "control-label" }, labelText: "Betyg")
             @*@Html.EditorFor(model => model.skill.rating, new { htmlAttributes = new { @class = "form-control" } })*@
-            @Html.DropDownListFor(model => model.skill.rating, new SelectList(ViewBag.ratinglist), "Välj betyg", htmlAttributes: new { @class = "form-control" })
+            @Html.DropDownListFor(model => model.skill.rating, new SelectList(ViewBag.ratinglist), "Välj betyg", htmlAttributes: new { @class = "form-control"})
             @Html.ValidationMessageFor(model => model.skill.rating, "", new { @class = "text-danger" })
         </div>
 
@@ -48,3 +49,28 @@
         </div>
     </div>
 }
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#category").change(function () {
+            $.get("/Resumes/GetComps", { category: $("#category").val() }, function (data) {
+                $("#compname").empty();
+                $("#compname").append("<option>" + "Välj kompetens" + "</option>")
+                $.each(data, function (index, row) {
+                    $("#compname").append("<option value='" + row + "'>" + row + "</option>")
+                });
+            });
+        });
+    });
+    $(document).ready(function () {
+        $("#compname").change(function () {
+            $.get("/Resumes/GetSkills", { compname: $("#compname").val() }, function (data) {
+                $("#skillname").empty();
+                $("#skillname").append("<option>" + "Välj teknologi" + "</option>")
+                $.each(data, function (index, row) {
+                    $("#skillname").append("<option value='" + row + "'>" + row + "</option>")
+                });
+            });
+        });
+    });
+</script>
