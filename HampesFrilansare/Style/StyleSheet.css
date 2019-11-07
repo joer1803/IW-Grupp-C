@@ -94,14 +94,22 @@ h1 {
 
 h2 {
     color: #000000;
-    margin-top: 90px;
-    margin-left: 40px;
-
+    padding: 2% 0 1% 0;
 }
 
 h3 {
     color: #000000;
     padding: 2% 0 1% 0;
+}
+
+h4 {
+    color: #000000;
+    padding: 2% 0 1% 0;
+    margin-top: 5%;
+}
+
+h5{
+    color: #000000;
 }
 
 h6 {
@@ -402,3 +410,12 @@ div {
     font-size: 16px;
 }
 /*Navbar hamburgare*/
+
+/*Customers index*/
+
+.form-box{
+    font-size: medium;
+}
+
+
+

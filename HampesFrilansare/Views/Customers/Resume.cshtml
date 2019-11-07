@@ -4,11 +4,10 @@
     Layout = "~/Views/Shared/_NavbarCustomer.cshtml";
 }
 
-    <h2>@Html.DisplayFor(model => model.freelancer.firstname) @Html.DisplayFor(model => model.freelancer.lastname)</h2>
+    <h3>@Html.DisplayFor(model => model.freelancer.firstname) @Html.DisplayFor(model => model.freelancer.lastname)</h3>
     <section class="freelancerdetails">
-        <div>
+    
             <img class="profileimg" src="~/Content/Img/frilansare.jpg" />
-        </div>
         <p>
             @Html.DisplayFor(model => model.freelancer.address)<br />
             @Html.DisplayFor(model => model.freelancer.nationality)<br />
@@ -28,12 +27,12 @@
 
     <section class="freelancerintro">
 
-        <h3 id="resumeprofile">Min profil</h3>
+        <h4 id="resumeprofile">Min profil</h4>
         <p>
             @Model.resume.profile
         </p>
 
-        <h3>Arbetslivserfarenhet</h3>
+        <h5>Arbetslivserfarenhet</h5>
         <p>
             @foreach (var e in Model.experiences)
             {
@@ -47,12 +46,12 @@
 
         </p>
 
-        <h3>Kärnförmågor</h3>
+        <h5>Kärnförmågor</h5>
 
 
         <p>@Model.resume.coreability</p>
 
-        <h3>Kompetens</h3>
+        <h5>Kompetens</h5>
         <ul class="profilelists" id="starlist">
             @foreach (var item in Model.competences)
             {
@@ -78,7 +77,7 @@
         </ul>
 
 
-        <h3>Språk</h3>
+        <h5>Språk</h5>
         <ul class="profilelists">
             @foreach (var l in Model.languages)
             {
@@ -86,7 +85,7 @@
             }
         </ul>
 
-        <h3>Utbildning</h3>
+        <h5>Utbildning</h5>
         <p>
             @foreach (var e in Model.educations)
             {
@@ -100,10 +99,10 @@
 
             }
 
-            <h3>Tillgänglighet</h3>
+            <h5>Tillgänglighet</h5>
         <p>Deltid</p>
 
-        <h3>Körkort</h3>
+        <h5>Körkort</h5>
         <p>@Model.licence.type</p>
     </section>
 
