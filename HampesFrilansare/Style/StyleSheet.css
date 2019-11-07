@@ -6,7 +6,7 @@
 
 body {
     font: 18px/20px 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background: #eceff1;
+    background: #e2e6e9;
     color: #3d3d3d;
 }
 
@@ -108,11 +108,18 @@ h4 {
     margin-top: 5%;
 }
 
-.formheader4 {
+.generalformhead4 {
     color: #000000;
     padding: 2% 0 1% 0;
     margin-top: 5%;
     margin-left: 1%;
+}
+
+.specialformhead4 {
+    color: #000000;
+    padding: 2% 0 1% 0;
+    margin-top: 5%;
+    margin-left: 2%;
 }
 
 h5{
