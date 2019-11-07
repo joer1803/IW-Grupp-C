@@ -8,6 +8,11 @@ namespace HampesFrilansare.ViewModels
 {
     public class CompetenceSkillViewModel
     {
+        public CompetenceSkillViewModel()
+        {
+            competence = new Competence();
+            skill = new Skill();
+        }
         public Competence competence { get; set; }
         public Skill skill { get; set; }
         public int compID { get; set; }

@@ -18,60 +18,8 @@ namespace HampesFrilansare.Controllers
 
         // GET: Customers
         public ActionResult Index()
-        {
-            List<Competence> comps = db.Competence.ToList();
-            int count = 0;
-            for (int i=0;i<comps.Count;i++)
-            {
-                for(int j = 0; j < comps.Count; j++)
-                {
-                    if(comps[i].category == comps[j].category)
-                    {
-                        count++;
-                        if(count == 2)
-                        {
-                            comps.RemoveAt(i);
-                            i = 0;
-                            j = 0;
-                        }
-                    }
-                }
-                count = 0;
-            }
-            
+        {          
             return View("Index", "_NavbarCustomer", GetSearchFreeCategories());
-        }
-        public JsonResult GetComps(string category)
-        {
-            db.Configuration.ProxyCreationEnabled = false;
-            List<Competence> comps = db.Competence.Where(x => x.category == category).ToList();
-            int count = 0;
-            for (int i = 0; i < comps.Count; i++)
-            {
-                for (int j = 0; j < comps.Count; j++)
-                {
-                    if (comps[i].name == comps[j].name)
-                    {
-                        count++;
-                        if (count == 2)
-                        {
-                            comps.RemoveAt(i);
-                            i = 0;
-                            j = 0;
-                        }
-                    }
-                }
-                count = 0;
-            }
-            return Json(comps, JsonRequestBehavior.AllowGet);
-        }
-        public JsonResult GetSkills(string compid)
-        {
-            db.Configuration.ProxyCreationEnabled = false;
-            int id = int.Parse(compid);
-            List<Skill> skills = db.Skill.Where(x => x.competenceID == id).ToList();
-
-            return Json(skills, JsonRequestBehavior.AllowGet);
         }
         private FreelancerSearchModelA GetSearchFreeCategories()
         {
@@ -129,13 +77,6 @@ namespace HampesFrilansare.Controllers
             }
 
             return freeVM;
-        }
-        private List<string> GetCategories()
-        {
-            List<string> cats = new List<string>();
-            var categories = (from comps in db.Competence
-                              select new { category = comps.category });
-            return cats = categories.Distinct().Select(x => x.category.ToString()).ToList();
         }
         // GET: Customers/Details/5
         public ActionResult Details(int? id)
