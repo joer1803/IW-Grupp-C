@@ -190,8 +190,9 @@
     <Content Include="Content\Img\chris.jpg" />
     <Content Include="Content\Img\customer.jpg" />
     <Content Include="Content\Img\frilansare.jpg" />
-    <Content Include="Content\Img\freelancer.jpg" />
-    <Content Include="Content\Img\freelancer_white.jpg" />
+    <Content Include="Content\Img\home1.jpg" />
+    <Content Include="Content\Img\home2.jpg" />
+    <Content Include="Content\Img\home3.jpg" />
     <Content Include="Content\Img\logo.png" />
     <Content Include="Content\Img\map.png" />
     <Content Include="Content\Img\slider1.jpg" />
