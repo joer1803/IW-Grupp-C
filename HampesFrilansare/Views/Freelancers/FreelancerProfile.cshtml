@@ -4,111 +4,112 @@
     Layout = "~/Views/Shared/_NavbarFreelancer.cshtml";
 }
 
-
-<section class="freelancerdetails">
+<div>
+    <section class="freelancerdetails">
 
         <img class="profileimg" src="~/Content/Img/frilansare.jpg" />
 
-    <h3>@Html.DisplayFor(model => model.freelancer.firstname) @Html.DisplayFor(model => model.freelancer.lastname)</h3>
-    <p>
-        @Html.DisplayFor(model => model.freelancer.address)<br />
-        @Html.DisplayFor(model => model.freelancer.nationality)<br />
-        @Html.DisplayFor(model => model.freelancer.phonenumber)<br />
-        @Html.DisplayFor(model => model.freelancer.email)
-    </p>
-    @Html.ActionLink("Ändra personuppgifter", "Edit", new { id = Model.freelancer.freelancerID }, new { @class = "editprofilelinks" })
+        <h3>@Html.DisplayFor(model => model.freelancer.firstname) @Html.DisplayFor(model => model.freelancer.lastname)</h3>
+        <p>
+            @Html.DisplayFor(model => model.freelancer.address)<br />
+            @Html.DisplayFor(model => model.freelancer.nationality)<br />
+            @Html.DisplayFor(model => model.freelancer.phonenumber)<br />
+            @Html.DisplayFor(model => model.freelancer.email)
+        </p>
+        @Html.ActionLink("Ändra personuppgifter", "Edit", new { id = Model.freelancer.freelancerID }, new { @class = "editprofilelinks" })
 
-    <p id="linkgitmessage">Länka till din professionella profil</p>
-    <ul class="logolist">
-        <li><a href="https://github.com/joer1803" class="fab fa-github-square"></a></li>
-        <li><a href="https://www.linkedin.com/in/jonas-ek-eriksson-72607b181/" class="fab fa-linkedin"></a></li>
-    </ul>
-</section>
+        <p id="linkgitmessage">Länka till din professionella profil</p>
+        <ul class="logolist">
+            <li><a href="https://github.com/joer1803" class="fab fa-github-square"></a></li>
+            <li><a href="https://www.linkedin.com/in/jonas-ek-eriksson-72607b181/" class="fab fa-linkedin"></a></li>
+        </ul>
+    </section>
 
-<section class="freelancerintro">
-    <h4>Min profil</h4>
-    <p>
-        @Model.resume.profile
-    </p>
-    @Html.ActionLink(linkText: "Redigera presentation", actionName: "Edit", controllerName: "Resumes", routeValues: new { id = Model.resume.resumeID }, htmlAttributes: new { @class = "btn btn-secondary" })
-    <hr />
-    <h5>Kärnförmågor</h5>
-
-
-    <p>@Model.resume.coreability</p>
-
-    @Html.ActionLink(linkText: "Redigera kärnförmågor", actionName: "Edit", controllerName: "Resumes", routeValues: new { id = Model.resume.resumeID }, htmlAttributes: new { @class = "btn btn-secondary" })
-    <hr />
-    <h5>Arbetslivserfarenhet</h5>
-    <p>
-        @foreach (var e in Model.experiences)
-        {
-            <t>Roll: </t>@e.role
-            <br />
-            @e.startdate.Value.ToString("yyyy-MM-dd")<t> - </t> @e.enddate.Value.ToString("yyyy-MM-dd") <br />
-            <t>Företag: </t>@e.name <br />
-            <t>Arbetsuppgifter: </t>@e.duty<br /><br />
-
-        }
-
-    </p>
-    @Html.ActionLink(linkText: "Lägg till arbete", actionName: "Experience", controllerName: "Resumes", routeValues: new { id = Model.resume.resumeID }, htmlAttributes: new { @class = "btn btn-secondary" })
-    <hr />
-    <h5>Kompetens</h5>
-    <ul class="profilelists" id="starlist">
-        @foreach (var item in Model.competences)
-        {
-
-            <li>
-                @item.name<br />
-                @foreach (var skill in Model.skills)
-                {
-                    if (skill.competenceID == item.competenceID)
-                    {
-                        @skill.name
-                        for (int i = 0; i < skill.rating; i++)
-                        {
-                            <i class="fas fa-star"></i>
-                        }<br />
-
-
-                    }
-                }
-            </li>
-
-        }
-    </ul>
-    @Html.ActionLink(linkText: "Lägg till kompetens", actionName: "CompetenceSkill", controllerName: "Resumes", routeValues: new { id = Model.resume.resumeID }, htmlAttributes: new { @class = "btn btn-secondary" })
-
-    <hr />
-    <h5>Språk</h5>
-    <ul class="profilelists">
-        @foreach (var l in Model.languages)
-        {
-            <li>@l.name</li>
-        }
-    </ul>
-    @Html.ActionLink(linkText: "Lägg till språk", actionName: "Language", controllerName: "Resumes", routeValues: new { id = Model.resume.resumeID }, htmlAttributes: new { @class = "btn btn-secondary" })
-
-    <hr />
-    <h5>Utbildning</h5>
-    <p>
-        @foreach (var e in Model.educations)
-        {
-            <t>Examen:</t> @e.degree
-            <br />
-            <t>Ämne:</t> @e.subject
-            <br />
-            @e.startdate.Value.ToString("yyyy-MM-dd")<t> - </t> @e.enddate.Value.ToString("yyyy-MM-dd") <br />
-            @e.school <br />
-
-
-        }
-        @Html.ActionLink(linkText: "Lägg till utbildning", actionName: "Education", controllerName: "Resumes", routeValues: new { id = Model.resume.resumeID }, htmlAttributes: new { @class = "btn btn-secondary" })
+    <section class="freelancerintro">
+        <h4>Min profil</h4>
+        <p>
+            @Model.resume.profile
+        </p>
+        @Html.ActionLink(linkText: "Redigera presentation", actionName: "Edit", controllerName: "Resumes", routeValues: new { id = Model.resume.resumeID }, htmlAttributes: new { @class = "btn btn-secondary" })
         <hr />
+        <h5>Kärnförmågor</h5>
 
-    <h5>Körkort</h5>
-    <p>@Model.licence.type</p>
 
-    @Html.ActionLink(linkText: "Ändra körkortstyp", actionName: "Driverslicence", controllerName: "Resumes", routeValues: new { id = Model.resume.resumeID }, htmlAttributes: new { @class = "btn btn-secondary" })
-</section>
+        <p>@Model.resume.coreability</p>
+
+        @Html.ActionLink(linkText: "Redigera kärnförmågor", actionName: "Edit", controllerName: "Resumes", routeValues: new { id = Model.resume.resumeID }, htmlAttributes: new { @class = "btn btn-secondary" })
+        <hr />
+        <h5>Arbetslivserfarenhet</h5>
+        <p>
+            @foreach (var e in Model.experiences)
+            {
+                <t>Roll: </t>@e.role
+                <br />
+                @e.startdate.Value.ToString("yyyy-MM-dd")<t> - </t> @e.enddate.Value.ToString("yyyy-MM-dd") <br />
+                <t>Företag: </t>@e.name <br />
+                <t>Arbetsuppgifter: </t>@e.duty<br /><br />
+
+            }
+
+        </p>
+        @Html.ActionLink(linkText: "Lägg till arbete", actionName: "Experience", controllerName: "Resumes", routeValues: new { id = Model.resume.resumeID }, htmlAttributes: new { @class = "btn btn-secondary" })
+        <hr />
+        <h5>Kompetens</h5>
+        <ul class="profilelists" id="starlist">
+            @foreach (var item in Model.competences)
+            {
+
+                <li>
+                    @item.name<br />
+                    @foreach (var skill in Model.skills)
+                    {
+                        if (skill.competenceID == item.competenceID)
+                        {
+                            @skill.name
+                            for (int i = 0; i < skill.rating; i++)
+                            {
+                                <i class="fas fa-star"></i>
+                            }<br />
+
+
+                        }
+                    }
+                </li>
+
+            }
+        </ul>
+        @Html.ActionLink(linkText: "Lägg till kompetens", actionName: "CompetenceSkill", controllerName: "Resumes", routeValues: new { id = Model.resume.resumeID }, htmlAttributes: new { @class = "btn btn-secondary" })
+
+        <hr />
+        <h5>Språk</h5>
+        <ul class="profilelists">
+            @foreach (var l in Model.languages)
+            {
+                <li>@l.name</li>
+            }
+        </ul>
+        @Html.ActionLink(linkText: "Lägg till språk", actionName: "Language", controllerName: "Resumes", routeValues: new { id = Model.resume.resumeID }, htmlAttributes: new { @class = "btn btn-secondary" })
+
+        <hr />
+        <h5>Utbildning</h5>
+        <p>
+            @foreach (var e in Model.educations)
+            {
+                <t>Examen:</t> @e.degree
+                <br />
+                <t>Ämne:</t> @e.subject
+                <br />
+                @e.startdate.Value.ToString("yyyy-MM-dd")<t> - </t> @e.enddate.Value.ToString("yyyy-MM-dd") <br />
+                @e.school <br />
+
+
+            }
+            @Html.ActionLink(linkText: "Lägg till utbildning", actionName: "Education", controllerName: "Resumes", routeValues: new { id = Model.resume.resumeID }, htmlAttributes: new { @class = "btn btn-secondary" })
+            <hr />
+
+            <h5>Körkort</h5>
+        <p>@Model.licence.type</p>
+
+        @Html.ActionLink(linkText: "Ändra körkortstyp", actionName: "Driverslicence", controllerName: "Resumes", routeValues: new { id = Model.resume.resumeID }, htmlAttributes: new { @class = "btn btn-secondary" })
+    </section>
+</div>
