@@ -3,17 +3,17 @@
     ViewBag.Title = "CV";
     Layout = "~/Views/Shared/_NavbarCustomer.cshtml";
 }
-
+<div>
     <section class="freelancerdetails">
-    
-            <img class="profileimg" src="~/Content/Img/frilansare.jpg" />
-            <p>
-                @Html.DisplayFor(model => model.freelancer.firstname) @Html.DisplayFor(model => model.freelancer.lastname)<br/>
-                @Html.DisplayFor(model => model.freelancer.address)<br />
-                @Html.DisplayFor(model => model.freelancer.nationality)<br />
-                @Html.DisplayFor(model => model.freelancer.phonenumber)<br />
-                @Html.DisplayFor(model => model.freelancer.email)
-            </p>
+
+        <img class="profileimg" src="~/Content/Img/frilansare.jpg" />
+        <p>
+            @Html.DisplayFor(model => model.freelancer.firstname) @Html.DisplayFor(model => model.freelancer.lastname)<br />
+            @Html.DisplayFor(model => model.freelancer.address)<br />
+            @Html.DisplayFor(model => model.freelancer.nationality)<br />
+            @Html.DisplayFor(model => model.freelancer.phonenumber)<br />
+            @Html.DisplayFor(model => model.freelancer.email)
+        </p>
         <button class="printbtn" onclick="printCV()">Skriv ut CV</button>
 
         <p id="sociallinksmessage">Ta kontakt med mig på:</p>
@@ -99,11 +99,11 @@
 
             }
 
-        <hr />
-        <h5>Körkort</h5>
+            <hr />
+            <h5>Körkort</h5>
         <p>@Model.licence.type</p>
     </section>
-
+</div>
 <script>
     function printCV() {
         $(".newfoot").hide();
