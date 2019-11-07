@@ -38,6 +38,7 @@
     <p>@Model.resume.coreability</p>
 
     @Html.ActionLink(linkText: "Redigera kärnförmågor", actionName: "Edit", controllerName: "Resumes", routeValues: new { id = Model.resume.resumeID }, htmlAttributes: new { @class = "btn btn-secondary" })
+    <hr />
     <h5>Arbetslivserfarenhet</h5>
     <p>
         @foreach (var e in Model.experiences)
