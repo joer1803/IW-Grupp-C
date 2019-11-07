@@ -253,6 +253,7 @@ nav ul:hover ul{
 /*FreelancerProfile-sidan*/
 
 .freelancerdetails{
+    margin-top: 3%;
     padding-left: 25px;
 }
 
@@ -273,6 +274,7 @@ nav ul:hover ul{
     width: 80%;
     height: auto;
     padding: 0px 20px;
+    margin-top: 2.2%;
 }
 
 .clear {
