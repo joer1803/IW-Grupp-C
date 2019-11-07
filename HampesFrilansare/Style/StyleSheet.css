@@ -327,21 +327,24 @@ nav ul:hover ul{
 .facebook {
     color: #000000;
     float: left;
-    margin-right: 8px;
+    margin: 1% 0 0 0;
+    padding: 0 1%;
     font-size: 30px;
 }
 
 .linkedin {
     color: #000000;
     float: left;
-    margin-right: 8px;
+    margin: 1% 0 0 0;
+    padding: 0 1%;
     font-size: 30px;
 }
 
 .twitter {
     color: #000000;
     float: left;
-    margin-right: 8px;
+    margin: 1% 0 0 0;
+    padding: 0 1%;
     font-size: 30px;
 }
 
