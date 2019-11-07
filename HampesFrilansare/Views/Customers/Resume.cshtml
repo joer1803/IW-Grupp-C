@@ -4,16 +4,16 @@
     Layout = "~/Views/Shared/_NavbarCustomer.cshtml";
 }
 
-    <h3>@Html.DisplayFor(model => model.freelancer.firstname) @Html.DisplayFor(model => model.freelancer.lastname)</h3>
     <section class="freelancerdetails">
     
             <img class="profileimg" src="~/Content/Img/frilansare.jpg" />
-        <p>
-            @Html.DisplayFor(model => model.freelancer.address)<br />
-            @Html.DisplayFor(model => model.freelancer.nationality)<br />
-            @Html.DisplayFor(model => model.freelancer.phonenumber)<br />
-            @Html.DisplayFor(model => model.freelancer.email)
-        </p>
+            <p>
+                @Html.DisplayFor(model => model.freelancer.firstname) @Html.DisplayFor(model => model.freelancer.lastname)<br/>
+                @Html.DisplayFor(model => model.freelancer.address)<br />
+                @Html.DisplayFor(model => model.freelancer.nationality)<br />
+                @Html.DisplayFor(model => model.freelancer.phonenumber)<br />
+                @Html.DisplayFor(model => model.freelancer.email)
+            </p>
         <button class="printbtn" onclick="printCV()">Skriv ut CV</button>
 
         <p id="sociallinksmessage">Ta kontakt med mig på:</p>
@@ -107,8 +107,12 @@
     </section>
 
 <script>
+    var footer = document.getElementsByClassName()
+
     function printCV() {
+        $(".newfoot").hide();
         window.print();
+        $(".newfoot").show();
     }
 </script>
 
