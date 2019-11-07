@@ -314,6 +314,7 @@ nav ul:hover ul{
     height: 300px;
     width: auto;
     padding: 1%;
+    margin-top: 1px;
 }
 
 .customertext {
@@ -425,6 +426,7 @@ div {
 
 .form-box{
     font-size: medium;
+    margin-right: 20rem;
 }
 
 
