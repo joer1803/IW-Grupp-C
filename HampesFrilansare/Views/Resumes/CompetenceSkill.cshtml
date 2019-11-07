@@ -19,7 +19,8 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.competence.category, htmlAttributes: new { @class = "control-label", id = "searchcat" }, labelText: "Inriktning")
-            @Html.EditorFor(model => model.competence.category, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.DropDownListFor(model => model.competence.category, new SelectList(ViewBag.catlist), "Välj inriktning", htmlAttributes: new { @class = "form-control" })
+            @*@Html.EditorFor(model => model.competence.category, new { htmlAttributes = new { @class = "form-control" } })*@
             @Html.ValidationMessageFor(model => model.competence.category, "", new { @class = "text-danger" })
         </div>
         <div class="form-group">
@@ -34,7 +35,8 @@
         </div>
         <div class="form-group">
             @Html.LabelFor(model => model.skill.rating, htmlAttributes: new { @class = "control-label" }, labelText: "Betyg */5")
-            @Html.EditorFor(model => model.skill.rating, new { htmlAttributes = new { @class = "form-control" } })
+            @*@Html.EditorFor(model => model.skill.rating, new { htmlAttributes = new { @class = "form-control" } })*@
+            @Html.DropDownListFor(model => model.skill.rating, new SelectList(ViewBag.ratinglist), "Välj betyg", htmlAttributes: new { @class = "form-control" })
             @Html.ValidationMessageFor(model => model.skill.rating, "", new { @class = "text-danger" })
         </div>
 
@@ -46,26 +48,3 @@
         </div>
     </div>
 }
-<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.8.0.js"></script>
-<script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.22/jquery-ui.js"></script>
-<script>
-    $(function () {
-        $("#searchcat").autocomplete({
-            source: function (request, response) {
-                $.ajax({
-                    url: "/Resumes/GetComps/",
-                    data: "{'category':'" + request.term + "'}",
-                    datatype: "json",
-                    type: "POST",
-                    contentType: "application/json; charset=utf-8",
-                    success: function (data) {
-                        response($.map(data, function (item) {
-                            return item;
-                        }))},
-                });
-            },
-            minLength:1
-        });
-    });
-
-</script>

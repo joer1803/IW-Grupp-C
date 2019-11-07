@@ -218,12 +218,15 @@ namespace HampesFrilansare.Controllers
 
             return View(licence);
         }
-        public ActionResult AddCompetence([Bind(Include = "name, category, resumeID")] Competence comp)
+        public ActionResult AddCompetence([Bind(Include = "competence, skill")] CompetenceSkillViewModel comp)
         {
-            int freeID = db.Freelancer.First(x => x.resumeID == comp.resumeID).freelancerID;
+            int freeID = db.Freelancer.First(x => x.resumeID == comp.competence.resumeID).freelancerID;
             if (ModelState.IsValid)
             {
-                db.Competence.Add(comp);
+                db.Competence.Add(comp.competence);
+                db.SaveChanges();
+                comp.skill.competenceID = comp.competence.competenceID;
+                db.Skill.Add(comp.skill);
                 db.SaveChanges();
                 return RedirectToAction("FreelancerProfile", "Freelancers", new { id = freeID });
             }
@@ -253,20 +256,47 @@ namespace HampesFrilansare.Controllers
         public ActionResult CompetenceSkill(int id)
         {
             CompetenceSkillViewModel cvm = new CompetenceSkillViewModel();
-            cvm.competence = new Competence();
             cvm.competence.resumeID = id;
-            return View(cvm);
-        }
-        public JsonResult GetComps(string category)
-        {
-            db.Configuration.ProxyCreationEnabled = false;
-            List<Competence> comps = db.Competence.Where(x => x.category == category).ToList();
+            List<string> comps = db.Competence.Select(o => o.category).ToList();
             int count = 0;
             for (int i = 0; i < comps.Count; i++)
             {
                 for (int j = 0; j < comps.Count; j++)
                 {
-                    if (comps[i].category == comps[j].category)
+                    if (comps[i] == comps[j])
+                    {
+                        count++;
+                        if (count == 2)
+                        {
+                            comps.RemoveAt(i);
+                            i = 0;
+                            j = 0;
+                        }
+                    }
+                    else if(comps[i] == null)
+                    {
+                        comps.RemoveAt(i);
+                        i = 0;
+                        j = 0;
+                    }
+                }
+                count = 0;
+            }
+            List<string> ratings = new List<string>(){"1","2","3","4","5"};
+            ViewBag.catlist = comps;
+            ViewBag.ratinglist = ratings;
+            return View(cvm);
+        }
+        public JsonResult GetComps(string category)
+        {
+            db.Configuration.ProxyCreationEnabled = false;
+            List<string> comps = db.Competence.Where(x => x.category == category).Select(o => o.category).ToList();
+            int count = 0;
+            for (int i = 0; i < comps.Count; i++)
+            {
+                for (int j = 0; j < comps.Count; j++)
+                {
+                    if (comps[i] == comps[j])
                     {
                         count++;
                         if (count == 2)
