@@ -15,8 +15,5 @@ namespace HampesFrilansare.ViewModels
         }
         public Competence competence { get; set; }
         public Skill skill { get; set; }
-        public int compID { get; set; }
-        public List<string> complist { get; set; }
-        public List<string> skilllist { get; set; }
     }
 }
