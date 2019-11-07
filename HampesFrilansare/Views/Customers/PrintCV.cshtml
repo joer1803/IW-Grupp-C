@@ -31,7 +31,9 @@
     <p>
         @Model.resume.profile
     </p>
+    <h5>Kärnförmågor</h5>
 
+    <p>@Model.resume.coreability</p>
     <h5>Arbetslivserfarenhet</h5>
     <p>
         @foreach (var e in Model.experiences)
@@ -45,11 +47,6 @@
         }
 
     </p>
-
-    <h5>Kärnförmågor</h5>
-
-
-    <p>@Model.resume.coreability</p>
 
     <h5>Kompetens</h5>
     <ul class="profilelists" id="starlist">

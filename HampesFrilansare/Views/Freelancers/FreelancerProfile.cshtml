@@ -32,6 +32,12 @@
     </p>
     @Html.ActionLink(linkText: "Redigera presentation", actionName: "Edit", controllerName: "Resumes", routeValues: new { id = Model.resume.resumeID }, htmlAttributes: new { @class = "btn btn-secondary" })
     <hr />
+    <h5>Kärnförmågor</h5>
+
+
+    <p>@Model.resume.coreability</p>
+
+    @Html.ActionLink(linkText: "Redigera kärnförmågor", actionName: "Edit", controllerName: "Resumes", routeValues: new { id = Model.resume.resumeID }, htmlAttributes: new { @class = "btn btn-secondary" })
     <h5>Arbetslivserfarenhet</h5>
     <p>
         @foreach (var e in Model.experiences)
@@ -46,13 +52,6 @@
 
     </p>
     @Html.ActionLink(linkText: "Lägg till arbete", actionName: "Experience", controllerName: "Resumes", routeValues: new { id = Model.resume.resumeID }, htmlAttributes: new { @class = "btn btn-secondary" })
-    <hr />
-    <h5>Kärnförmågor</h5>
-
-
-    <p>@Model.resume.coreability</p>
-
-    @Html.ActionLink(linkText: "Redigera kärnförmågor", actionName: "Edit", controllerName: "Resumes", routeValues: new { id = Model.resume.resumeID }, htmlAttributes: new { @class = "btn btn-secondary" })
     <hr />
     <h5>Kompetens</h5>
     <ul class="profilelists" id="starlist">
