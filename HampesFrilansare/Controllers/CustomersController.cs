@@ -58,7 +58,8 @@ namespace HampesFrilansare.Controllers
 
                     if (freeVM[i].freelancerID.Equals(f.freelancerID))
                     {
-                        if (freeVM[i].compname != f.name)
+                        
+                        if (!freeVM[i].compname.Contains(f.name))
                         {
                             freeVM[i].compname += $", {f.name}";
                         }

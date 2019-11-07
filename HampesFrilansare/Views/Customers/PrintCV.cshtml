@@ -31,9 +31,11 @@
     <p>
         @Model.resume.profile
     </p>
+    <hr />
     <h5>Kärnförmågor</h5>
 
     <p>@Model.resume.coreability</p>
+    <hr />
     <h5>Arbetslivserfarenhet</h5>
     <p>
         @foreach (var e in Model.experiences)
@@ -47,7 +49,7 @@
         }
 
     </p>
-
+    <hr />
     <h5>Kompetens</h5>
     <ul class="profilelists" id="starlist">
         @foreach (var item in Model.competences)
@@ -73,7 +75,7 @@
         }
     </ul>
 
-
+    <hr />
     <h5>Språk</h5>
     <ul class="profilelists">
         @foreach (var l in Model.languages)
@@ -81,7 +83,7 @@
             <li>@l.name</li>
         }
     </ul>
-
+    <hr />
     <h5>Utbildning</h5>
     <p>
         @foreach (var e in Model.educations)
@@ -96,11 +98,9 @@
 
         }
 
-        <h5>Tillgänglighet</h5>
-    <p>Deltid</p>
-
-    <h5>Körkort</h5>
-    <p>@Model.licence.type</p>
+        <hr />
+        <h5>Körkort</h5>
+<p>@Model.licence.type</p>
 </section>
 
 <script>
