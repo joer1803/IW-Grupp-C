@@ -308,10 +308,7 @@ nav ul:hover ul{
 .profilelists {
     color: #000000;
     font-family: none;
-}
-
-.profilelists {
-    color: #000000;
+    line-height: 25px;
 }
 
 #starlist li {
