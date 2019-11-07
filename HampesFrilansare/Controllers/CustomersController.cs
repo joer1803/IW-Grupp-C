@@ -21,6 +21,13 @@ namespace HampesFrilansare.Controllers
         {          
             return View("Index", "_NavbarCustomer", GetSearchFreeCategories());
         }
+
+        public ActionResult PrintCV()
+        {
+            
+            return View();
+        }
+
         private FreelancerSearchModelA GetSearchFreeCategories()
         {
 

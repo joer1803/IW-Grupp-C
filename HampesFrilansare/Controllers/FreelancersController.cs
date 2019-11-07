@@ -18,7 +18,7 @@ namespace HampesFrilansare.Controllers
         // GET: Freelancers
         public ActionResult Index()
         {
-            return View("Index", "_NavbarFreelancer", db.Freelancer.ToList());
+            return View();
         }
 
         // GET: Freelancers/Details/5

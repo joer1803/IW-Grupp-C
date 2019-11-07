@@ -1,0 +1,113 @@
+﻿@model HampesFrilansare.ViewModels.FreelancerProfileViewModel
+@{
+    ViewBag.Title = "PrintCV";
+   
+}
+
+<h3>@Html.DisplayFor(model => model.freelancer.firstname) @Html.DisplayFor(model => model.freelancer.lastname)</h3>
+<section class="freelancerdetails">
+
+    <img class="profileimg" src="~/Content/Img/frilansare.jpg" />
+    <p>
+        @Html.DisplayFor(model => model.freelancer.address)<br />
+        @Html.DisplayFor(model => model.freelancer.nationality)<br />
+        @Html.DisplayFor(model => model.freelancer.phonenumber)<br />
+        @Html.DisplayFor(model => model.freelancer.email)
+    </p>
+    
+
+    <p id="sociallinksmessage">Ta kontakt med mig på:</p>
+    <ul class="logolist">
+        <li><a href="http://localhost:6162/Error/Error" class="fab fa-github-square"></a></li>
+        <li><a href="http://localhost:6162/Error/Error" class="fab fa-linkedin"></a></li>
+    </ul>
+    <div class="clear"></div>
+
+</section>
+
+<section class="freelancerintro">
+
+    <h4 id="resumeprofile">Min profil</h4>
+    <p>
+        @Model.resume.profile
+    </p>
+
+    <h5>Arbetslivserfarenhet</h5>
+    <p>
+        @foreach (var e in Model.experiences)
+        {
+            <t>Roll: </t>@e.role
+            <br />
+            @e.startdate.Value.ToString("yyyy-MM-dd")<t> - </t> @e.enddate.Value.ToString("yyyy-MM-dd") <br />
+            <t>Företag: </t>@e.name <br />
+            <t>Arbetsuppgifter: </t>@e.duty<br /><br />
+
+        }
+
+    </p>
+
+    <h5>Kärnförmågor</h5>
+
+
+    <p>@Model.resume.coreability</p>
+
+    <h5>Kompetens</h5>
+    <ul class="profilelists" id="starlist">
+        @foreach (var item in Model.competences)
+        {
+
+            <li>
+                @item.name<br />
+                @foreach (var skill in Model.skills)
+                {
+                    if (skill.competenceID == item.competenceID)
+                    {
+                        @skill.name
+                        for (int i = 0; i < skill.rating; i++)
+                        {
+                            <i class="fas fa-star"></i>
+                        }<br />
+
+
+                    }
+                }
+            </li>
+
+        }
+    </ul>
+
+
+    <h5>Språk</h5>
+    <ul class="profilelists">
+        @foreach (var l in Model.languages)
+        {
+            <li>@l.name</li>
+        }
+    </ul>
+
+    <h5>Utbildning</h5>
+    <p>
+        @foreach (var e in Model.educations)
+        {
+            <t>Examen:</t> @e.degree
+            <br />
+            <t>Ämne:</t> @e.subject
+            <br />
+            @e.startdate.Value.ToString("yyyy-MM-dd")<t> - </t> @e.enddate.Value.ToString("yyyy-MM-dd") <br />
+            @e.school <br /><br />
+
+
+        }
+
+        <h5>Tillgänglighet</h5>
+    <p>Deltid</p>
+
+    <h5>Körkort</h5>
+    <p>@Model.licence.type</p>
+</section>
+
+<script>
+    function printCV() {
+        window.print();
+    }
+</script>
