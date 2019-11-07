@@ -468,5 +468,8 @@ div {
     height: auto;
     width: auto;
 }
-
+hr{
+    background-color: #3D3D3D;
+    opacity: 0.4;
+}
 
