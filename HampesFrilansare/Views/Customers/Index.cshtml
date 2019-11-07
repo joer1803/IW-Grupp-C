@@ -5,11 +5,12 @@
     Layout = "~/Views/Shared/_NavbarCustomer.cshtml";
 }
 
-<h4>Företag</h4>
+
 
 <body>
 
     <div class="header">
+        <img class="freelancerimg" src="~/Content/Img/frelancers.jpg" />
 
         <div class="form-box">
             <h3>Hitta frilansare</h3>
@@ -18,47 +19,49 @@
         </div>
 
     </div>
+
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Namn
+                    </th>
+                    <th>
+                        Kategori
+                    </th>
+                    <th>
+                        Kompetenser
+                    </th>
+                    <th>
+                        Teknologier
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody class="searchresult">
+                @foreach (var item in Model.freelancers)
+                {
+                    <tr>
+                        <td>
+                            <a href="http://localhost:6162/Customers/Resume" class="jonasprofile">@item.fullname</a>
+                        </td>
+                        <td id="compcol">
+                            @item.compcategory
+                        </td>
+                        <td>
+                            @item.compname
+                        </td>
+                        <td>
+                            @item.skillname
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </body>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Namn
-            </th>
-            <th>
-                Kategori
-            </th>
-            <th>
-                Kompetenser
-            </th>
-            <th>
-                Teknologier
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-
-    <tbody class="searchresult">
-        @foreach (var item in Model.freelancers)
-        {
-            <tr>
-                <td>
-                    <a href="http://localhost:6162/Customers/Resume" class="jonasprofile" >@item.fullname</a>
-                </td>
-                <td id="compcol">
-                    @item.compcategory
-                </td>
-                <td>
-                    @item.compname
-                </td>
-                <td>
-                    @item.skillname
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
 <script src="~/Scripts/jquery-3.4.1.min.js"></script>
 <script>
     $(document).ready(function () {
