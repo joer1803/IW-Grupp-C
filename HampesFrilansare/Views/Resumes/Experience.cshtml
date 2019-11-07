@@ -1,10 +1,11 @@
 ﻿@model HampesFrilansare.Models.Experience
 
 @{
-    ViewBag.Title = "Erfarenhet";
+    ViewBag.Title = "Arbetslivserfarenhet";
+    Layout = "~/Views/Shared/_NavbarFreelancer.cshtml";
 }
 
-<h4>Erfarenheter</h4>
+<h4>Arbetslivserfarenhet</h4>
 
 
 @using (Html.BeginForm("CreateExperience", "Resumes"))
