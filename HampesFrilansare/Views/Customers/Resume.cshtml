@@ -106,9 +106,15 @@
 </div>
 <script>
     function printCV() {
+        $(".printbtn").hide();
+        $(".fab").hide();
+        $("#sociallinksmessage").hide();
         $(".newfoot").hide();
         window.print();
         $(".newfoot").show();
+        $(".printbtn").show();
+        $(".fab").show();
+        $("#sociallinksmessage").show();;
     }
 </script>
 
