@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_NavbarFreelancer.cshtml";
 }
 
-<h4 class="formheader4">Kompetens</h4>
+<h4 class="specialformhead4">Kompetens</h4>
 
 @using (Html.BeginForm("AddCompetence", "Resumes"))
 {
@@ -44,7 +44,7 @@
         <div class="form-group">
             <input type="submit" value="Spara" class="btn btn-secondary" />
         </div>
-        <div>
+        <div id="returnlink">
             @Html.ActionLink("Tillbaka till min profil", "FreelancerProfile", "Freelancers")
         </div>
     </div>

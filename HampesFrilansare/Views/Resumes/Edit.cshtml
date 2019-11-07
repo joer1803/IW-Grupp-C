@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_NavbarFreelancer.cshtml";
 }
 
-<h4>Ändra</h4>
+<h4 class="specialformhead4">Ändra</h4>
 
 
 @using (Html.BeginForm())
@@ -38,7 +38,7 @@
 </div>
 }
 
-<div>
+<div id="returnlink">
     @Html.ActionLink("Tillbaka till min profil", "FreelancerProfile", "Freelancers")
 </div>
 

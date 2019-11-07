@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_NavbarFreelancer.cshtml";
 }
 
-<h4>Arbetslivserfarenhet</h4>
+<h4 class="specialformhead4">Arbetslivserfarenhet</h4>
 
 
 @using (Html.BeginForm("CreateExperience", "Resumes"))
@@ -58,7 +58,7 @@
 </div>
 }
 
-<div>
+<div id="returnlink">
     @Html.ActionLink("Tillbaka till min profil", "FreelancerProfile", "Freelancers")
 </div>
 
