@@ -15,14 +15,19 @@ namespace HampesFrilansare.Models
 
     public partial class Freelancer
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Freelancer()
+        {
+            this.LoginCredentials = new HashSet<LoginCredentials>();
+        }
+    
         public int freelancerID { get; set; }
-
         [Required(AllowEmptyStrings = false, ErrorMessage = "Fyll i förnamn")]
         public string firstname { get; set; }
-
         [Required(AllowEmptyStrings = false, ErrorMessage = "Fyll i efternamn")]
         public string lastname { get; set; }
         public string phonenumber { get; set; }
+
         [Required(AllowEmptyStrings = false, ErrorMessage = "Fyll i en emailadress")]
         [RegularExpression("^[a-zA-Z0-9_\\.-]+@([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$", ErrorMessage = "Fyll i en giltig emailadress")]
         public string email { get; set; }
@@ -33,5 +38,7 @@ namespace HampesFrilansare.Models
         public Nullable<int> resumeID { get; set; }
     
         public virtual Resume Resume { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<LoginCredentials> LoginCredentials { get; set; }
     }
 }

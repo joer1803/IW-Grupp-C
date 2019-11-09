@@ -1,28 +1,36 @@
-﻿
+﻿@model HampesFrilansare.Models.LoginCredentials
 @{
     ViewBag.Title = "Logga in";
 }
 
 <h4 class="specialformhead4">Logga in</h4>
+<p class="specialformhead4">
+    <b>frilansare1:</b> jonasek lösenord: 123
+    <br /><b>frilansare2:</b> hampe lösenord:123
+</p>
+@using (Html.BeginForm("FreelancerProfile", "Freelancers"))
+{
+    <div class="form-horizontal">
 
-<div class="form-horizontal">
+        <div class="form-group">
+            @Html.LabelFor(model => model.username, htmlAttributes: new { @class = "control-label" }, labelText: "Användarnamn")
+            @Html.EditorFor(model => model.username, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
+        </div>
 
-    <div class="form-group">
-        <label for="username">Användarnamn</label>
-        <input class="form-control" />
+        <div class="form-group">
+            @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label" }, labelText: "Lösenord")
+            @Html.PasswordFor(model => model.password, new {  @class = "form-control",  })
+            @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Logga in som frilansare" class="btn btn-secondary" />
+            @* @Html.ActionLink(linkText: "Logga in som frilansare", actionName: "FreelancerProfile", controllerName: "Freelancers", routeValues: new { id = 1 }, htmlAttributes: new { @class = "btn btn-secondary" })*@
+            @Html.ActionLink(linkText: "Logga in som företagare", actionName: "Index", controllerName: "Customers", routeValues: null, htmlAttributes: new { @class = "btn btn-secondary" })
+        </div>
     </div>
-
-    <div class="form-group">
-        <label for="password">Lösenord</label>
-        <input class="form-control" disabled type="password" placeholder="XXXXXX" />
+}
+    <div>
+        <p><a href="http://localhost:6162/Error/Error">Glömt ditt lösenord?</a></p>
     </div>
-    <div class="form-group">
-        @Html.ActionLink(linkText: "Logga in som frilansare", actionName: "FreelancerProfile", controllerName: "Freelancers", routeValues: new { id = 1 }, htmlAttributes: new { @class = "btn btn-secondary" })
-        @Html.ActionLink(linkText: "Logga in som företagare", actionName: "Index", controllerName: "Customers", routeValues: null, htmlAttributes: new { @class = "btn btn-secondary" })
-    </div>
-</div>
-
-<div>
-    <p><a href="http://localhost:6162/Error/Error">Glömt ditt lösenord?</a></p>
-</div>
 

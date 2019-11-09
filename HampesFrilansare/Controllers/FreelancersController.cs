@@ -164,17 +164,21 @@ namespace HampesFrilansare.Controllers
             base.Dispose(disposing);
         }
 
-        public ActionResult FreelancerProfile(int? id)
+        public ActionResult FreelancerProfile([Bind(Include = "username, password")] LoginCredentials login)
         {
-            if (id == null)
+            if (login.username == null || login.password == null)
             {
-                return View(GetProfile((int)Session["freeID"]));
+                if(Session["freeID"]!=null)
+                {
+                    return View(GetProfile((int)Session["freeID"]));
+                }
+                return View("Error","Error");
             }
-            Session["freeID"] = id;
-            return View(GetProfile(id));
+            LoginCredentials freelancer = db.LoginCredentials.First(o => o.username == login.username && o.password == login.password);
+            Session["freeID"] = freelancer.freelancerID;
+            return View(GetProfile(freelancer.freelancerID));
         }
-
-        public FreelancerProfileViewModel GetProfile(int? id)
+        public FreelancerProfileViewModel GetProfile(int id)
         {
             var profileView = new FreelancerProfileViewModel();
 

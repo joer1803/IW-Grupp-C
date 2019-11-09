@@ -21,6 +21,8 @@
         <AssociationConnector Association="hampesfrilansdbModel.FK__Experienc__resum__5CD6CB2B" />
         <AssociationConnector Association="hampesfrilansdbModel.FK__Freelance__resum__6E01572D" />
         <AssociationConnector Association="hampesfrilansdbModel.FK__Language__resume__5629CD9C" />
+        <EntityTypeShape EntityType="hampesfrilansdbModel.LoginCredentials" Width="1.5" PointX="7.5" PointY="14.25" />
+        <AssociationConnector Association="hampesfrilansdbModel.FK__LoginCred__freel__70DDC3D8" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

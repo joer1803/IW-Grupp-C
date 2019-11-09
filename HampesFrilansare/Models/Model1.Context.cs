@@ -34,5 +34,6 @@ namespace HampesFrilansare.Models
         public virtual DbSet<Language> Language { get; set; }
         public virtual DbSet<Resume> Resume { get; set; }
         public virtual DbSet<Skill> Skill { get; set; }
+        public virtual DbSet<LoginCredentials> LoginCredentials { get; set; }
     }
 }

@@ -80,6 +80,15 @@
           <Property Name="resumeID" Type="int" />
           <Property Name="name" Type="nvarchar" MaxLength="20" />
         </EntityType>
+        <EntityType Name="LoginCredentials">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="password" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="freelancerID" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Resume">
           <Key>
             <PropertyRef Name="resumeID" />
@@ -158,6 +167,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK__LoginCred__freel__70DDC3D8">
+          <End Role="Freelancer" Type="Self.Freelancer" Multiplicity="1" />
+          <End Role="LoginCredentials" Type="Self.LoginCredentials" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Freelancer">
+              <PropertyRef Name="freelancerID" />
+            </Principal>
+            <Dependent Role="LoginCredentials">
+              <PropertyRef Name="freelancerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Resume__licenceI__5070F446">
           <End Role="Driverslicence" Type="Self.Driverslicence" Multiplicity="0..1" />
           <End Role="Resume" Type="Self.Resume" Multiplicity="*" />
@@ -190,6 +211,7 @@
           <EntitySet Name="Experience" EntityType="Self.Experience" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Freelancer" EntityType="Self.Freelancer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Language" EntityType="Self.Language" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoginCredentials" EntityType="Self.LoginCredentials" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Resume" EntityType="Self.Resume" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Skill" EntityType="Self.Skill" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK__Competenc__resum__534D60F1" Association="Self.FK__Competenc__resum__534D60F1">
@@ -211,6 +233,10 @@
           <AssociationSet Name="FK__Language__resume__5629CD9C" Association="Self.FK__Language__resume__5629CD9C">
             <End Role="Resume" EntitySet="Resume" />
             <End Role="Language" EntitySet="Language" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LoginCred__freel__70DDC3D8" Association="Self.FK__LoginCred__freel__70DDC3D8">
+            <End Role="Freelancer" EntitySet="Freelancer" />
+            <End Role="LoginCredentials" EntitySet="LoginCredentials" />
           </AssociationSet>
           <AssociationSet Name="FK__Resume__licenceI__5070F446" Association="Self.FK__Resume__licenceI__5070F446">
             <End Role="Driverslicence" EntitySet="Driverslicence" />
@@ -262,6 +288,11 @@
           <AssociationSet Name="FK__Language__resume__5629CD9C" Association="hampesfrilansdbModel.FK__Language__resume__5629CD9C">
             <End Role="Resume" EntitySet="Resume" />
             <End Role="Language" EntitySet="Language" />
+          </AssociationSet>
+          <EntitySet Name="LoginCredentials" EntityType="hampesfrilansdbModel.LoginCredentials" />
+          <AssociationSet Name="FK__LoginCred__freel__70DDC3D8" Association="hampesfrilansdbModel.FK__LoginCred__freel__70DDC3D8">
+            <End Role="Freelancer" EntitySet="Freelancer" />
+            <End Role="LoginCredentials" EntitySet="LoginCredentials" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Competence">
@@ -336,6 +367,7 @@
           <Property Name="nationality" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="resumeID" Type="Int32" />
           <NavigationProperty Name="Resume" Relationship="hampesfrilansdbModel.FK__Freelance__resum__6E01572D" FromRole="Freelancer" ToRole="Resume" />
+          <NavigationProperty Name="LoginCredentials" Relationship="hampesfrilansdbModel.FK__LoginCred__freel__70DDC3D8" FromRole="Freelancer" ToRole="LoginCredentials" />
         </EntityType>
         <EntityType Name="Language">
           <Key>
@@ -455,6 +487,28 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="LoginCredentials">
+          <Key>
+            <PropertyRef Name="userID" />
+          </Key>
+          <Property Name="userID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="freelancerID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Freelancer" Relationship="hampesfrilansdbModel.FK__LoginCred__freel__70DDC3D8" FromRole="LoginCredentials" ToRole="Freelancer" />
+        </EntityType>
+        <Association Name="FK__LoginCred__freel__70DDC3D8">
+          <End Type="hampesfrilansdbModel.Freelancer" Role="Freelancer" Multiplicity="1" />
+          <End Type="hampesfrilansdbModel.LoginCredentials" Role="LoginCredentials" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Freelancer">
+              <PropertyRef Name="freelancerID" />
+            </Principal>
+            <Dependent Role="LoginCredentials">
+              <PropertyRef Name="freelancerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -560,6 +614,16 @@
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="competenceID" ColumnName="competenceID" />
                 <ScalarProperty Name="skillID" ColumnName="skillID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoginCredentials">
+            <EntityTypeMapping TypeName="hampesfrilansdbModel.LoginCredentials">
+              <MappingFragment StoreEntitySet="LoginCredentials">
+                <ScalarProperty Name="freelancerID" ColumnName="freelancerID" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="userID" ColumnName="userID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
